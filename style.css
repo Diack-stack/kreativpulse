@@ -1032,6 +1032,171 @@ body {
 }
 
 /* ==========================================================
+   PORTFOLIO & LIGHTBOX MULTI-IMAGES GALERIE PRO
+   ========================================================== */
+.portfolio-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+
+.portfolio-item:hover {
+  border-color: rgba(255, 117, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 117, 0, 0.15);
+}
+
+.portfolio-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #08090C;
+}
+
+.portfolio-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.portfolio-item:hover .portfolio-media img {
+  transform: scale(1.06);
+}
+
+.portfolio-gallery-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-orange-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.portfolio-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8, 9, 12, 0.95) 0%, rgba(8, 9, 12, 0.4) 60%, transparent 100%);
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.25rem;
+  transition: opacity 0.3s ease;
+  z-index: 5;
+}
+
+.portfolio-item:hover .portfolio-hover-overlay {
+  opacity: 1;
+}
+
+.portfolio-info {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.btn-preview-project {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  background: var(--color-orange);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.btn-preview-project:hover {
+  background: var(--color-orange-light);
+  transform: scale(1.03);
+}
+
+/* Lightbox Multi-Images Gallery Controls */
+.lightbox-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  z-index: 20;
+}
+
+.lightbox-arrow-btn:hover {
+  background: var(--color-orange);
+  color: #000000;
+  border-color: var(--color-orange);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-thumb {
+  width: 68px;
+  height: 46px;
+  border-radius: 8px;
+  object-fit: cover;
+  cursor: pointer;
+  opacity: 0.5;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  shrink: 0;
+}
+
+.lightbox-thumb:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+.lightbox-thumb.active {
+  opacity: 1;
+  border-color: var(--color-orange);
+  box-shadow: 0 0 14px rgba(255, 117, 0, 0.5);
+  transform: scale(1.08);
+}
+
+.deliverable-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #D1D5DB;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* ==========================================
    RESPONSIVE DESIGN (Résolution absolue des chevauchements)
    ========================================================== */
 @media (max-width: 768px) {

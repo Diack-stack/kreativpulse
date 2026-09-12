@@ -111,56 +111,332 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================
-     4. PROJECT LIGHTBOX PREVIEW
+     4. REAL PROJECTS DATA & MULTI-IMAGES LIGHTBOX ENGINE
      ========================================================== */
+  const realProjects = [
+    {
+      id: 'sogip',
+      category: 'event',
+      categoryLabel: 'Événementiel & Stands',
+      client: 'SOGIP Diamniadio',
+      year: '2025',
+      title: "Centre des Expositions SOGIP",
+      tagline: "Scénographie, Banderoles & Signalétique Grand Format",
+      desc: "Conception architecturale et habillage événementiel pour l'accueil des délégations officielles au Centre des Expositions de Diamniadio (SOGIP). Déploiement de banderoles monumentales, structures autoportantes et signalétique directionnelle.",
+      deliverables: ["Habillage Façade Grand Format", "Scénographie d'Accueil", "Signalétique Directionnelle", "Banderoles Haute Définition"],
+      cover: 'assets/portfolio/sogip-cover.webp',
+      images: [
+        'assets/portfolio/sogip-cover.webp',
+        'assets/portfolio/sogip-1.jpg',
+        'assets/portfolio/sogip-2.jpg',
+        'assets/portfolio/sogip-3.jpg',
+        'assets/portfolio/sogip-4.jpg'
+      ]
+    },
+    {
+      id: 'dpworld',
+      category: 'event',
+      categoryLabel: 'Événementiel & RH',
+      client: 'DP World Dakar',
+      year: '2026',
+      title: "Journée Carrière DP World",
+      tagline: "Scénographie Complète & Espace Recrutement",
+      desc: "Organisation visuelle et scénographie de la Journée Carrière DP World sous le thème 'Our world is our future'. Podium présidentiel, écrans LED, photocall d'exposition et stands de recruteurs.",
+      deliverables: ["Podium & Pupitre Officiel", "Écrans LED & Régie Vidéo", "Photocall Monumental", "Signalétique RH"],
+      cover: 'assets/portfolio/dp-world-cover.png',
+      images: [
+        'assets/portfolio/dp-world-cover.png'
+      ]
+    },
+    {
+      id: 'tournee-can',
+      category: 'branding',
+      categoryLabel: 'Branding & Flotte',
+      client: 'FSF — Fédération Sénégalaise de Football',
+      year: '2025',
+      title: "Bus Sénégal Champion d'Afrique",
+      tagline: "Total Covering & Habillage de Flotte Officielle",
+      desc: "Marquage intégral grand format (total covering) du bus officiel des Lions du Sénégal à l'occasion de la grande tournée triomphale. Impression vinyle polymère micro-perforé haute durabilité résistant aux UV.",
+      deliverables: ["Total Covering Intégral", "Vinyle Ultra-Résistant Anti-UV", "Habillage Vitres Micro-perforé", "Direction Artistique Champion"],
+      cover: 'assets/portfolio/tournee-can.webp',
+      images: [
+        'assets/portfolio/tournee-can.webp'
+      ]
+    },
+    {
+      id: 'sonaged',
+      category: 'branding',
+      categoryLabel: 'Branding Industriel',
+      client: 'SONAGED / UCG Dakar',
+      year: '2025',
+      title: "Branding Flotte Véhicules SONAGED",
+      tagline: "Marquage Industriel pour Bennes & Camions de Propreté",
+      desc: "Campagne d'habillage des véhicules de salubrité publique sur l'ensemble de la métropole dakaroise. Marquage haute visibilité jour/nuit et intégration du numéro vert citoyen.",
+      deliverables: ["Marquage Adhésif Industriel", "Traitement Résistant Intempéries", "Signalétique Sécurité & Numéro Vert", "Déploiement Multi-sites"],
+      cover: 'assets/portfolio/sonaged.webp',
+      images: [
+        'assets/portfolio/sonaged.webp'
+      ]
+    },
+    {
+      id: 'aner',
+      category: 'goodies',
+      categoryLabel: 'Goodies & Papeterie',
+      client: 'ANER Énergies Renouvelables',
+      year: '2026',
+      title: "Goodies & Coffrets Institutionnels ANER",
+      tagline: "Papeterie de Luxe, Clés USB Bois & Calendriers 2026",
+      desc: "Création et fabrication de la collection d'objets promotionnels pour l'Agence Nationale pour les Énergies Renouvelables. Agendas en cuir grainé gravé, calendriers de chevalet, fanions et clés USB écologiques en bois.",
+      deliverables: ["Agendas Cuir Gravés Logo", "Calendriers de Bureau 2026", "Clés USB Bois Éco-responsables", "Fanions de Table Officiels"],
+      cover: 'assets/portfolio/goodies-aner.png',
+      images: [
+        'assets/portfolio/goodies-aner.png'
+      ]
+    },
+    {
+      id: 'caf-awards',
+      category: 'event',
+      categoryLabel: 'Audiovisuel & Cérémonie',
+      client: 'CAF Afrique',
+      year: '2025',
+      title: "Scène & Écrans LED CAF Awards",
+      tagline: "Scénographie TV Monumentale & Régie Multimédia",
+      desc: "Conception scénographique 3D pour la prestigieuse cérémonie des CAF Awards. Arche lumineuse centrale, murs d'images LED circulaires et régie technique pour diffusion télévisuelle internationale.",
+      deliverables: ["Scénographie 3D Circulaire", "Mur d'Écrans LED Haute Définition", "Régie Multimédia Live", "Éclairage Scénique TV"],
+      cover: 'assets/portfolio/caf-awards.webp',
+      images: [
+        'assets/portfolio/caf-awards.webp'
+      ]
+    },
+    {
+      id: 'senelec',
+      category: 'digital',
+      categoryLabel: 'Digital & Motion Design',
+      client: 'Senelec Sénégal',
+      year: '2026',
+      title: "Motion Design — Campagne Tarifaire Senelec",
+      tagline: "Capsules Vidéo Pédagogiques 2D/3D pour Réseaux Sociaux",
+      desc: "Production de contenus vidéo en motion design expliquant les nouvelles grilles tarifaires et mesures d'économie d'énergie. Modélisation graphique, voix-off et animations dynamiques.",
+      deliverables: ["Storyboard & Direction Artistique", "Animation Motion Design 2D/3D", "Formats Carré / Story / Full HD", "Mixage Sonore & Voix-Off"],
+      cover: 'assets/portfolio/senelec-motion.png',
+      images: [
+        'assets/portfolio/senelec-motion.png'
+      ]
+    },
+    {
+      id: 'dhl',
+      category: 'event',
+      categoryLabel: 'Événementiel Corporate',
+      client: 'DHL International Dakar',
+      year: '2025',
+      title: "Cocktail Dînatoire VIP DHL",
+      tagline: "Scénographie de Soirée & Expérience Marque",
+      desc: "Aménagement d'un espace lounge exclusif pour la direction et les clients stratégiques de DHL. Éclairage d'ambiance aux couleurs de la marque, mobilier lounge et totem d'accueil lumineux.",
+      deliverables: ["Scénographie Espace Lounge", "Totem & Signalétique Jaune/Rouge", "Mise en Lumière Ambiance VIP", "Couverture Photo & Vidéo"],
+      cover: 'assets/portfolio/dhl.webp',
+      images: [
+        'assets/portfolio/dhl.webp'
+      ]
+    },
+    {
+      id: 'noom',
+      category: 'goodies',
+      categoryLabel: 'Objets Publicitaires Luxe',
+      client: 'Noom Hotel Dakar Sea Plaza',
+      year: '2026',
+      title: "Objets Publicitaires VIP Noom Hotel",
+      tagline: "Cadeaux d'Affaires Haut de Gamme & Goodies Hôteliers",
+      desc: "Développement d'articles d'accueil de prestige pour les suites et événements corporate du prestigieux palace dakarois. Finitions premium et marquage délicat.",
+      deliverables: ["Coffrets d'Accueil VIP", "Stylos Métal Gravure Laser", "Carnets Personnalisés", "Objets Souvenirs Hôteliers"],
+      cover: 'assets/portfolio/goodies-noom.png',
+      images: [
+        'assets/portfolio/goodies-noom.png'
+      ]
+    },
+    {
+      id: 'crous',
+      category: 'digital',
+      categoryLabel: 'Digital & Social Media',
+      client: 'CROUS Diamniadio',
+      year: '2025',
+      title: "Campagnes Digitales & Visuels Sociaux CROUS",
+      tagline: "Création Graphique & Community Management Institutionnel",
+      desc: "Conception de séries de visuels institutionnels pour les temps forts de l'année (Fête du Travail, Achoura, Journée de la Femme, Rentrée universitaire) pour les canaux sociaux du CROUS.",
+      deliverables: ["Gabarits Social Media", "Campagnes Thématiques", "Illustrations Graphiques", "Retouche & Traitement d'Images"],
+      cover: 'assets/portfolio/crous.png',
+      images: [
+        'assets/portfolio/crous.png'
+      ]
+    }
+  ];
+
   const lightbox = document.getElementById('projectLightbox');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxTitle = document.getElementById('lightboxTitle');
   const lightboxDesc = document.getElementById('lightboxDesc');
+  const lightboxCategory = document.getElementById('lightboxCategory');
+  const lightboxClient = document.getElementById('lightboxClient');
+  const lightboxYear = document.getElementById('lightboxYear');
+  const lightboxDeliverables = document.getElementById('lightboxDeliverables');
+  const lightboxCounter = document.getElementById('lightboxCounter');
+  const lightboxCounterText = document.getElementById('lightboxCounterText');
+  const lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+  const lightboxNextBtn = document.getElementById('lightboxNextBtn');
+  const lightboxThumbsContainer = document.getElementById('lightboxThumbsContainer');
+  const lightboxWhatsappBtn = document.getElementById('lightboxWhatsappBtn');
+  const lightboxQuoteBtn = document.getElementById('lightboxQuoteBtn');
   const closeLightboxBtn = document.getElementById('closeLightboxBtn');
-  const previewBtns = document.querySelectorAll('.btn-preview-project');
 
-  const projectDetails = [
-    {
-      img: 'assets/images/pillar-event.jpg',
-      title: "Stands & Foires Internationales",
-      desc: "Création scénographique, mobilier sur-mesure et merchandising d'envergure pour des événements corporate de premier plan au Sénégal."
-    },
-    {
-      img: 'assets/images/pillar-web.jpg',
-      title: "Plateforme Digitale Institutionnelle",
-      desc: "Portail web haute performance conçu pour maximiser le taux de conversion avec tableau de bord en temps réel et architecture moderne."
-    },
-    {
-      img: 'assets/images/pillar-branding.jpg',
-      title: "Identité Visuelle & Charte 360°",
-      desc: "Conception complète de l'identité de marque : papeterie de luxe, packaging éco-responsable et guide de style pour marque haut de gamme."
-    },
-    {
-      img: 'assets/images/pillar-audiovisual.jpg',
-      title: "Spot Institutionnel 4K & Motion 3D",
-      desc: "Campagne vidéo corporate diffusée sur les chaînes nationales et réseaux sociaux, mettant en avant le dynamisme et l'innovation."
+  let activeProjectIndex = 0;
+  let activeImageIndex = 0;
+
+  function updateLightboxView() {
+    const project = realProjects[activeProjectIndex];
+    if (!project) return;
+
+    const currentImgUrl = project.images[activeImageIndex] || project.cover;
+    
+    // Smooth image transition
+    lightboxImg.style.opacity = '0.3';
+    setTimeout(() => {
+      lightboxImg.src = currentImgUrl;
+      lightboxImg.style.opacity = '1';
+    }, 120);
+
+    // Update Text Details
+    if (lightboxTitle) lightboxTitle.textContent = project.title;
+    if (lightboxDesc) lightboxDesc.textContent = project.desc;
+    if (lightboxCategory) lightboxCategory.textContent = project.categoryLabel.toUpperCase();
+    if (lightboxClient) lightboxClient.textContent = project.client;
+    if (lightboxYear) lightboxYear.textContent = project.year;
+
+    // Update Deliverables Chips
+    if (lightboxDeliverables) {
+      lightboxDeliverables.innerHTML = '';
+      project.deliverables.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'deliverable-tag';
+        span.textContent = tag;
+        lightboxDeliverables.appendChild(span);
+      });
     }
-  ];
 
-  previewBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const pIndex = parseInt(btn.getAttribute('data-project'), 10);
-      const data = projectDetails[pIndex] || projectDetails[0];
+    // Update WhatsApp link with contextual pre-filled text
+    if (lightboxWhatsappBtn) {
+      const msg = encodeURIComponent(`Bonjour Kreativ'Pulse ! J'ai vu votre réalisation "${project.title}" (${project.client}) et je souhaite réaliser un projet similaire pour mon entreprise.`);
+      lightboxWhatsappBtn.href = `https://wa.me/221776442442?text=${msg}`;
+    }
 
-      lightboxImg.src = data.img;
-      lightboxTitle.textContent = data.title;
-      lightboxDesc.textContent = data.desc;
+    // Multi-Images Controls (Thumbnails, Arrows, Counter)
+    const totalImages = project.images.length;
+    if (totalImages > 1) {
+      if (lightboxCounter) {
+        lightboxCounter.style.display = 'flex';
+        lightboxCounterText.textContent = `Photo ${activeImageIndex + 1} / ${totalImages}`;
+      }
+      if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'flex';
+      if (lightboxNextBtn) lightboxNextBtn.style.display = 'flex';
+      
+      // Update or rebuild thumbnail strip
+      if (lightboxThumbsContainer) {
+        lightboxThumbsContainer.style.display = 'flex';
+        lightboxThumbsContainer.innerHTML = '';
+        project.images.forEach((imgUrl, idx) => {
+          const thumb = document.createElement('img');
+          thumb.src = imgUrl;
+          thumb.alt = `Miniature ${idx + 1}`;
+          thumb.className = `lightbox-thumb ${idx === activeImageIndex ? 'active' : ''}`;
+          thumb.addEventListener('click', (e) => {
+            e.stopPropagation();
+            activeImageIndex = idx;
+            updateLightboxView();
+          });
+          lightboxThumbsContainer.appendChild(thumb);
+        });
+      }
+    } else {
+      // Single image project
+      if (lightboxCounter) lightboxCounter.style.display = 'none';
+      if (lightboxPrevBtn) lightboxPrevBtn.style.display = 'none';
+      if (lightboxNextBtn) lightboxNextBtn.style.display = 'none';
+      if (lightboxThumbsContainer) lightboxThumbsContainer.style.display = 'none';
+    }
+  }
+
+  function openLightbox(projectIndex, imgIndex = 0) {
+    activeProjectIndex = projectIndex;
+    activeImageIndex = imgIndex;
+    updateLightboxView();
+    if (lightbox) {
       lightbox.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent page scroll
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore page scroll
+    }
+  }
+
+  function nextImage() {
+    const project = realProjects[activeProjectIndex];
+    if (!project || project.images.length <= 1) return;
+    activeImageIndex = (activeImageIndex + 1) % project.images.length;
+    updateLightboxView();
+  }
+
+  function prevImage() {
+    const project = realProjects[activeProjectIndex];
+    if (!project || project.images.length <= 1) return;
+    activeImageIndex = (activeImageIndex - 1 + project.images.length) % project.images.length;
+    updateLightboxView();
+  }
+
+  // Attach click events to portfolio cards
+  const portfolioCards = document.querySelectorAll('.portfolio-item');
+  portfolioCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const pIndex = parseInt(card.getAttribute('data-project'), 10);
+      openLightbox(isNaN(pIndex) ? 0 : pIndex, 0);
     });
   });
 
-  if (closeLightboxBtn && lightbox) {
-    closeLightboxBtn.addEventListener('click', () => lightbox.classList.add('hidden'));
+  // Lightbox Navigation Buttons
+  if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImage(); });
+  if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImage(); });
+  if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+  if (lightboxQuoteBtn) lightboxQuoteBtn.addEventListener('click', closeLightbox);
+
+  // Close when clicking outside content
+  if (lightbox) {
     lightbox.addEventListener('click', (e) => {
-      if (e.target === lightbox) lightbox.classList.add('hidden');
+      if (e.target === lightbox) closeLightbox();
     });
+  }
+
+  // Keyboard navigation for Lightbox
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+
+  // Mobile Touch Swipe support for Lightbox
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      if (touchStartX - touchEndX > 50) nextImage(); // Swiped left -> next
+      if (touchEndX - touchStartX > 50) prevImage(); // Swiped right -> prev
+    }, { passive: true });
   }
 
   /* ==========================================================
