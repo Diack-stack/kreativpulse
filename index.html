@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kreativ'Pulse | Agence de Communication Globale & Créativité Digitale à Dakar</title>
+  <meta name="description" content="Kreativ'Pulse propulse votre entreprise : Développement web, Identité visuelle, Audiovisuel & Motion, Goodies et Événementiel à Dakar. Plus de 10 ans d'innovation créative." />
+  <meta name="keywords" content="agence communication Dakar, création site web Sénégal, graphiste Dakar, identité visuelle, goodies entreprise Sénégal, événementiel Dakar" />
+  <meta property="og:title" content="Kreativ'Pulse — Le Pouls Créatif !" />
+  <meta property="og:description" content="Donner vie à votre vision. Propulser votre impact. Découvrez la nouvelle expérience de Kreativ'Pulse." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#08090C" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN for modern utility styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-dark text-light antialiased selection:bg-orange selection:text-white">
+
+  <!-- BACKGROUND AMBIENT GLOW ORBS -->
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-top-right" aria-hidden="true"></div>
+  <div class="ambient-glow glow-center" aria-hidden="true"></div>
+  <div class="grid-mesh-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-dark/80 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#accueil" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-orange/50 rounded-lg p-1" id="nav-logo" aria-label="Kreativ'Pulse Accueil">
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-colors shadow-glow-sm">
+          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 25 L45 75 L55 52 L35 25 Z" fill="url(#grad-orange-red)" />
+            <path d="M78 75 L55 25 L45 48 L65 75 Z" fill="url(#grad-teal-green)" />
+            <defs>
+              <linearGradient id="grad-orange-red" x1="20" y1="20" x2="60" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FF8C1A"/>
+                <stop offset="100%" stop-color="#E52E2E"/>
+              </linearGradient>
+              <linearGradient id="grad-teal-green" x1="40" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#00E5A3"/>
+                <stop offset="100%" stop-color="#00A3FF"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
+            KREATIV<span class="text-orange">'PULSE</span>
+          </span>
+          <span class="font-handwriting text-orange text-sm tracking-wide -mt-0.5">Le pouls créatif !</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#accueil" class="nav-link active">Accueil</a>
+        <a href="#agence" class="nav-link">L'Agence</a>
+        <a href="#prestations" class="nav-link">Nos Prestations</a>
+        <a href="#realisations" class="nav-link">Réalisations</a>
+        <a href="#methodologie" class="nav-link">Méthodologie</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Header CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <button id="btn-open-quote-modal" class="btn-primary group flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+          <span>Demander un devis</span>
+          <span class="arrow-badge transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-toggle" class="md:hidden flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none" aria-label="Menu de navigation">
+        <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+        <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+        <span class="hamburger-bar w-3.5 h-0.5 bg-orange self-start ml-3 transition-all duration-300"></span>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="md:hidden hidden bg-surface/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 transition-all">
+      <div class="flex flex-col gap-5 text-base font-semibold">
+        <a href="#accueil" class="mobile-nav-item">Accueil</a>
+        <a href="#agence" class="mobile-nav-item">L'Agence</a>
+        <a href="#prestations" class="mobile-nav-item">Nos Prestations</a>
+        <a href="#realisations" class="mobile-nav-item">Nos Réalisations</a>
+        <a href="#methodologie" class="mobile-nav-item">Méthodologie</a>
+        <a href="#contact" class="mobile-nav-item">Contact</a>
+        <hr class="border-white/10 my-2" />
+        <button id="btn-mobile-quote" class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-sm font-bold uppercase">
+          <span>Demander un devis</span>
+          <span class="arrow-badge">↗</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="overflow-x-hidden">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: HERO AVEC 3D ARC CAROUSEL       -->
+    <!-- ========================================== -->
+    <section id="accueil" class="relative pt-24 pb-10 md:pt-32 md:pb-14 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+      
+      <!-- Sub-badge Pill -->
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-pill border border-orange/30 text-xs font-medium text-orange shadow-glow-xs mb-5 animate-fade-in">
+        <span class="w-1.5 h-1.5 rounded-full bg-orange animate-ping"></span>
+        <span>Agence Créative 360° & Studio Digital à Dakar</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-outfit font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight max-w-4xl text-white leading-[1.18] mb-4">
+        Donner vie à votre vision. <br />
+        <span class="gradient-text-orange">Propulser votre impact.</span>
+      </h1>
+
+      <!-- Value Proposition Copy -->
+      <p class="font-normal text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl mb-6 leading-relaxed">
+        Depuis plus de 10 ans au Sénégal, nous fusionnons <span class="text-white font-semibold">développement web</span>, 
+        <span class="text-white font-semibold">stratégie de marque</span>, <span class="text-white font-semibold">audiovisuel</span> et 
+        <span class="text-white font-semibold">événementiel</span> pour propulser les leaders et marques ambitieuses.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-8 z-20">
+        <a href="#realisations" class="btn-primary w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5">
+          <span>Explorer nos réalisations</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+        <button id="btn-hero-quote" class="btn-glass w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2">
+          <span>Estimer mon projet</span>
+        </button>
+      </div>
+
+      <!-- 3D CURVED ARC CARDS SHOWCASE (Inspiration Aeline & Build Your Identity) -->
+      <div class="hero-3d-wrapper relative w-full max-w-6xl mx-auto mt-4 pt-6">
+        
+        <!-- Floating Interactive Collaborator Tags (Inspiration Robert / Clarissa) -->
+        <div class="floating-tag tag-left hidden lg:flex items-center gap-2">
+          <span class="cursor-dot bg-cyan"></span>
+          <span class="tag-label">Ibrahima • Tech & Dev</span>
+        </div>
+        <div class="floating-tag tag-right hidden lg:flex items-center gap-2">
+          <span class="cursor-dot bg-orange"></span>
+          <span class="tag-label">Aïssatou • Brand Designer</span>
+        </div>
+
+        <!-- Floating Stat Badges -->
+        <div class="floating-badge badge-top-left hidden sm:flex">
+          <span class="badge-icon">⚡</span>
+          <div>
+            <div class="badge-title">10+ Années</div>
+            <div class="badge-sub">D'expertise à Dakar</div>
+          </div>
+        </div>
+        <div class="floating-badge badge-bottom-right hidden sm:flex">
+          <span class="badge-icon">⭐</span>
+          <div>
+            <div class="badge-title">98% Succès</div>
+            <div class="badge-sub">+150 projets déployés</div>
+          </div>
+        </div>
+
+        <!-- ARC CYLINDRICAL DECK CONTAINER -->
+        <div class="arc-carousel-stage" id="arcCarousel">
+          
+          <!-- Card 1: Web & Digital -->
+          <div class="arc-card card-1 active" data-index="0" data-domain="digital">
+            <div class="card-inner">
+              <div class="card-img-wrapper">
+                <img src="assets/images/pillar-web.jpg" alt="Pôle Web & Applications Kreativ'Pulse" loading="lazy" />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <span class="card-tag tag-cyan">WEB & DIGITAL</span>
+                <h3 class="card-title">Plateformes Web & Applications</h3>
+                <p class="card-desc">Expériences interactives ultra-rapides, SaaS & portails d'entreprise sur mesure.</p>
+                <div class="card-footer">
+                  <span class="card-stat">Score UX 98%</span>
+                  <span class="mini-arrow">↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Identité Visuelle -->
+          <div class="arc-card card-2" data-index="1" data-domain="branding">
+            <div class="card-inner">
+              <div class="card-img-wrapper">
+                <img src="assets/images/pillar-branding.jpg" alt="Pôle Branding & Identité Visuelle" loading="lazy" />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <span class="card-tag tag-orange">BRANDING & DESIGN</span>
+                <h3 class="card-title">Identités de Marque Mémorables</h3>
+                <p class="card-desc">Logos signatures, chartes graphiques 360°, packaging & supports corporate.</p>
+                <div class="card-footer">
+                  <span class="card-stat">Direction Artistique Pure</span>
+                  <span class="mini-arrow">↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Audiovisuel & Motion -->
+          <div class="arc-card card-3" data-index="2" data-domain="audiovisual">
+            <div class="card-inner">
+              <div class="card-img-wrapper">
+                <img src="assets/images/pillar-audiovisual.jpg" alt="Pôle Audiovisuel & Motion Design" loading="lazy" />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <span class="card-tag tag-purple">MULTIMÉDIA & MOTION</span>
+                <h3 class="card-title">Films d'Entreprise & 3D Motion</h3>
+                <p class="card-desc">Spots publicitaires 4K, animations 3D percutantes et couverture de vos temps forts.</p>
+                <div class="card-footer">
+                  <span class="card-stat">Production Studio 4K</span>
+                  <span class="mini-arrow">↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Goodies & Événementiel -->
+          <div class="arc-card card-4" data-index="3" data-domain="event">
+            <div class="card-inner">
+              <div class="card-img-wrapper">
+                <img src="assets/images/pillar-event.jpg" alt="Pôle Événementiel & Goodies" loading="lazy" />
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <span class="card-tag tag-green">PRINT & ÉVÉNEMENTIEL</span>
+                <h3 class="card-title">Stands Expo & Goodies Premium</h3>
+                <p class="card-desc">Habillage architectural de stands, signalétique grand format et objets promotionnels.</p>
+                <div class="card-footer">
+                  <span class="card-stat">Fabrication Clé en Main</span>
+                  <span class="mini-arrow">↗</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Arc Carousel Controls -->
+        <div class="flex items-center justify-center gap-3 mt-6">
+          <button id="arc-prev" class="carousel-nav-btn" aria-label="Précédent">‹</button>
+          <div class="arc-dots flex items-center gap-2">
+            <button class="arc-dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="arc-dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="arc-dot" data-index="2" aria-label="Slide 3"></button>
+            <button class="arc-dot" data-index="3" aria-label="Slide 4"></button>
+          </div>
+          <button id="arc-next" class="carousel-nav-btn" aria-label="Suivant">›</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: MARQUEE INFINI DES PARTENAIRES   -->
+    <!-- ========================================== -->
+    <section class="py-6 sm:py-8 border-y border-white/10 bg-surface/50 overflow-hidden relative">
+      <div class="max-w-6xl mx-auto px-4 mb-4 text-center">
+        <p class="text-[11px] uppercase tracking-widest text-gray-400 font-semibold">
+          Ils propulsent leur croissance avec Kreativ'Pulse
+        </p>
+      </div>
+      
+      <div class="marquee-track">
+        <div class="marquee-content flex items-center gap-10 sm:gap-16">
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">UCG DAKAR</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">COSEC SÉNÉGAL</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">FHS HABITAT</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">GSEF DAKAR</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">SENTRAK LOGISTICS</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">3MD ENERGY</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">CROUS DIAMNIADIO</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">SOGIP SÉNÉGAL</span>
+          <!-- Duplicate for infinite seamless scroll -->
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">UCG DAKAR</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">COSEC SÉNÉGAL</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">FHS HABITAT</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">GSEF DAKAR</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">SENTRAK LOGISTICS</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">3MD ENERGY</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">CROUS DIAMNIADIO</span>
+          <span class="client-logo-item font-outfit font-black text-xl tracking-wider text-gray-400 hover:text-orange transition-colors">SOGIP SÉNÉGAL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: BENTO GRID À PROPOS & IMPACT     -->
+    <!-- ========================================== -->
+    <section id="agence" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="section-pill mb-2.5">L'AGENCE KREATIV'PULSE</span>
+          <h2 class="section-title">
+            L'excellence créative & technique, <br />
+            <span class="gradient-text-orange">façonnée à Dakar.</span>
+          </h2>
+        </div>
+        <p class="text-gray-300 max-w-md text-xs sm:text-sm leading-relaxed">
+          Née en 2014 sous la dénomination SMMDIAGRAFT, Kreativ'Pulse s'est imposée comme le partenaire stratégique des institutions, PME et grands groupes pour transformer leur image et digitaliser leurs opérations.
+        </p>
+      </div>
+
+      <!-- BENTO GRID CONTAINER (Inspiration Aeline & Green Power) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        
+        <!-- Bento 1: Grand Carré d'Expérience -->
+        <div class="bento-card col-span-1 md:col-span-2 p-6 flex flex-col justify-between relative overflow-hidden group">
+          <div class="z-10">
+            <span class="badge-mini text-orange bg-orange/10 border border-orange/20">HISTOIRE & VISION</span>
+            <h3 class="font-outfit font-bold text-lg sm:text-xl text-white mt-3 mb-2">
+              Une décennie à battre au rythme des défis créatifs de l'Afrique de l'Ouest.
+            </h3>
+            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+              Nous combinons la rigueur de l'ingénierie web avec l'audace de la création artistique. Chaque projet est conçu pour susciter une émotion et générer des résultats économiques concrets.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between z-10">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-full bg-orange/20 flex items-center justify-center text-orange font-bold text-xs font-outfit">KP</div>
+              <div>
+                <div class="text-xs font-semibold text-white">Équipe Pluridisciplinaire</div>
+                <div class="text-[11px] text-gray-400">Dakar, Sénégal</div>
+              </div>
+            </div>
+            <a href="#contact" class="text-orange text-xs font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+              Rencontrer l'équipe →
+            </a>
+          </div>
+          <div class="bento-glow-corner"></div>
+        </div>
+
+        <!-- Bento 2: Stat 10+ Années -->
+        <div class="bento-card col-span-1 p-6 flex flex-col justify-center items-start group">
+          <span class="font-outfit font-extrabold text-4xl lg:text-5xl gradient-text-orange mb-1">10+</span>
+          <h4 class="font-outfit font-bold text-base text-white mb-1">Années d'Expérience</h4>
+          <p class="text-gray-400 text-xs">Une longévité et une réputation construites sur la constance et la rigueur.</p>
+        </div>
+
+        <!-- Bento 3: Stat 150+ Projets -->
+        <div class="bento-card col-span-1 p-6 flex flex-col justify-center items-start group">
+          <span class="font-outfit font-extrabold text-4xl lg:text-5xl text-cyan mb-1">150+</span>
+          <h4 class="font-outfit font-bold text-base text-white mb-1">Projets Livrés</h4>
+          <p class="text-gray-400 text-xs">Campagnes digitales, sites web réactifs, événementiel et goodies corporate.</p>
+        </div>
+
+        <!-- Bento 4: Stat 98% Satisfaction -->
+        <div class="bento-card col-span-1 p-6 flex flex-col justify-center items-start group">
+          <span class="font-outfit font-extrabold text-4xl lg:text-5xl text-white mb-1">98%</span>
+          <h4 class="font-outfit font-bold text-base text-white mb-1">Satisfaction Client</h4>
+          <p class="text-gray-400 text-xs">Des clients institutionnels et privés fidèles d'année en année.</p>
+        </div>
+
+        <!-- Bento 5: 4 Pôles d'Excellence -->
+        <div class="bento-card col-span-1 md:col-span-2 lg:col-span-3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group">
+          <div>
+            <span class="badge-mini text-cyan bg-cyan/10 border border-cyan/20">AGENCE GLOBALE</span>
+            <h4 class="font-outfit font-bold text-lg sm:text-xl text-white mt-1 mb-1">4 Pôles d'Excellence Intégrés sous un même toit</h4>
+            <p class="text-gray-300 text-xs max-w-xl">Un interlocuteur unique pour la conception graphique, le développement web, la fabrication de goodies et l'organisation événementielle.</p>
+          </div>
+          <button id="btn-bento-quote" class="btn-primary shrink-0 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+            <span>Démarrer un projet</span>
+            <span class="arrow-badge">↗</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: NOS PRESTATIONS (CARTE COMPLÈTE) -->
+    <!-- ========================================== -->
+    <section id="prestations" class="py-12 sm:py-16 bg-surface/30 border-y border-white/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="section-pill mb-2.5">NOS SERVICES EXCLUSIFS</span>
+          <h2 class="section-title">
+            Des expertises pointues pour <br />
+            <span class="gradient-text-orange">chaque étape de votre notoriété.</span>
+          </h2>
+          <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-xl mx-auto">
+            Finis les doutes et le manque de clarté : chaque pôle dispose d'une équipe dédiée et d'outils à la pointe de l'innovation.
+          </p>
+        </div>
+
+        <!-- SERVICES CARDS GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          
+          <!-- Service 1: Digital & Web -->
+          <div class="service-card group">
+            <div class="service-icon-box bg-cyan/10 text-cyan border border-cyan/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="service-number font-outfit">01</span>
+            <h3 class="service-title">Développement Web & Mobile</h3>
+            <p class="service-desc">Conception de sites institutionnels, plateformes e-commerce et applications métiers rapides, sécurisées et 100% responsives.</p>
+            <ul class="service-list">
+              <li>Sites vitrines & corporate</li>
+              <li>Applications Web & Mobiles</li>
+              <li>Refonte ergonomique UX/UI</li>
+              <li>Hébergement & Maintenance</li>
+            </ul>
+            <a href="#contact" class="service-cta">
+              <span>Commander ce service</span>
+              <span class="arrow-badge">↗</span>
+            </a>
+          </div>
+
+          <!-- Service 2: Identité Visuelle -->
+          <div class="service-card group">
+            <div class="service-icon-box bg-orange/10 text-orange border border-orange/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+            </div>
+            <span class="service-number font-outfit">02</span>
+            <h3 class="service-title">Identité Visuelle & Branding</h3>
+            <p class="service-desc">Création de l'ADN visuel complet de votre marque : logotypes uniques, chartes graphiques, typographies et déclinaisons print.</p>
+            <ul class="service-list">
+              <li>Création de Logos & Chartes</li>
+              <li>Plaquettes & Brochures Luxe</li>
+              <li>Packaging & Habillage Produits</li>
+              <li>Design Social Media & Posts</li>
+            </ul>
+            <a href="#contact" class="service-cta">
+              <span>Commander ce service</span>
+              <span class="arrow-badge">↗</span>
+            </a>
+          </div>
+
+          <!-- Service 3: Audiovisuel & Multimédia -->
+          <div class="service-card group">
+            <div class="service-icon-box bg-purple-500/10 text-purple-400 border border-purple-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <span class="service-number font-outfit">03</span>
+            <h3 class="service-title">Production Audiovisuelle & Motion</h3>
+            <p class="service-desc">Captation vidéo haute définition, spots publicitaires, motion design 2D/3D et photographie corporate professionnelle.</p>
+            <ul class="service-list">
+              <li>Films institutionnels 4K</li>
+              <li>Motion Design & Animation 3D</li>
+              <li>Couverture Photo Événementielle</li>
+              <li>Interviews & Teasers Réseaux</li>
+            </ul>
+            <a href="#contact" class="service-cta">
+              <span>Commander ce service</span>
+              <span class="arrow-badge">↗</span>
+            </a>
+          </div>
+
+          <!-- Service 4: Goodies & Événementiel -->
+          <div class="service-card group">
+            <div class="service-icon-box bg-green-500/10 text-green-400 border border-green-500/20">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><circle cx="18" cy="18" r="2"/></svg>
+            </div>
+            <span class="service-number font-outfit">04</span>
+            <h3 class="service-title">Événementiel, Stands & Goodies</h3>
+            <p class="service-desc">Fabrication d'objets promotionnels sur mesure, conception de stands d'exposition et habillage grand format (véhicules, façades).</p>
+            <ul class="service-list">
+              <li>Goodies & Cadeaux d'Affaires</li>
+              <li>Stands modulaires & Sur-mesure</li>
+              <li>Habillage flotte de véhicules</li>
+              <li>Signalétique & Enseignes LED</li>
+            </ul>
+            <a href="#contact" class="service-cta">
+              <span>Commander ce service</span>
+              <span class="arrow-badge">↗</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: NOS RÉALISATIONS (PORTFOLIO PRO) -->
+    <!-- ========================================== -->
+    <section id="realisations" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="section-pill mb-2.5">PORTFOLIO RÉCENT</span>
+          <h2 class="section-title">
+            Nos projets en action, <br />
+            <span class="gradient-text-orange">sans compromis sur la qualité.</span>
+          </h2>
+        </div>
+        
+        <!-- Filter Tabs -->
+        <div class="portfolio-filters flex flex-wrap gap-1.5">
+          <button class="filter-btn active" data-filter="all">Tous les projets</button>
+          <button class="filter-btn" data-filter="digital">Digital & Web</button>
+          <button class="filter-btn" data-filter="branding">Branding</button>
+          <button class="filter-btn" data-filter="event">Événementiel & Stands</button>
+        </div>
+      </div>
+
+      <!-- PORTFOLIO GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="portfolioGrid">
+        
+        <!-- Project 1: Bus Sénégal Champion d'Afrique -->
+        <div class="portfolio-item group" data-category="event">
+          <div class="portfolio-media">
+            <img src="assets/images/pillar-event.jpg" alt="Habillage Bus Équipe Nationale Sénégal" loading="lazy" />
+            <div class="portfolio-hover-overlay">
+              <span class="badge-mini text-orange bg-orange/20 border border-orange/40">ÉVÉNEMENTIEL</span>
+              <h3 class="text-xl font-bold font-outfit text-white mt-2">Habillage Événementiel & Stands</h3>
+              <p class="text-xs text-gray-300 mt-1">Conception architecturale et merchandising d'envergure.</p>
+              <button class="btn-preview-project mt-4" data-project="0">Aperçu Haute Résolution ↗</button>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="text-xs font-semibold text-orange">Habillage & Signalétique</span>
+            <h4 class="font-outfit font-bold text-lg text-white">Stands & Foires Internationales</h4>
+          </div>
+        </div>
+
+        <!-- Project 2: Plateforme Web & Digital -->
+        <div class="portfolio-item group" data-category="digital">
+          <div class="portfolio-media">
+            <img src="assets/images/pillar-web.jpg" alt="Dashboard et Plateforme Web Entreprise" loading="lazy" />
+            <div class="portfolio-hover-overlay">
+              <span class="badge-mini text-cyan bg-cyan/20 border border-cyan/40">DIGITAL & SAAS</span>
+              <h3 class="text-xl font-bold font-outfit text-white mt-2">Portail Digital & Système Métier</h3>
+              <p class="text-xs text-gray-300 mt-1">Interface responsive haute performance et sécurité renforcée.</p>
+              <button class="btn-preview-project mt-4" data-project="1">Aperçu Haute Résolution ↗</button>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="text-xs font-semibold text-cyan">Développement Fullstack</span>
+            <h4 class="font-outfit font-bold text-lg text-white">Plateforme Digitale Institutionnelle</h4>
+          </div>
+        </div>
+
+        <!-- Project 3: Identité de Marque Nexus -->
+        <div class="portfolio-item group" data-category="branding">
+          <div class="portfolio-media">
+            <img src="assets/images/pillar-branding.jpg" alt="Identité Visuelle Complète et Packaging" loading="lazy" />
+            <div class="portfolio-hover-overlay">
+              <span class="badge-mini text-orange bg-orange/20 border border-orange/40">BRANDING 360°</span>
+              <h3 class="text-xl font-bold font-outfit text-white mt-2">Identité Visuelle & Goodies</h3>
+              <p class="text-xs text-gray-300 mt-1">Création de charte graphique, papeterie de luxe et packaging.</p>
+              <button class="btn-preview-project mt-4" data-project="2">Aperçu Haute Résolution ↗</button>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="text-xs font-semibold text-orange">Stratégie de Marque</span>
+            <h4 class="font-outfit font-bold text-lg text-white">Refonte Globale d'Image</h4>
+          </div>
+        </div>
+
+        <!-- Project 4: Studio Audiovisuel -->
+        <div class="portfolio-item group" data-category="digital">
+          <div class="portfolio-media">
+            <img src="assets/images/pillar-audiovisual.jpg" alt="Production Vidéo et Motion Design" loading="lazy" />
+            <div class="portfolio-hover-overlay">
+              <span class="badge-mini text-purple-400 bg-purple-500/20 border border-purple-500/40">AUDIOVISUEL</span>
+              <h3 class="text-xl font-bold font-outfit text-white mt-2">Campagne Motion & Vidéo 4K</h3>
+              <p class="text-xs text-gray-300 mt-1">Spots publicitaires diffusés en TV et réseaux sociaux.</p>
+              <button class="btn-preview-project mt-4" data-project="3">Aperçu Haute Résolution ↗</button>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <span class="text-xs font-semibold text-purple-400">Cinéma & 3D</span>
+            <h4 class="font-outfit font-bold text-lg text-white">Spot Institutionnel d'Envergure</h4>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: WORKFLOW & MÉTHODOLOGIE         -->
+    <!-- ========================================== -->
+    <section id="methodologie" class="py-12 sm:py-16 bg-surface/40 border-y border-white/10">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="section-pill mb-2.5">NOTRE MÉTHODE ÉPROUVÉE</span>
+          <h2 class="section-title">
+            Comment nous travaillons avec vous, <br />
+            <span class="gradient-text-orange">de l'idée au succès.</span>
+          </h2>
+        </div>
+
+        <!-- Workflow 4 Steps (Textes soignés sans placeholders ni bogue d'étape) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
+          
+          <div class="workflow-card group">
+            <div class="workflow-step-num">01</div>
+            <div class="workflow-dot"></div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Immersion & Stratégie</h3>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Nous analysons vos objectifs d'affaires, votre audience cible sénégalaise ou internationale et vos concurrents pour bâtir un plan solide.
+            </p>
+          </div>
+
+          <div class="workflow-card group">
+            <div class="workflow-step-num">02</div>
+            <div class="workflow-dot"></div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Conception & Direction Artistique</h3>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Nos designers et créatifs donnent vie à votre vision via des prototypes interactifs, des maquettes soignées et des concepts novateurs.
+            </p>
+          </div>
+
+          <div class="workflow-card group">
+            <div class="workflow-step-num">03</div>
+            <div class="workflow-dot"></div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Production & Développement</h3>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Nos développeurs web et fabricants d'enseignes réalisent l'ouvrage avec une attention maniaque accordée à la vitesse, l'ergonomie et la durabilité.
+            </p>
+          </div>
+
+          <div class="workflow-card group">
+            <div class="workflow-step-num">04</div>
+            <div class="workflow-dot"></div>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Livraison & Accompagnement</h3>
+            <p class="text-gray-300 text-xs leading-relaxed">
+              Déploiement sans coupure, formation de vos équipes et suivi des indicateurs de performance pour garantir un retour sur investissement maximal.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 7: TÉMOIGNAGES CLIENTS (SLIDER)    -->
+    <!-- ========================================== -->
+    <section class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <span class="section-pill mb-2.5">AVIS & RETOURS D'EXPÉRIENCE</span>
+          <h2 class="section-title">
+            Ce que disent nos clients, <br />
+            <span class="gradient-text-orange">en toute transparence.</span>
+          </h2>
+        </div>
+
+        <div class="flex items-center gap-2.5">
+          <button id="testimonial-prev" class="slider-arrow-btn" aria-label="Avis précédent">‹</button>
+          <button id="testimonial-next" class="slider-arrow-btn" aria-label="Avis suivant">›</button>
+        </div>
+      </div>
+
+      <!-- Testimonials Slider Container (Inspiration Pinterest Camply) -->
+      <div class="relative overflow-hidden" id="testimonialSliderWrapper">
+        <div class="testimonials-track flex transition-transform duration-500 ease-out" id="testimonialTrack">
+          
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide w-full md:w-1/2 lg:w-1/3 shrink-0 px-3">
+            <div class="testimonial-card">
+              <div class="flex items-center gap-1 text-orange mb-4">
+                ★★★★★
+              </div>
+              <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
+                « Kreativ'Pulse a totalement réinventé la visibilité de notre organisation lors du forum international. Le sens du détail et la rapidité d'exécution sont incomparables à Dakar. »
+              </p>
+              <div class="flex items-center gap-3 mt-auto">
+                <div class="w-11 h-11 rounded-full bg-orange/20 flex items-center justify-center font-bold text-orange">MD</div>
+                <div>
+                  <h4 class="font-outfit font-bold text-white text-sm">Mamadou Diop</h4>
+                  <p class="text-xs text-gray-400">Directeur de la Communication, Institution Publique</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide w-full md:w-1/2 lg:w-1/3 shrink-0 px-3">
+            <div class="testimonial-card">
+              <div class="flex items-center gap-1 text-orange mb-4">
+                ★★★★★
+              </div>
+              <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
+                « Pour la refonte de notre plateforme web et la commande de goodies de fin d'année, nous avons eu un service impeccable. Réactivité, professionnalisme et respect des délais. »
+              </p>
+              <div class="flex items-center gap-3 mt-auto">
+                <div class="w-11 h-11 rounded-full bg-cyan/20 flex items-center justify-center font-bold text-cyan">FS</div>
+                <div>
+                  <h4 class="font-outfit font-bold text-white text-sm">Fatou Sall</h4>
+                  <p class="text-xs text-gray-400">Responsable Marketing, Entreprise Énergétique</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide w-full md:w-1/2 lg:w-1/3 shrink-0 px-3">
+            <div class="testimonial-card">
+              <div class="flex items-center gap-1 text-orange mb-4">
+                ★★★★★
+              </div>
+              <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
+                « Travailler avec Kreativ'Pulse, c'est l'assurance d'une direction artistique digne des meilleures agences internationales, avec une parfaite compréhension du terrain local. »
+              </p>
+              <div class="flex items-center gap-3 mt-auto">
+                <div class="w-11 h-11 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">AN</div>
+                <div>
+                  <h4 class="font-outfit font-bold text-white text-sm">Alioune Ndiaye</h4>
+                  <p class="text-xs text-gray-400">Fondateur & CEO, Startup Tech Dakar</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 8: FAQ ACCORDION                   -->
+    <!-- ========================================== -->
+    <section class="py-12 sm:py-14 bg-surface/30 border-y border-white/10">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-8">
+          <span class="section-pill mb-2.5">QUESTIONS FRÉQUENTES</span>
+          <h2 class="section-title text-xl sm:text-2xl">
+            Vous avez des questions ? <br />
+            <span class="gradient-text-orange">Nous avons les réponses.</span>
+          </h2>
+        </div>
+
+        <div class="space-y-3" id="faqAccordion">
+          
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Quels sont les délais moyens pour la création d'un site web ou d'une refonte ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Pour un site vitrine ou institutionnel, nos délais se situent généralement entre 2 et 4 semaines selon la complexité et les validations des maquettes. Pour des plateformes sur mesure ou e-commerce, comptez entre 4 et 8 semaines avec phases de tests rigoureuses.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Pouvez-vous intervenir sur des projets hors du Sénégal ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Oui, absolument ! Même si notre siège est basé à Dakar, nous accompagnons régulièrement des clients dans toute l'Afrique de l'Ouest (Côte d'Ivoire, Mali, Guinée) ainsi qu'en Europe pour leurs besoins en développement web, identité de marque et supports digitaux.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Proposez-vous des facilités pour les devis et la fabrication de goodies ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Oui, nous disposons d'un catalogue très fourni d'objets promotionnels (écologiques, high-tech, textiles corporate) avec possibilité d'échantillonnage préalable avant lancement de la production en série.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 9: CONTACT DIRECT & CONVERSION     -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Info & Direct WhatsApp CTA -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <span class="section-pill mb-2.5">CONTACTEZ-NOUS</span>
+            <h2 class="section-title">
+              Prêt à faire passer votre marque <br />
+              <span class="gradient-text-orange">à la vitesse supérieure ?</span>
+            </h2>
+            <p class="text-gray-300 text-xs sm:text-sm mt-3 leading-relaxed">
+              Venez prendre un café à notre agence à Dakar ou discutons directement de votre cahier des charges. Réponse garantie sous 24 heures.
+            </p>
+          </div>
+
+          <div class="space-y-3.5">
+            
+            <a href="tel:+221338250909" class="contact-info-card group" id="contact-phone-link">
+              <div class="contact-icon bg-orange/10 text-orange border border-orange/20 group-hover:bg-orange group-hover:text-white transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <div class="text-[11px] text-gray-400 font-medium">Standard Téléphonique</div>
+                <div class="text-sm font-bold text-white group-hover:text-orange transition-colors">+221 33 825 09 09</div>
+                <div class="text-[11px] text-gray-400">Mobile : +221 77 644 24 42</div>
+              </div>
+            </a>
+
+            <a href="mailto:contact@kreativpulse.net" class="contact-info-card group">
+              <div class="contact-icon bg-cyan/10 text-cyan border border-cyan/20 group-hover:bg-cyan group-hover:text-black transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <div class="text-[11px] text-gray-400 font-medium">Email Officiel</div>
+                <div class="text-sm font-bold text-white group-hover:text-cyan transition-colors">contact@kreativpulse.net</div>
+              </div>
+            </a>
+
+            <div class="contact-info-card">
+              <div class="contact-icon bg-white/5 text-gray-300 border border-white/10">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div>
+                <div class="text-[11px] text-gray-400 font-medium">Localisation de l'Agence</div>
+                <div class="text-sm font-bold text-white">Sacré-Cœur 3, VDN</div>
+                <div class="text-[11px] text-gray-400">Dakar, Sénégal</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Fast Dakar WhatsApp Button -->
+          <button id="btn-open-whatsapp-drawer" class="w-full py-3.5 px-5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] font-bold text-xs flex items-center justify-center gap-2.5 hover:bg-[#25D366] hover:text-black transition-all shadow-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+            <span>Discuter instantanément sur WhatsApp</span>
+          </button>
+        </div>
+
+        <!-- Right Column: Interactive Quote Request Form -->
+        <div class="lg:col-span-7 bg-surface p-6 sm:p-8 rounded-2xl border border-white/10 relative shadow-2xl">
+          <h3 class="font-outfit font-bold text-lg sm:text-xl text-white mb-1">Envoyez-nous votre brief projet</h3>
+          <p class="text-gray-400 text-xs mb-5">Remplissez ce formulaire express pour recevoir une proposition tarifaire détaillée.</p>
+
+          <form id="mainContactForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">Votre Nom & Prénom *</label>
+                <input type="text" required placeholder="Ex: Cheikh Anta Diop" class="form-input text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">Votre Entreprise / Organisation</label>
+                <input type="text" placeholder="Ex: Groupe Diop Logistics" class="form-input text-xs" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">Adresse Email *</label>
+                <input type="email" required placeholder="exemple@entreprise.sn" class="form-input text-xs" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-semibold text-gray-300 uppercase tracking-wider mb-1.5">Numéro Téléphone / WhatsApp *</label>
+                <input type="tel" required placeholder="+221 77 000 00 00" class="form-input text-xs" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Prestation Souhaitée *</label>
+              <select required class="form-input">
+                <option value="" disabled selected>Sélectionnez votre besoin principal</option>
+                <option value="web">Développement Web & Plateforme Interactive</option>
+                <option value="branding">Identité Visuelle, Logo & Charte Graphique</option>
+                <option value="audiovisuel">Production Vidéo, Spot Pub & Motion Design</option>
+                <option value="goodies">Goodies, Objets Publicitaires & Événementiel</option>
+                <option value="global">Accompagnement Communication Globale 360°</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Détails de votre projet ou objectifs *</label>
+              <textarea rows="4" required placeholder="Expliquez-nous brièvement votre besoin, vos délais souhaités ou votre budget..." class="form-input"></textarea>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <span class="text-xs text-gray-400">🔒 Confidentialité et réponse sous 24h assurées.</span>
+              <button type="submit" class="btn-primary px-8 py-4 text-sm font-bold uppercase tracking-wider flex items-center gap-2">
+                <span>Envoyer le brief</span>
+                <span class="arrow-badge">↗</span>
+              </button>
+            </div>
+            
+            <div id="form-success-message" class="hidden p-4 rounded-xl bg-green-500/20 border border-green-500/40 text-green-400 text-sm text-center">
+              ✓ Merci ! Votre brief a bien été transmis à l'équipe Kreativ'Pulse. Nous vous recontactons dans les plus brefs délais.
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="bg-black border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-lg bg-surface border border-white/10 flex items-center justify-center">
+              <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
+                <path d="M22 25 L45 75 L55 52 L35 25 Z" fill="#FF8C1A"/>
+                <path d="M78 75 L55 25 L45 48 L65 75 Z" fill="#00E5A3"/>
+              </svg>
+            </div>
+            <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span class="text-orange">'PULSE</span></span>
+          </div>
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne vie à vos ambitions depuis 2014.
+          </p>
+          <div class="flex items-center gap-3 pt-2">
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">IN</a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">TK</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">FB</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">IG</a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#accueil" class="hover:text-orange transition-colors">Accueil</a></li>
+            <li><a href="#agence" class="hover:text-orange transition-colors">L'Agence</a></li>
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Nos Prestations</a></li>
+            <li><a href="#realisations" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
+            <li><a href="#methodologie" class="hover:text-orange transition-colors">Méthodologie</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Développement Web</a></li>
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Identité Visuelle & Logo</a></li>
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Audiovisuel & Motion 3D</a></li>
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Goodies & Événementiel</a></li>
+            <li><a href="#prestations" class="hover:text-orange transition-colors">Habillage Véhicules</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Direct -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Dakar, Sénégal</h4>
+          <p class="text-sm text-gray-400 leading-relaxed mb-3">
+            Sacré-Cœur 3, VDN<br />Dakar — Sénégal
+          </p>
+          <a href="tel:+221338250909" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 825 09 09</a>
+          <a href="mailto:contact@kreativpulse.net" class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+        <p>© 2026 Kreativ'Pulse. Tous droits réservés. Refonte UX/UI optimisée pour la performance.</p>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:underline">Mentions Légales</a>
+          <a href="#" class="hover:underline">Politique de Confidentialité</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- MODAL : ESTIMATEUR DE DEVIS EXPRESS        -->
+  <!-- ========================================== -->
+  <div id="quoteModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity">
+    <div class="bg-surface border border-white/15 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl animate-scale-up">
+      <button id="btn-close-quote-modal" class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl font-light w-9 h-9 rounded-full bg-white/5 flex items-center justify-center focus:outline-none">×</button>
+      
+      <div class="mb-6">
+        <span class="badge-mini text-orange bg-orange/10 border border-orange/20">ESTIMATEUR DE PROJET</span>
+        <h3 class="font-outfit font-bold text-2xl text-white mt-2">Configurez votre projet en 3 clics</h3>
+        <p class="text-xs text-gray-400 mt-1">Obtenez un retour précis de notre équipe technique & créative.</p>
+      </div>
+
+      <form id="modalQuoteForm" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">1. Choisissez vos domaines d'intervention</label>
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <label class="quote-check-label">
+              <input type="checkbox" name="services" value="web" class="accent-orange" checked />
+              <span>Site Web / App</span>
+            </label>
+            <label class="quote-check-label">
+              <input type="checkbox" name="services" value="branding" class="accent-orange" />
+              <span>Identité & Logo</span>
+            </label>
+            <label class="quote-check-label">
+              <input type="checkbox" name="services" value="video" class="accent-orange" />
+              <span>Vidéo & Motion</span>
+            </label>
+            <label class="quote-check-label">
+              <input type="checkbox" name="services" value="goodies" class="accent-orange" />
+              <span>Goodies & Stands</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">2. Délai d'exécution souhaité</label>
+          <select class="form-input text-xs" required>
+            <option value="urgent">Urgent (< 2 semaines)</option>
+            <option value="normal" selected>Standard (2 à 4 semaines)</option>
+            <option value="long">Projet moyen terme (> 1 mois)</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Votre Nom *</label>
+            <input type="text" required placeholder="Nom & Prénom" class="form-input text-xs" />
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">WhatsApp / Tél *</label>
+            <input type="tel" required placeholder="+221 77 000 00 00" class="form-input text-xs" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-gray-300 uppercase mb-1">Email professionnel *</label>
+          <input type="email" required placeholder="contact@votre-boite.sn" class="form-input text-xs" />
+        </div>
+
+        <button type="submit" class="btn-primary w-full py-3.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4">
+          <span>Demander l'estimation gratuite</span>
+          <span class="arrow-badge">↗</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- WIDGET WHATSAPP FLOTTANT (DAKAR CONVERSION) -->
+  <!-- ========================================== -->
+  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    
+    <!-- WhatsApp Chat Bubble Drawer -->
+    <div id="whatsappDrawer" class="hidden mb-3 bg-[#111B21] border border-white/10 rounded-2xl p-4 shadow-2xl max-w-xs w-72 animate-slide-up">
+      <div class="flex items-center justify-between pb-3 border-b border-white/10">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-full bg-[#00A884] flex items-center justify-center text-white font-bold text-xs">KP</div>
+          <div>
+            <div class="text-xs font-bold text-white">Kreativ'Pulse Sénégal</div>
+            <div class="text-[10px] text-green-400 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-green-400 inline-block"></span> En ligne
+            </div>
+          </div>
+        </div>
+        <button id="closeWhatsappDrawer" class="text-gray-400 hover:text-white text-lg">×</button>
+      </div>
+      <div class="py-3 text-xs text-gray-200">
+        Bonjour ! 👋 Vous avez un projet web, branding ou événementiel à Dakar ? Écrivez-nous directement sur WhatsApp !
+      </div>
+      <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse,%20j%27aimerais%20discuter%20d%27un%20projet%20pour%20mon%20entreprise." target="_blank" rel="noopener" class="block w-full py-2.5 rounded-xl bg-[#25D366] text-black font-bold text-xs text-center hover:bg-[#1EBE5D] transition-colors">
+        Lancer la discussion WhatsApp ↗
+      </a>
+    </div>
+
+    <!-- WhatsApp Floating Trigger Button -->
+    <button id="whatsappTriggerBtn" class="whatsapp-btn relative group" aria-label="Discuter sur WhatsApp">
+      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-orange text-[10px] font-bold text-white flex items-center justify-center animate-bounce">1</span>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+    </button>
+  </div>
+
+  <!-- LIGHTBOX MODAL POUR LES PROJETS -->
+  <div id="projectLightbox" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-lg hidden">
+    <div class="relative max-w-4xl w-full bg-surface border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
+      <button id="closeLightboxBtn" class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-black/60 text-white text-xl flex items-center justify-center hover:bg-orange transition-colors">×</button>
+      <div class="max-h-[75vh] overflow-hidden flex items-center justify-center bg-black">
+        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="w-full h-auto object-contain max-h-[70vh]" />
+      </div>
+      <div class="p-6 bg-surface">
+        <h3 id="lightboxTitle" class="font-outfit font-bold text-2xl text-white"></h3>
+        <p id="lightboxDesc" class="text-gray-300 text-sm mt-1"></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
