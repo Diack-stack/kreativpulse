@@ -10,6 +10,8 @@
   <meta property="og:description" content="Donner vie à votre vision. Propulser votre impact. Découvrez la nouvelle expérience de Kreativ'Pulse." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#08090C" />
+  <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
+  <link rel="apple-touch-icon" href="assets/logos/kreativpulse-icon.webp" />
 
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,21 +36,8 @@
       
       <!-- Logo -->
       <a href="#accueil" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-orange/50 rounded-lg p-1" id="nav-logo" aria-label="Kreativ'Pulse Accueil">
-        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-colors shadow-glow-sm">
-          <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 25 L45 75 L55 52 L35 25 Z" fill="url(#grad-orange-red)" />
-            <path d="M78 75 L55 25 L45 48 L65 75 Z" fill="url(#grad-teal-green)" />
-            <defs>
-              <linearGradient id="grad-orange-red" x1="20" y1="20" x2="60" y2="80" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#FF8C1A"/>
-                <stop offset="100%" stop-color="#E52E2E"/>
-              </linearGradient>
-              <linearGradient id="grad-teal-green" x1="40" y1="20" x2="80" y2="80" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#00E5A3"/>
-                <stop offset="100%" stop-color="#00A3FF"/>
-              </linearGradient>
-            </defs>
-          </svg>
+        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
         </div>
         <div class="flex flex-col">
           <span class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
@@ -276,89 +265,152 @@
       </div>
       
       <div class="marquee-track">
-        <div class="marquee-content flex items-center gap-8 sm:gap-12">
+        <div class="marquee-content flex items-center gap-6 sm:gap-8">
           <!-- Senelec -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/senelec.png" alt="Senelec" class="h-6 w-auto object-contain" />
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
-          </div>
-          <!-- COSEC -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/cosec.png" alt="COSEC Sénégal" class="h-6 w-auto object-contain" />
-            <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
-          </div>
-          <!-- FHS -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/fhs.png" alt="FHS Habitat Social" class="h-6 w-auto object-contain" />
-            <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
-          </div>
-          <!-- Ergobit -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/ergobit.png" alt="Ergobit" class="h-6 w-auto object-contain" />
-            <span class="font-outfit font-bold text-xs text-white/90">ERGOBIT</span>
-          </div>
-          <!-- SOGIP -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-orange">SOGIP</span>
-            <span class="text-[10px] text-gray-400">DIAMNIADIO</span>
           </div>
           <!-- DP World -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-cyan">DP WORLD</span>
-            <span class="text-[10px] text-gray-400">DAKAR</span>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
+          </div>
+          <!-- SOGIP -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
           </div>
           <!-- SONAGED -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-green-400">SONAGED</span>
-            <span class="text-[10px] text-gray-400">SÉNÉGAL</span>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
+          </div>
+          <!-- FSF -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
           </div>
           <!-- ANER -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-yellow-400">ANER</span>
-            <span class="text-[10px] text-gray-400">ÉNERGIES</span>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
           </div>
-          <!-- DHL -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-red-400">DHL</span>
-            <span class="text-[10px] text-gray-400">EXPRESS</span>
-          </div>
-
-          <!-- Duplicate for infinite seamless scroll -->
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/senelec.png" alt="Senelec" class="h-6 w-auto object-contain" />
-            <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
-          </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/cosec.png" alt="COSEC Sénégal" class="h-6 w-auto object-contain" />
+          <!-- COSEC -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/fhs.png" alt="FHS Habitat Social" class="h-6 w-auto object-contain" />
+          <!-- DHL -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express" class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
+          </div>
+          <!-- FHS -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <img src="assets/logos/ergobit.png" alt="Ergobit" class="h-6 w-auto object-contain" />
-            <span class="font-outfit font-bold text-xs text-white/90">ERGOBIT</span>
+          <!-- SENTRAK -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-orange">SOGIP</span>
-            <span class="text-[10px] text-gray-400">DIAMNIADIO</span>
+          <!-- SONACOS -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-cyan">DP WORLD</span>
-            <span class="text-[10px] text-gray-400">DAKAR</span>
+          <!-- CROUS -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-green-400">SONAGED</span>
-            <span class="text-[10px] text-gray-400">SÉNÉGAL</span>
+          <!-- GSEF -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-yellow-400">ANER</span>
-            <span class="text-[10px] text-gray-400">ÉNERGIES</span>
+          <!-- CAF -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
           </div>
-          <div class="flex items-center gap-2.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 hover:border-orange/50 transition-all">
-            <span class="font-outfit font-black text-sm tracking-wider text-red-400">DHL</span>
-            <span class="text-[10px] text-gray-400">EXPRESS</span>
+          <!-- BHS -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
+          </div>
+          <!-- SICAP -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
+          </div>
+
+          <!-- DUPLICATE SET FOR INFINITE SEAMLESS SCROLL -->
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express" class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
+          </div>
+          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
           </div>
         </div>
       </div>
@@ -1031,8 +1083,8 @@
               </div>
               <div>
                 <div class="text-[11px] text-gray-400 font-medium">Localisation de l'Agence</div>
-                <div class="text-sm font-bold text-white">Sacré-Cœur 3, VDN</div>
-                <div class="text-[11px] text-gray-400">Dakar, Sénégal</div>
+                <div class="text-sm font-bold text-white">Liberté 5</div>
+                <div class="text-[11px] text-gray-400">Dakar — Sénégal</div>
               </div>
             </div>
 
@@ -1121,13 +1173,13 @@
         <!-- Brand Info -->
         <div class="lg:col-span-2 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-9 h-9 rounded-lg bg-surface border border-white/10 flex items-center justify-center">
-              <svg width="22" height="22" viewBox="0 0 100 100" fill="none">
-                <path d="M22 25 L45 75 L55 52 L35 25 Z" fill="#FF8C1A"/>
-                <path d="M78 75 L55 25 L45 48 L65 75 Z" fill="#00E5A3"/>
-              </svg>
+            <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
             </div>
-            <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span class="text-orange">'PULSE</span></span>
+            <div class="flex flex-col">
+              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span class="text-orange">'PULSE</span></span>
+              <span class="font-handwriting text-orange text-xs tracking-wide">Le pouls créatif !</span>
+            </div>
           </div>
           <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
             Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne vie à vos ambitions depuis 2014.
@@ -1168,7 +1220,7 @@
         <div>
           <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Dakar, Sénégal</h4>
           <p class="text-sm text-gray-400 leading-relaxed mb-3">
-            Sacré-Cœur 3, VDN<br />Dakar — Sénégal
+            Liberté 5<br />Dakar — Sénégal
           </p>
           <a href="tel:+221338250909" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 825 09 09</a>
           <a href="mailto:contact@kreativpulse.net" class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>

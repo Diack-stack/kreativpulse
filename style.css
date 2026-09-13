@@ -589,6 +589,25 @@ body {
   opacity: 1;
 }
 
+.partner-badge {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.partner-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 117, 0, 0.15);
+}
+
+.partner-badge img {
+  filter: brightness(0.95) contrast(1.05);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-badge:hover img {
+  filter: brightness(1.05) contrast(1.1);
+}
+
 /* ==========================================================
    BENTO GRID (Inspiration Aeline & Green Power)
    ========================================================== */
