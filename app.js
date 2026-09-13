@@ -267,6 +267,81 @@ document.addEventListener('DOMContentLoaded', () => {
       images: [
         'assets/portfolio/crous.png'
       ]
+    },
+    {
+      id: 'colle-sow-ardo',
+      category: 'branding',
+      categoryLabel: 'Branding & Aménagement',
+      client: 'Maison Collé Sow Ardo',
+      year: '2025',
+      title: "Showroom 40 Ans Collé Sow Ardo",
+      tagline: "Habillage Vitrines, Signalétique Dorée & Scénographie Haute Couture",
+      desc: "Aménagement d'exception et habillage vitré pour le 40ème anniversaire de la célèbre maison de couture sénégalaise Collé Sow Ardo. Marquage vitrophanie haute définition, lettrages dorés et mise en valeur des pièces de collection.",
+      deliverables: ["Vitrophanie Intégrale Haute Précision", "Marquage Doré Spécial 40 Ans", "Signalétique Intérieure Showroom", "Direction Artistique Mode"],
+      cover: 'assets/portfolio/colle-sow-ardo.webp',
+      images: [
+        'assets/portfolio/colle-sow-ardo.webp'
+      ]
+    },
+    {
+      id: 'gsef',
+      category: 'event',
+      categoryLabel: 'Événementiel & Pavillons',
+      client: 'GSEF Dakar',
+      year: '2024',
+      title: "Aménagement Stand & Pavillon GSEF",
+      tagline: "Architecture Événementielle & Stand Forum Mondial",
+      desc: "Conception et fabrication du pavillon d'exposition officiel pour le Forum Mondial de l'Économie Sociale et Solidaire (GSEF Dakar). Stands modulaires, totems '10 ans d'engagement', comptoirs d'accueil et infographies grand format.",
+      deliverables: ["Stand Modulaire 36m²", "Totems Graphiques Piliers", "Comptoir d'Accueil Personnalisé", "Panneaux Thématiques Trilingues"],
+      cover: 'assets/portfolio/gsef.webp',
+      images: [
+        'assets/portfolio/gsef.webp'
+      ]
+    },
+    {
+      id: 'sonacos',
+      category: 'branding',
+      categoryLabel: 'Branding Bâtiment & Flotte',
+      client: 'SONACOS Sénégal',
+      year: '2025',
+      title: "Branding Siège & Célébration 50 Ans SONACOS",
+      tagline: "Habillage Monumental de Façade & Balcons d'Entreprise",
+      desc: "Projet monumental d'habillage architectural des façades et balcons du siège de la SONACOS à l'occasion du cinquantenaire. Déploiement de bandeaux jaunes et blancs géants, médaillons 50 ans et enseignes lumineuses.",
+      deliverables: ["Habillage Architectural Multi-niveaux", "Bandeaux Façade Haute Résistance", "Enseignes Rétro-éclairées", "Médaillons Commémoratifs 50 Ans"],
+      cover: 'assets/portfolio/sonacos.webp',
+      images: [
+        'assets/portfolio/sonacos.webp'
+      ]
+    },
+    {
+      id: 'ergobit',
+      category: 'branding',
+      categoryLabel: 'Branding & Espaces Corporates',
+      client: 'Ergobit Consulting',
+      year: '2025',
+      title: "Branding & Signalétique des Locaux Ergobit",
+      tagline: "Cloisons Vitrées Sablées & Décoration Corporate",
+      desc: "Aménagement graphique complet des bureaux et espaces d'accueil d'Ergobit Consulting à Dakar. Pose de films sablés dépolis sur cloisons vitrées, panneaux acoustiques corporate et signalétique des salles de réunion.",
+      deliverables: ["Films Dépolis Sablés Graphiques", "Signalétique Salles & Direction", "Panneaux Muraux Identitaires", "Totem d'Accueil"],
+      cover: 'assets/portfolio/ergobit-locaux.webp',
+      images: [
+        'assets/portfolio/ergobit-locaux.webp'
+      ]
+    },
+    {
+      id: 'sentrak',
+      category: 'digital',
+      categoryLabel: 'Digital & Réseaux Sociaux',
+      client: 'Sentrak Logistics / SILS',
+      year: '2025',
+      title: "Campagnes Digitales & Visuels Sociaux Sentrak",
+      tagline: "Direction Artistique & Stratégie Social Media Logistique",
+      desc: "Création de séries de visuels institutionnels à fort impact pour Sentrak Logistics et SILS. Campagnes citoyennes (Octobre Rose, 1er Mai Fête du Travail, vœux corporate) renforçant la visibilité B2B sur LinkedIn et réseaux sociaux.",
+      deliverables: ["Direction Artistique Social Media", "Campagne Octobre Rose Corporate", "Visuels Temps Forts & Événements", "Gabarits Prêts à l'Emploi"],
+      cover: 'assets/portfolio/sentrak.png',
+      images: [
+        'assets/portfolio/sentrak.png'
+      ]
     }
   ];
 
@@ -542,21 +617,158 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================
-     9. CONTACT FORM SUBMISSION
+     9. CONFIGURATEUR DE BRIEF INTERACTIF & QG DAKAR
      ========================================================== */
-  const mainContactForm = document.getElementById('mainContactForm');
-  const formSuccessMessage = document.getElementById('form-success-message');
+  
+  // A. Horloge en direct de Dakar (GMT / UTC+0)
+  function updateDakarClock() {
+    const clockEl = document.getElementById('dakar-clock');
+    if (!clockEl) return;
+    const now = new Date();
+    const hours = String(now.getUTCHours()).padStart(2, '0');
+    const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(now.getUTCSeconds()).padStart(2, '0');
+    clockEl.textContent = `${hours}:${minutes}:${seconds} GMT`;
+  }
+  setInterval(updateDakarClock, 1000);
+  updateDakarClock();
 
-  if (mainContactForm) {
-    mainContactForm.addEventListener('submit', (e) => {
+  // B. Gestion des Pôles, Budget et Calendrier
+  const briefChips = document.querySelectorAll('.brief-chip');
+  const briefPolesCount = document.getElementById('brief-poles-count');
+  const dynamicSummary = document.getElementById('brief-dynamic-summary');
+  let selectedPoles = [];
+  let selectedBudget = '2M à 5M';
+  let selectedTimeline = '1 mois';
+
+  function updateBriefSummary() {
+    if (briefPolesCount) {
+      const count = selectedPoles.length;
+      briefPolesCount.textContent = count === 0 ? '0 pôle sélectionné' : `${count} pôle${count > 1 ? 's' : ''} sélectionné${count > 1 ? 's' : ''}`;
+    }
+    if (dynamicSummary) {
+      const polesText = selectedPoles.length > 0 ? selectedPoles.join(', ') : 'Aucun pôle sélectionné';
+      dynamicSummary.innerHTML = `<span class="text-gray-500">Brief :</span> <strong class="text-white">${selectedPoles.length} pôle(s)</strong> (${polesText}) • Budget <strong class="text-cyan">${selectedBudget}</strong> • Délai <strong class="text-orange">${selectedTimeline}</strong>`;
+    }
+  }
+
+  briefChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chip.classList.toggle('active');
+      const poleName = chip.getAttribute('data-pole');
+      if (chip.classList.contains('active')) {
+        if (!selectedPoles.includes(poleName)) selectedPoles.push(poleName);
+      } else {
+        selectedPoles = selectedPoles.filter(p => p !== poleName);
+      }
+      updateBriefSummary();
+    });
+  });
+
+  // Budget Pills
+  const budgetPills = document.querySelectorAll('.budget-pill');
+  budgetPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      budgetPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      selectedBudget = pill.getAttribute('data-budget') || 'À définir';
+      updateBriefSummary();
+    });
+  });
+
+  // Timeline Pills
+  const timelinePills = document.querySelectorAll('.timeline-pill');
+  timelinePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      timelinePills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      selectedTimeline = pill.getAttribute('data-timeline') || 'À définir';
+      updateBriefSummary();
+    });
+  });
+
+  // C. Insertion rapide des Quick Tags dans le message
+  const quickTags = document.querySelectorAll('.quick-tag');
+  const briefMessage = document.getElementById('briefMessage');
+  quickTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      if (!briefMessage) return;
+      const tagText = tag.getAttribute('data-tag');
+      if (briefMessage.value.trim().length === 0) {
+        briefMessage.value = tagText;
+      } else if (!briefMessage.value.includes(tagText)) {
+        briefMessage.value += `\n${tagText}`;
+      }
+      briefMessage.focus();
+    });
+  });
+
+  // D. Copie rapide dans le presse-papier (Standard / Mobile / Email)
+  const copyButtons = document.querySelectorAll('.btn-copy-contact');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const textToCopy = btn.getAttribute('data-copy');
+      if (navigator.clipboard && textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const originalText = btn.textContent;
+          btn.textContent = 'Copié !';
+          btn.classList.add('bg-green-500/20', 'text-green-400');
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('bg-green-500/20', 'text-green-400');
+          }, 2000);
+        }).catch(() => {
+          prompt('Copiez :', textToCopy);
+        });
+      }
+    });
+  });
+
+  // E. Soumission classique du formulaire avec confirmation
+  const interactiveBriefForm = document.getElementById('interactiveBriefForm');
+  const briefSuccessBanner = document.getElementById('brief-success-banner');
+  if (interactiveBriefForm) {
+    interactiveBriefForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (formSuccessMessage) {
-        formSuccessMessage.classList.remove('hidden');
-        mainContactForm.reset();
+      if (briefSuccessBanner) {
+        briefSuccessBanner.classList.remove('hidden');
+        interactiveBriefForm.reset();
+        briefChips.forEach(c => c.classList.remove('active'));
+        selectedPoles = [];
+        updateBriefSummary();
         setTimeout(() => {
-          formSuccessMessage.classList.add('hidden');
+          briefSuccessBanner.classList.add('hidden');
         }, 8000);
       }
+    });
+  }
+
+  // F. Transfert instantané du brief formaté sur WhatsApp
+  const btnSendBriefWhatsapp = document.getElementById('btnSendBriefWhatsapp');
+  if (btnSendBriefWhatsapp) {
+    btnSendBriefWhatsapp.addEventListener('click', () => {
+      const name = document.getElementById('briefName')?.value.trim() || 'Client Intéressé';
+      const company = document.getElementById('briefCompany')?.value.trim() || 'Particulier / Entreprise';
+      const email = document.getElementById('briefEmail')?.value.trim() || 'Non spécifié';
+      const phone = document.getElementById('briefPhone')?.value.trim() || 'Non spécifié';
+      const msg = document.getElementById('briefMessage')?.value.trim() || 'Demande d\'accompagnement global';
+
+      const polesStr = selectedPoles.length > 0 ? selectedPoles.join(', ') : 'Général / Multi-pôles';
+      
+      const whatsappText = `*NOUVEAU BRIEF PROJET - KREATIV'PULSE*\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Nom :* ${name}\n` +
+        `🏢 *Organisation :* ${company}\n` +
+        `📧 *Email :* ${email}\n` +
+        `📞 *Tél / WA :* ${phone}\n\n` +
+        `🎯 *Pôles sélectionnés :* ${polesStr}\n` +
+        `💰 *Budget indicatif :* ${selectedBudget}\n` +
+        `⏱️ *Calendrier :* ${selectedTimeline}\n\n` +
+        `📝 *Détails du brief :*\n${msg}\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `Transmis depuis le Configurateur Interactif Kreativ'Pulse.`;
+      
+      window.open(`https://wa.me/221776442442?text=${encodeURIComponent(whatsappText)}`, '_blank');
     });
   }
 

@@ -1275,3 +1275,105 @@ body {
     line-height: 1.2;
   }
 }
+
+/* ==========================================================
+   CONFIGURATEUR DE BRIEF INTERACTIF (Section Contact Réinventée)
+   ========================================================== */
+.brief-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-gray-300);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+  user-select: none;
+}
+
+.brief-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 117, 0, 0.4);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.brief-chip.active {
+  background: rgba(255, 117, 0, 0.15);
+  border-color: var(--color-orange);
+  color: #FFFFFF;
+  box-shadow: 0 0 16px rgba(255, 117, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.brief-chip.active .chip-label {
+  color: var(--color-orange);
+  font-weight: 700;
+}
+
+.budget-pill, .timeline-pill {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-gray-400);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+}
+
+.budget-pill:hover, .timeline-pill:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #FFFFFF;
+}
+
+.budget-pill.active {
+  background: rgba(0, 240, 255, 0.15);
+  border-color: var(--color-cyan);
+  color: var(--color-cyan);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.2);
+}
+
+.timeline-pill.active {
+  background: rgba(255, 117, 0, 0.15);
+  border-color: var(--color-orange);
+  color: var(--color-orange);
+  box-shadow: 0 0 14px rgba(255, 117, 0, 0.2);
+}
+
+.quick-tag {
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-gray-400);
+  font-size: 0.68rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-tag:hover {
+  background: rgba(255, 117, 0, 0.12);
+  border-color: rgba(255, 117, 0, 0.3);
+  color: var(--color-orange);
+}
+
+.btn-copy-contact {
+  transition: all 0.2s ease;
+}
+
+.btn-copy-contact:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+}
+
