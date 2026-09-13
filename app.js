@@ -743,30 +743,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // F. Transfert instantané du brief formaté sur WhatsApp
+  // F. Transfert instantané du message sur WhatsApp
   const btnSendBriefWhatsapp = document.getElementById('btnSendBriefWhatsapp');
   if (btnSendBriefWhatsapp) {
     btnSendBriefWhatsapp.addEventListener('click', () => {
       const name = document.getElementById('briefName')?.value.trim() || 'Client Intéressé';
-      const company = document.getElementById('briefCompany')?.value.trim() || 'Particulier / Entreprise';
+      const company = document.getElementById('briefCompany')?.value.trim() || 'Non spécifié';
       const email = document.getElementById('briefEmail')?.value.trim() || 'Non spécifié';
-      const phone = document.getElementById('briefPhone')?.value.trim() || 'Non spécifié';
-      const msg = document.getElementById('briefMessage')?.value.trim() || 'Demande d\'accompagnement global';
-
-      const polesStr = selectedPoles.length > 0 ? selectedPoles.join(', ') : 'Général / Multi-pôles';
+      const msg = document.getElementById('briefMessage')?.value.trim() || 'Demande d\'échange ou collaboration';
       
-      const whatsappText = `*NOUVEAU BRIEF PROJET - KREATIV'PULSE*\n` +
+      const whatsappText = `*NOUVEAU CONTACT - KREATIV'PULSE*\n` +
         `━━━━━━━━━━━━━━━━━━━━\n` +
         `👤 *Nom :* ${name}\n` +
-        `🏢 *Organisation :* ${company}\n` +
-        `📧 *Email :* ${email}\n` +
-        `📞 *Tél / WA :* ${phone}\n\n` +
-        `🎯 *Pôles sélectionnés :* ${polesStr}\n` +
-        `💰 *Budget indicatif :* ${selectedBudget}\n` +
-        `⏱️ *Calendrier :* ${selectedTimeline}\n\n` +
-        `📝 *Détails du brief :*\n${msg}\n` +
+        `🏢 *Entreprise / Site :* ${company}\n` +
+        `📧 *Email :* ${email}\n\n` +
+        `📝 *Message :*\n${msg}\n` +
         `━━━━━━━━━━━━━━━━━━━━\n` +
-        `Transmis depuis le Configurateur Interactif Kreativ'Pulse.`;
+        `Transmis depuis www.kreativpulse.net (Siège Sicap Liberté 5/C)`;
       
       window.open(`https://wa.me/221776442442?text=${encodeURIComponent(whatsappText)}`, '_blank');
     });
