@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Kreativ'Pulse | Agence de Communication Globale & Créativité Digitale à Dakar</title>
-  <meta name="description" content="Kreativ'Pulse propulse votre entreprise : Développement web, Identité visuelle, Audiovisuel & Motion, Goodies et Événementiel à Dakar. Plus de 10 ans d'innovation créative." />
-  <meta name="keywords" content="agence communication Dakar, création site web Sénégal, graphiste Dakar, identité visuelle, goodies entreprise Sénégal, événementiel Dakar" />
+  <meta name="description"
+    content="Kreativ'Pulse propulse votre entreprise : Développement web, Identité visuelle, Audiovisuel & Motion, Goodies et Événementiel à Dakar. Plus de 10 ans d'innovation créative." />
+  <meta name="keywords"
+    content="agence communication Dakar, création site web Sénégal, graphiste Dakar, identité visuelle, goodies entreprise Sénégal, événementiel Dakar" />
   <meta property="og:title" content="Kreativ'Pulse — Le Pouls Créatif !" />
-  <meta property="og:description" content="Donner vie à votre vision. Propulser votre impact. Découvrez la nouvelle expérience de Kreativ'Pulse." />
+  <meta property="og:description"
+    content="Donner vie à votre vision. Propulser votre impact. Découvrez la nouvelle expérience de Kreativ'Pulse." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#08090C" />
   <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
@@ -16,31 +20,42 @@
   <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Caveat:wght@600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Tailwind CSS CDN for modern utility styling -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="bg-dark text-light antialiased selection:bg-orange selection:text-white">
 
-  <!-- BACKGROUND AMBIENT GLOW ORBS -->
-  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
-  <div class="ambient-glow glow-top-right" aria-hidden="true"></div>
-  <div class="ambient-glow glow-center" aria-hidden="true"></div>
+  <!-- BACKGROUND AMBIENT GLOW ORBS (Contained within viewport) -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-top-right"></div>
+    <div class="ambient-glow glow-center"></div>
+  </div>
   <div class="grid-mesh-overlay" aria-hidden="true"></div>
 
   <!-- NAVIGATION HEADER -->
-  <header id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-dark/80 border-b border-white/10">
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-dark/80 border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
+
       <!-- Logo -->
-      <a href="#accueil" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-orange/50 rounded-lg p-1" id="nav-logo" aria-label="Kreativ'Pulse Accueil">
-        <div class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
-          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+      <a href="#accueil"
+        class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-orange/50 rounded-lg p-1"
+        id="nav-logo" aria-label="Kreativ'Pulse Accueil">
+        <div
+          class="relative flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+            class="w-8 h-8 object-contain transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
         </div>
         <div class="flex flex-col">
-          <span class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
+          <span
+            class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
             KREATIV<span class="text-orange">'PULSE</span>
           </span>
           <span class="font-handwriting text-orange text-sm tracking-wide -mt-0.5">Le pouls créatif !</span>
@@ -59,14 +74,18 @@
 
       <!-- Desktop Header CTA -->
       <div class="hidden md:flex items-center gap-4">
-        <button id="btn-open-quote-modal" class="btn-primary group flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
+        <button id="btn-open-quote-modal"
+          class="btn-primary group flex items-center gap-2 text-sm font-bold uppercase tracking-wider">
           <span>Demander un devis</span>
-          <span class="arrow-badge transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
+          <span
+            class="arrow-badge transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
         </button>
       </div>
 
       <!-- Mobile Hamburger Button -->
-      <button id="mobile-menu-toggle" class="md:hidden flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none" aria-label="Menu de navigation">
+      <button id="mobile-menu-toggle"
+        class="md:hidden flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none"
+        aria-label="Menu de navigation">
         <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
         <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
         <span class="hamburger-bar w-3.5 h-0.5 bg-orange self-start ml-3 transition-all duration-300"></span>
@@ -75,7 +94,8 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu-drawer" class="md:hidden hidden bg-surface/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 transition-all">
+    <div id="mobile-menu-drawer"
+      class="md:hidden hidden bg-surface/98 border-b border-white/10 backdrop-blur-xl px-6 py-8 transition-all">
       <div class="flex flex-col gap-5 text-base font-semibold">
         <a href="#accueil" class="mobile-nav-item">Accueil</a>
         <a href="#agence" class="mobile-nav-item">L'Agence</a>
@@ -84,7 +104,8 @@
         <a href="#methodologie" class="mobile-nav-item">Méthodologie</a>
         <a href="#contact" class="mobile-nav-item">Contact</a>
         <hr class="border-white/10 my-2" />
-        <button id="btn-mobile-quote" class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-sm font-bold uppercase">
+        <button id="btn-mobile-quote"
+          class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-sm font-bold uppercase">
           <span>Demander un devis</span>
           <span class="arrow-badge">↗</span>
         </button>
@@ -97,49 +118,66 @@
     <!-- ========================================== -->
     <!-- SECTION 1: HERO AVEC 3D ARC CAROUSEL       -->
     <!-- ========================================== -->
-    <section id="accueil" class="relative pt-24 pb-10 md:pt-32 md:pb-14 flex flex-col justify-center items-center text-center px-4 sm:px-6">
-      
+    <section id="accueil"
+      class="relative pt-24 pb-10 md:pt-32 md:pb-14 flex flex-col justify-center items-center text-center px-4 sm:px-6">
+
       <!-- Sub-badge Pill -->
-      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-pill border border-orange/30 text-xs font-medium text-orange shadow-glow-xs mb-5 animate-fade-in">
+      <div
+        class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-surface-pill border border-orange/30 text-xs font-medium text-orange shadow-glow-xs mb-5 animate-fade-in">
         <span class="w-1.5 h-1.5 rounded-full bg-orange animate-ping"></span>
         <span>Agence Créative 360° & Studio Digital à Dakar</span>
       </div>
 
       <!-- Main Headline -->
-      <h1 class="font-outfit font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight max-w-4xl text-white leading-[1.18] mb-4">
+      <h1
+        class="font-outfit font-extrabold text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight max-w-4xl text-white leading-[1.18] mb-4">
         Donner vie à votre vision. <br />
         <span class="gradient-text-orange">Propulser votre impact.</span>
       </h1>
 
       <!-- Value Proposition Copy -->
       <p class="font-normal text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl mb-6 leading-relaxed">
-        Depuis plus de 10 ans au Sénégal, nous fusionnons <span class="text-white font-semibold">développement web</span>, 
-        <span class="text-white font-semibold">stratégie de marque</span>, <span class="text-white font-semibold">audiovisuel</span> et 
+        Depuis plus de 10 ans au Sénégal, nous fusionnons <span class="text-white font-semibold">développement
+          web</span>,
+        <span class="text-white font-semibold">stratégie de marque</span>, <span
+          class="text-white font-semibold">audiovisuel</span> et
         <span class="text-white font-semibold">événementiel</span> pour propulser les leaders et marques ambitieuses.
       </p>
 
       <!-- Action Buttons -->
       <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto mb-8 z-20">
-        <a href="#realisations" class="btn-primary w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5">
+        <a href="#realisations"
+          class="btn-primary w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5">
           <span>Explorer nos réalisations</span>
           <span class="arrow-badge">↗</span>
         </a>
-        <button id="btn-hero-quote" class="btn-glass w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2">
+        <button id="btn-hero-quote"
+          class="btn-glass w-full sm:w-auto px-6 py-3 text-xs sm:text-sm font-semibold tracking-wider flex items-center justify-center gap-2">
           <span>Estimer mon projet</span>
         </button>
       </div>
 
+      <!-- Mobile Exclusive Trust Badges (Compact, Native & Clean) -->
+      <div class="flex sm:hidden items-center justify-center gap-2 mb-4 text-[11px] text-gray-300">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+          <span class="text-orange font-bold">⚡</span> 10+ Ans d'expertise Dakar
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-orange/10 border border-orange/30 text-orange font-semibold">
+          <span>⭐</span> 98% Succès
+        </span>
+      </div>
+
       <!-- 3D CURVED ARC CARDS SHOWCASE (Inspiration Aeline & Build Your Identity) -->
       <div class="hero-3d-wrapper relative w-full max-w-6xl mx-auto mt-4 pt-6">
-        
-        <!-- Floating Interactive Collaborator Tags (Inspiration Robert / Clarissa) -->
+
+        <!-- Floating Interactive Expertise Tags -->
         <div class="floating-tag tag-left hidden lg:flex items-center gap-2">
           <span class="cursor-dot bg-cyan"></span>
-          <span class="tag-label">Ibrahima • Tech & Dev</span>
+          <span class="tag-label">Pôle Web & Digital • Sur-mesure</span>
         </div>
         <div class="floating-tag tag-right hidden lg:flex items-center gap-2">
           <span class="cursor-dot bg-orange"></span>
-          <span class="tag-label">Aïssatou • Brand Designer</span>
+          <span class="tag-label">Studio Créatif • Brand Design</span>
         </div>
 
         <!-- Floating Stat Badges -->
@@ -160,18 +198,19 @@
 
         <!-- ARC CYLINDRICAL DECK CONTAINER -->
         <div class="arc-carousel-stage" id="arcCarousel">
-          
+
           <!-- Card 1: Web & Digital -->
           <div class="arc-card card-1 active" data-index="0" data-domain="digital">
             <div class="card-inner">
               <div class="card-img-wrapper">
-                <img src="assets/images/pillar-web.jpg" alt="Pôle Web & Applications Kreativ'Pulse" loading="lazy" />
+                <img src="assets/portfolio/web-capture.webp" alt="Plateforme Web & Digital Kreativ'Pulse" class="object-top" loading="lazy" />
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
                 <span class="card-tag tag-cyan">WEB & DIGITAL</span>
                 <h3 class="card-title">Plateformes Web & Applications</h3>
-                <p class="card-desc">Expériences interactives ultra-rapides, SaaS & portails d'entreprise sur mesure.</p>
+                <p class="card-desc">Expériences interactives ultra-rapides, SaaS & portails d'entreprise sur mesure.
+                </p>
                 <div class="card-footer">
                   <span class="card-stat">Score UX 98%</span>
                   <span class="mini-arrow">↗</span>
@@ -184,7 +223,7 @@
           <div class="arc-card card-2" data-index="1" data-domain="branding">
             <div class="card-inner">
               <div class="card-img-wrapper">
-                <img src="assets/images/pillar-branding.jpg" alt="Pôle Branding & Identité Visuelle" loading="lazy" />
+                <img src="assets/portfolio/tournee-can.webp" alt="Branding Bus FSF Sénégal Champion - Kreativ'Pulse" loading="lazy" />
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
@@ -203,13 +242,14 @@
           <div class="arc-card card-3" data-index="2" data-domain="audiovisual">
             <div class="card-inner">
               <div class="card-img-wrapper">
-                <img src="assets/images/pillar-audiovisual.jpg" alt="Pôle Audiovisuel & Motion Design" loading="lazy" />
+                <img src="assets/portfolio/caf-awards.webp" alt="Scénographie & Écrans LED CAF Awards - Kreativ'Pulse" loading="lazy" />
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
                 <span class="card-tag tag-purple">MULTIMÉDIA & MOTION</span>
                 <h3 class="card-title">Films d'Entreprise & 3D Motion</h3>
-                <p class="card-desc">Spots publicitaires 4K, animations 3D percutantes et couverture de vos temps forts.</p>
+                <p class="card-desc">Spots publicitaires 4K, animations 3D percutantes et couverture de vos temps forts.
+                </p>
                 <div class="card-footer">
                   <span class="card-stat">Production Studio 4K</span>
                   <span class="mini-arrow">↗</span>
@@ -222,13 +262,14 @@
           <div class="arc-card card-4" data-index="3" data-domain="event">
             <div class="card-inner">
               <div class="card-img-wrapper">
-                <img src="assets/images/pillar-event.jpg" alt="Pôle Événementiel & Goodies" loading="lazy" />
+                <img src="assets/portfolio/dp-world-cover.png" alt="Scénographie Événementielle DP World - Kreativ'Pulse" loading="lazy" />
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
                 <span class="card-tag tag-green">PRINT & ÉVÉNEMENTIEL</span>
                 <h3 class="card-title">Stands Expo & Goodies Premium</h3>
-                <p class="card-desc">Habillage architectural de stands, signalétique grand format et objets promotionnels.</p>
+                <p class="card-desc">Habillage architectural de stands, signalétique grand format et objets
+                  promotionnels.</p>
                 <div class="card-footer">
                   <span class="card-stat">Fabrication Clé en Main</span>
                   <span class="mini-arrow">↗</span>
@@ -263,153 +304,217 @@
           Ils propulsent leur croissance avec Kreativ'Pulse
         </p>
       </div>
-      
+
       <div class="marquee-track">
         <div class="marquee-content flex items-center gap-6 sm:gap-8">
           <!-- Senelec -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-senelec.png" alt="Senelec" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
           </div>
           <!-- DP World -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
           </div>
           <!-- SOGIP -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
           </div>
           <!-- SONAGED -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sonaged.png" alt="SONAGED" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
           </div>
           <!-- FSF -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
           </div>
           <!-- ANER -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
           </div>
           <!-- COSEC -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-cosec.png" alt="COSEC" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
           </div>
           <!-- DHL -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-dhl.png" alt="DHL Express" class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express"
+              class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
           </div>
           <!-- FHS -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
           </div>
           <!-- SENTRAK -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
           </div>
           <!-- SONACOS -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sonacos.png" alt="SONACOS" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
           </div>
           <!-- CROUS -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
           </div>
           <!-- GSEF -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
           </div>
           <!-- CAF -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-caf.png" alt="CAF Awards" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
           </div>
           <!-- BHS -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-bhs.png" alt="BHS Banque" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
           </div>
           <!-- SICAP -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sicap.png" alt="SICAP SA" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
           </div>
 
           <!-- DUPLICATE SET FOR INFINITE SEAMLESS SCROLL -->
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-senelec.png" alt="Senelec" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sonaged.png" alt="SONAGED" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-cosec.png" alt="COSEC" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-dhl.png" alt="DHL Express" class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express"
+              class="h-6 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sonacos.png" alt="SONACOS" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-caf.png" alt="CAF Awards" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-bhs.png" alt="BHS Banque" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
           </div>
-          <div class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
-            <img src="assets/logos/partner-sicap.png" alt="SICAP SA" class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
             <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
           </div>
         </div>
@@ -420,7 +525,7 @@
     <!-- SECTION 3: BENTO GRID À PROPOS & IMPACT     -->
     <!-- ========================================== -->
     <section id="agence" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
           <span class="section-pill mb-2.5">L'AGENCE KREATIV'PULSE</span>
@@ -430,33 +535,39 @@
           </h2>
         </div>
         <p class="text-gray-300 max-w-md text-xs sm:text-sm leading-relaxed">
-          Née en 2014 sous la dénomination SMMDIAGRAFT, Kreativ'Pulse s'est imposée comme le partenaire stratégique des institutions, PME et grands groupes pour transformer leur image et digitaliser leurs opérations.
+          Née en 2014 sous la dénomination SMMDIAGRAFT, Kreativ'Pulse s'est imposée comme le partenaire stratégique des
+          institutions, PME et grands groupes pour transformer leur image et digitaliser leurs opérations.
         </p>
       </div>
 
       <!-- BENTO GRID CONTAINER (Inspiration Aeline & Green Power) -->
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
-        
+
         <!-- Bento 1: Grand Carré d'Expérience -->
-        <div class="bento-card col-span-1 md:col-span-2 p-6 flex flex-col justify-between relative overflow-hidden group">
+        <div
+          class="bento-card col-span-1 md:col-span-2 p-6 flex flex-col justify-between relative overflow-hidden group">
           <div class="z-10">
             <span class="badge-mini text-orange bg-orange/10 border border-orange/20">HISTOIRE & VISION</span>
             <h3 class="font-outfit font-bold text-lg sm:text-xl text-white mt-3 mb-2">
               Une décennie à battre au rythme des défis créatifs de l'Afrique de l'Ouest.
             </h3>
             <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
-              Nous combinons la rigueur de l'ingénierie web avec l'audace de la création artistique. Chaque projet est conçu pour susciter une émotion et générer des résultats économiques concrets.
+              Nous combinons la rigueur de l'ingénierie web avec l'audace de la création artistique. Chaque projet est
+              conçu pour susciter une émotion et générer des résultats économiques concrets.
             </p>
           </div>
-          <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between z-10">
+          <div class="mt-6 pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 z-10">
             <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-orange/20 flex items-center justify-center text-orange font-bold text-xs font-outfit">KP</div>
+              <div
+                class="w-8 h-8 rounded-full bg-orange/20 flex items-center justify-center text-orange font-bold text-xs font-outfit">
+                KP</div>
               <div>
                 <div class="text-xs font-semibold text-white">Équipe Pluridisciplinaire</div>
                 <div class="text-[11px] text-gray-400">Dakar, Sénégal</div>
               </div>
             </div>
-            <a href="#contact" class="text-orange text-xs font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+            <a href="#contact"
+              class="text-orange text-xs font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
               Rencontrer l'équipe →
             </a>
           </div>
@@ -467,14 +578,16 @@
         <div class="bento-card col-span-1 p-6 flex flex-col justify-center items-start group">
           <span class="font-outfit font-extrabold text-4xl lg:text-5xl gradient-text-orange mb-1">10+</span>
           <h4 class="font-outfit font-bold text-base text-white mb-1">Années d'Expérience</h4>
-          <p class="text-gray-400 text-xs">Une longévité et une réputation construites sur la constance et la rigueur.</p>
+          <p class="text-gray-400 text-xs">Une longévité et une réputation construites sur la constance et la rigueur.
+          </p>
         </div>
 
         <!-- Bento 3: Stat 150+ Projets -->
         <div class="bento-card col-span-1 p-6 flex flex-col justify-center items-start group">
           <span class="font-outfit font-extrabold text-4xl lg:text-5xl text-cyan mb-1">150+</span>
           <h4 class="font-outfit font-bold text-base text-white mb-1">Projets Livrés</h4>
-          <p class="text-gray-400 text-xs">Campagnes digitales, sites web réactifs, événementiel et goodies corporate.</p>
+          <p class="text-gray-400 text-xs">Campagnes digitales, sites web réactifs, événementiel et goodies corporate.
+          </p>
         </div>
 
         <!-- Bento 4: Stat 98% Satisfaction -->
@@ -485,13 +598,17 @@
         </div>
 
         <!-- Bento 5: 4 Pôles d'Excellence -->
-        <div class="bento-card col-span-1 md:col-span-2 lg:col-span-3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group">
+        <div
+          class="bento-card col-span-1 md:col-span-2 lg:col-span-3 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 group">
           <div>
             <span class="badge-mini text-cyan bg-cyan/10 border border-cyan/20">AGENCE GLOBALE</span>
-            <h4 class="font-outfit font-bold text-lg sm:text-xl text-white mt-1 mb-1">4 Pôles d'Excellence Intégrés sous un même toit</h4>
-            <p class="text-gray-300 text-xs max-w-xl">Un interlocuteur unique pour la conception graphique, le développement web, la fabrication de goodies et l'organisation événementielle.</p>
+            <h4 class="font-outfit font-bold text-lg sm:text-xl text-white mt-1 mb-1">4 Pôles d'Excellence Intégrés sous
+              un même toit</h4>
+            <p class="text-gray-300 text-xs max-w-xl">Un interlocuteur unique pour la conception graphique, le
+              développement web, la fabrication de goodies et l'organisation événementielle.</p>
           </div>
-          <button id="btn-bento-quote" class="btn-primary shrink-0 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
+          <button id="btn-bento-quote"
+            class="btn-primary shrink-0 flex items-center gap-2 text-xs font-bold uppercase tracking-wider">
             <span>Démarrer un projet</span>
             <span class="arrow-badge">↗</span>
           </button>
@@ -505,7 +622,7 @@
     <!-- ========================================== -->
     <section id="prestations" class="py-12 sm:py-16 bg-surface/30 border-y border-white/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-2xl mx-auto mb-10">
           <span class="section-pill mb-2.5">NOS SERVICES EXCLUSIFS</span>
           <h2 class="section-title">
@@ -513,21 +630,27 @@
             <span class="gradient-text-orange">chaque étape de votre notoriété.</span>
           </h2>
           <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-xl mx-auto">
-            Finis les doutes et le manque de clarté : chaque pôle dispose d'une équipe dédiée et d'outils à la pointe de l'innovation.
+            Finis les doutes et le manque de clarté : chaque pôle dispose d'une équipe dédiée et d'outils à la pointe de
+            l'innovation.
           </p>
         </div>
 
         <!-- SERVICES CARDS GRID -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          
+
           <!-- Service 1: Digital & Web -->
           <div class="service-card group">
             <div class="service-icon-box bg-cyan/10 text-cyan border border-cyan/20">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
             </div>
             <span class="service-number font-outfit">01</span>
             <h3 class="service-title">Développement Web & Mobile</h3>
-            <p class="service-desc">Conception de sites institutionnels, plateformes e-commerce et applications métiers rapides, sécurisées et 100% responsives.</p>
+            <p class="service-desc">Conception de sites institutionnels, plateformes e-commerce et applications métiers
+              rapides, sécurisées et 100% responsives.</p>
             <ul class="service-list">
               <li>Sites vitrines & corporate</li>
               <li>Applications Web & Mobiles</li>
@@ -543,11 +666,18 @@
           <!-- Service 2: Identité Visuelle -->
           <div class="service-card group">
             <div class="service-icon-box bg-orange/10 text-orange border border-orange/20">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m4.93 4.93 4.24 4.24" />
+                <path d="m14.83 9.17 4.24-4.24" />
+                <path d="m14.83 14.83 4.24 4.24" />
+                <path d="m9.17 14.83-4.24 4.24" />
+              </svg>
             </div>
             <span class="service-number font-outfit">02</span>
             <h3 class="service-title">Identité Visuelle & Branding</h3>
-            <p class="service-desc">Création de l'ADN visuel complet de votre marque : logotypes uniques, chartes graphiques, typographies et déclinaisons print.</p>
+            <p class="service-desc">Création de l'ADN visuel complet de votre marque : logotypes uniques, chartes
+              graphiques, typographies et déclinaisons print.</p>
             <ul class="service-list">
               <li>Création de Logos & Chartes</li>
               <li>Plaquettes & Brochures Luxe</li>
@@ -563,11 +693,15 @@
           <!-- Service 3: Audiovisuel & Multimédia -->
           <div class="service-card group">
             <div class="service-icon-box bg-purple-500/10 text-purple-400 border border-purple-500/20">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="23 7 16 12 23 17 23 7" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
             </div>
             <span class="service-number font-outfit">03</span>
             <h3 class="service-title">Production Audiovisuelle & Motion</h3>
-            <p class="service-desc">Captation vidéo haute définition, spots publicitaires, motion design 2D/3D et photographie corporate professionnelle.</p>
+            <p class="service-desc">Captation vidéo haute définition, spots publicitaires, motion design 2D/3D et
+              photographie corporate professionnelle.</p>
             <ul class="service-list">
               <li>Films institutionnels 4K</li>
               <li>Motion Design & Animation 3D</li>
@@ -583,11 +717,16 @@
           <!-- Service 4: Goodies & Événementiel -->
           <div class="service-card group">
             <div class="service-icon-box bg-green-500/10 text-green-400 border border-green-500/20">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><circle cx="18" cy="18" r="2"/></svg>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                <circle cx="18" cy="18" r="2" />
+              </svg>
             </div>
             <span class="service-number font-outfit">04</span>
             <h3 class="service-title">Événementiel, Stands & Goodies</h3>
-            <p class="service-desc">Fabrication d'objets promotionnels sur mesure, conception de stands d'exposition et habillage grand format (véhicules, façades).</p>
+            <p class="service-desc">Fabrication d'objets promotionnels sur mesure, conception de stands d'exposition et
+              habillage grand format (véhicules, façades).</p>
             <ul class="service-list">
               <li>Goodies & Cadeaux d'Affaires</li>
               <li>Stands modulaires & Sur-mesure</li>
@@ -609,34 +748,39 @@
     <!-- SECTION 5: NOS RÉALISATIONS (PORTFOLIO PRO) -->
     <!-- ========================================== -->
     <section id="realisations" class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-        <div>
-          <span class="section-pill mb-2.5">PORTFOLIO RÉCENT</span>
-          <h2 class="section-title">
-            Nos projets en action, <br />
-            <span class="gradient-text-orange">sans compromis sur la qualité.</span>
-          </h2>
-        </div>
-        
-        <!-- Filter Tabs -->
-        <div class="portfolio-filters flex flex-wrap gap-1.5">
-          <button class="filter-btn active" data-filter="all">Tous les projets</button>
-          <button class="filter-btn" data-filter="event">Événementiel & Stands</button>
-          <button class="filter-btn" data-filter="branding">Branding & Flotte</button>
-          <button class="filter-btn" data-filter="goodies">Goodies & Cadeaux</button>
-          <button class="filter-btn" data-filter="digital">Digital & Motion</button>
-        </div>
+
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="section-pill mb-2.5">PORTFOLIO RÉCENT</span>
+        <h2 class="section-title">
+          Nos projets en action, <br />
+          <span class="gradient-text-orange">sans compromis sur la qualité.</span>
+        </h2>
+        <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-xl mx-auto">
+          Découvrez une sélection de réalisations phares déployées avec rigueur et créativité pour nos clients partenaires.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="portfolio-filters flex flex-wrap justify-center gap-1.5 mb-8">
+        <button class="filter-btn active" data-filter="all">Tous les projets</button>
+        <button class="filter-btn" data-filter="event">Événementiel & Stands</button>
+        <button class="filter-btn" data-filter="branding">Branding & Flotte</button>
+        <button class="filter-btn" data-filter="goodies">Goodies & Cadeaux</button>
+        <button class="filter-btn" data-filter="digital">Digital & Motion</button>
       </div>
 
       <!-- PORTFOLIO GRID (100% VRAIS PROJETS KREATIV'PULSE DAKAR) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5" id="portfolioGrid">
-        
+
         <!-- Project 0: SOGIP (Multi-Images - 5 photos) -->
         <div class="portfolio-item group" data-category="event" data-project="0">
           <div class="portfolio-media">
             <span class="portfolio-gallery-badge">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <circle cx="8.5" cy="8.5" r="1.5" />
+                <polyline points="21 15 16 10 5 21" />
+              </svg>
               5 photos
             </span>
             <img src="assets/portfolio/sogip-cover.webp" alt="Centre des Expositions SOGIP" loading="lazy" />
@@ -652,7 +796,8 @@
               <span class="font-semibold text-orange">SOGIP Diamniadio</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Inauguration Centre des Expositions</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">
+              Inauguration Centre des Expositions</h4>
           </div>
         </div>
 
@@ -672,7 +817,8 @@
               <span class="font-semibold text-cyan">DP World Dakar</span>
               <span class="text-gray-500">2026</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Journée Carrière "Our World"</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Journée
+              Carrière "Our World"</h4>
           </div>
         </div>
 
@@ -681,7 +827,8 @@
           <div class="portfolio-media">
             <img src="assets/portfolio/tournee-can.webp" alt="Bus Sénégal Champion d'Afrique" loading="lazy" />
             <div class="portfolio-hover-overlay">
-              <span class="badge-mini text-green-400 bg-green-500/20 border border-green-500/40">BRANDING & FLOTTE</span>
+              <span class="badge-mini text-green-400 bg-green-500/20 border border-green-500/40">BRANDING &
+                FLOTTE</span>
               <h3 class="text-lg font-bold font-outfit text-white mt-2">Bus Sénégal Champion</h3>
               <p class="text-xs text-gray-300 mt-1">Total covering grand format pour la Fédération de Football.</p>
               <button class="btn-preview-project mt-3">Voir le projet ↗</button>
@@ -692,7 +839,8 @@
               <span class="font-semibold text-green-400">FSF — Tournée CAN</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-green-400 transition-colors">Bus Lions du Sénégal Champion</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-green-400 transition-colors">Bus
+              Lions du Sénégal Champion</h4>
           </div>
         </div>
 
@@ -712,7 +860,8 @@
               <span class="font-semibold text-orange">SONAGED / UCG Dakar</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Habillage Flotte Propreté Urbaine</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Habillage
+              Flotte Propreté Urbaine</h4>
           </div>
         </div>
 
@@ -721,7 +870,8 @@
           <div class="portfolio-media">
             <img src="assets/portfolio/goodies-aner.png" alt="Goodies et Objets ANER" loading="lazy" />
             <div class="portfolio-hover-overlay">
-              <span class="badge-mini text-yellow-400 bg-yellow-500/20 border border-yellow-500/40">GOODIES & PAPETERIE</span>
+              <span class="badge-mini text-yellow-400 bg-yellow-500/20 border border-yellow-500/40">GOODIES &
+                PAPETERIE</span>
               <h3 class="text-lg font-bold font-outfit text-white mt-2">Cadeaux d'Affaires ANER</h3>
               <p class="text-xs text-gray-300 mt-1">Agendas cuir, calendriers chevalet, clés USB bois & fanions.</p>
               <button class="btn-preview-project mt-3">Voir le projet ↗</button>
@@ -732,7 +882,8 @@
               <span class="font-semibold text-yellow-400">ANER Énergies Renouvelables</span>
               <span class="text-gray-500">2026</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-yellow-400 transition-colors">Pack Objets Promotionnels & 2026</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-yellow-400 transition-colors">Pack
+              Objets Promotionnels & 2026</h4>
           </div>
         </div>
 
@@ -741,7 +892,8 @@
           <div class="portfolio-media">
             <img src="assets/portfolio/caf-awards.webp" alt="Scénographie CAF Awards" loading="lazy" />
             <div class="portfolio-hover-overlay">
-              <span class="badge-mini text-purple-400 bg-purple-500/20 border border-purple-500/40">AUDIOVISUEL & SCÈNE</span>
+              <span class="badge-mini text-purple-400 bg-purple-500/20 border border-purple-500/40">AUDIOVISUEL &
+                SCÈNE</span>
               <h3 class="text-lg font-bold font-outfit text-white mt-2">Cérémonie CAF Awards</h3>
               <p class="text-xs text-gray-300 mt-1">Écrans géants LED circulaires, régie vidéo 4K et éclairage.</p>
               <button class="btn-preview-project mt-3">Voir le projet ↗</button>
@@ -752,7 +904,8 @@
               <span class="font-semibold text-purple-400">CAF Afrique</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-purple-400 transition-colors">Scénographie & Écrans LED CAF Awards</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-purple-400 transition-colors">
+              Scénographie & Écrans LED CAF Awards</h4>
           </div>
         </div>
 
@@ -772,7 +925,8 @@
               <span class="font-semibold text-cyan">Senelec Sénégal</span>
               <span class="text-gray-500">2026</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Motion Design & Capsules Digitales</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Motion Design
+              & Capsules Digitales</h4>
           </div>
         </div>
 
@@ -792,7 +946,8 @@
               <span class="font-semibold text-yellow-400">DHL International</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-yellow-400 transition-colors">Soirée Corporate & Espace Lounge DHL</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-yellow-400 transition-colors">Soirée
+              Corporate & Espace Lounge DHL</h4>
           </div>
         </div>
 
@@ -812,7 +967,8 @@
               <span class="font-semibold text-orange">Noom Hotel Dakar</span>
               <span class="text-gray-500">2026</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Objets Promotionnels de Prestige</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Objets
+              Promotionnels de Prestige</h4>
           </div>
         </div>
 
@@ -832,7 +988,8 @@
               <span class="font-semibold text-cyan">CROUS Diamniadio</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Visuels Sociaux & Communication Digitale</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Visuels
+              Sociaux & Communication Digitale</h4>
           </div>
         </div>
 
@@ -852,7 +1009,8 @@
               <span class="font-semibold text-orange">Maison Collé Sow Ardo</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Showroom Anniversaire & Vitrophanie</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Showroom
+              Anniversaire & Vitrophanie</h4>
           </div>
         </div>
 
@@ -872,7 +1030,8 @@
               <span class="font-semibold text-cyan">GSEF Forum Mondial</span>
               <span class="text-gray-500">2024</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Aménagement Pavillon & Scénographie</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Aménagement
+              Pavillon & Scénographie</h4>
           </div>
         </div>
 
@@ -892,7 +1051,8 @@
               <span class="font-semibold text-orange">SONACOS Sénégal</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Habillage Monumental & Célébration 50 Ans</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Habillage
+              Monumental & Célébration 50 Ans</h4>
           </div>
         </div>
 
@@ -912,7 +1072,8 @@
               <span class="font-semibold text-cyan">Ergobit Consulting</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Signalétique & Aménagement Bureaux</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-cyan transition-colors">Signalétique
+              & Aménagement Bureaux</h4>
           </div>
         </div>
 
@@ -932,7 +1093,8 @@
               <span class="font-semibold text-orange">Sentrak Logistics / SILS</span>
               <span class="text-gray-500">2025</span>
             </div>
-            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Visuels B2B & Campagnes Réseaux Sociaux</h4>
+            <h4 class="font-outfit font-bold text-base text-white group-hover:text-orange transition-colors">Visuels B2B
+              & Campagnes Réseaux Sociaux</h4>
           </div>
         </div>
 
@@ -944,7 +1106,7 @@
     <!-- ========================================== -->
     <section id="methodologie" class="py-12 sm:py-16 bg-surface/40 border-y border-white/10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div class="text-center max-w-2xl mx-auto mb-8">
           <span class="section-pill mb-2.5">NOTRE MÉTHODE ÉPROUVÉE</span>
           <h2 class="section-title">
@@ -955,40 +1117,47 @@
 
         <!-- Workflow 4 Steps (Textes soignés sans placeholders ni bogue d'étape) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-          
+
           <div class="workflow-card group">
             <div class="workflow-step-num">01</div>
             <div class="workflow-dot"></div>
             <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Immersion & Stratégie</h3>
             <p class="text-gray-300 text-xs leading-relaxed">
-              Nous analysons vos objectifs d'affaires, votre audience cible sénégalaise ou internationale et vos concurrents pour bâtir un plan solide.
+              Nous analysons vos objectifs d'affaires, votre audience cible sénégalaise ou internationale et vos
+              concurrents pour bâtir un plan solide.
             </p>
           </div>
 
           <div class="workflow-card group">
             <div class="workflow-step-num">02</div>
             <div class="workflow-dot"></div>
-            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Conception & Direction Artistique</h3>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Conception & Direction
+              Artistique</h3>
             <p class="text-gray-300 text-xs leading-relaxed">
-              Nos designers et créatifs donnent vie à votre vision via des prototypes interactifs, des maquettes soignées et des concepts novateurs.
+              Nos designers et créatifs donnent vie à votre vision via des prototypes interactifs, des maquettes
+              soignées et des concepts novateurs.
             </p>
           </div>
 
           <div class="workflow-card group">
             <div class="workflow-step-num">03</div>
             <div class="workflow-dot"></div>
-            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Production & Développement</h3>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Production & Développement
+            </h3>
             <p class="text-gray-300 text-xs leading-relaxed">
-              Nos développeurs web et fabricants d'enseignes réalisent l'ouvrage avec une attention maniaque accordée à la vitesse, l'ergonomie et la durabilité.
+              Nos développeurs web et fabricants d'enseignes réalisent l'ouvrage avec une attention maniaque accordée à
+              la vitesse, l'ergonomie et la durabilité.
             </p>
           </div>
 
           <div class="workflow-card group">
             <div class="workflow-step-num">04</div>
             <div class="workflow-dot"></div>
-            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Livraison & Accompagnement</h3>
+            <h3 class="font-outfit font-bold text-base sm:text-lg text-white mt-3 mb-1.5">Livraison & Accompagnement
+            </h3>
             <p class="text-gray-300 text-xs leading-relaxed">
-              Déploiement sans coupure, formation de vos équipes et suivi des indicateurs de performance pour garantir un retour sur investissement maximal.
+              Déploiement sans coupure, formation de vos équipes et suivi des indicateurs de performance pour garantir
+              un retour sur investissement maximal.
             </p>
           </div>
 
@@ -1001,26 +1170,22 @@
     <!-- SECTION 7: TÉMOIGNAGES CLIENTS (SLIDER)    -->
     <!-- ========================================== -->
     <section class="py-12 sm:py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-        <div>
-          <span class="section-pill mb-2.5">AVIS & RETOURS D'EXPÉRIENCE</span>
-          <h2 class="section-title">
-            Ce que disent nos clients, <br />
-            <span class="gradient-text-orange">en toute transparence.</span>
-          </h2>
-        </div>
 
-        <div class="flex items-center gap-2.5">
-          <button id="testimonial-prev" class="slider-arrow-btn" aria-label="Avis précédent">‹</button>
-          <button id="testimonial-next" class="slider-arrow-btn" aria-label="Avis suivant">›</button>
-        </div>
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <span class="section-pill mb-2.5">AVIS & RETOURS D'EXPÉRIENCE</span>
+        <h2 class="section-title">
+          Ce que disent nos clients, <br />
+          <span class="gradient-text-orange">en toute transparence.</span>
+        </h2>
+        <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-xl mx-auto">
+          La confiance de nos partenaires et l'impact mesurable de nos réalisations sont notre plus belle fierté au quotidien.
+        </p>
       </div>
 
       <!-- Testimonials Slider Container (Inspiration Pinterest Camply) -->
       <div class="relative overflow-hidden" id="testimonialSliderWrapper">
         <div class="testimonials-track flex transition-transform duration-500 ease-out" id="testimonialTrack">
-          
+
           <!-- Testimonial 1 -->
           <div class="testimonial-slide w-full md:w-1/2 lg:w-1/3 shrink-0 px-3">
             <div class="testimonial-card">
@@ -1028,10 +1193,12 @@
                 ★★★★★
               </div>
               <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
-                « Kreativ'Pulse a totalement réinventé la visibilité de notre organisation lors du forum international. Le sens du détail et la rapidité d'exécution sont incomparables à Dakar. »
+                « Kreativ'Pulse a totalement réinventé la visibilité de notre organisation lors du forum international.
+                Le sens du détail et la rapidité d'exécution sont incomparables à Dakar. »
               </p>
               <div class="flex items-center gap-3 mt-auto">
-                <div class="w-11 h-11 rounded-full bg-orange/20 flex items-center justify-center font-bold text-orange">MD</div>
+                <div class="w-11 h-11 rounded-full bg-orange/20 flex items-center justify-center font-bold text-orange">
+                  MD</div>
                 <div>
                   <h4 class="font-outfit font-bold text-white text-sm">Mamadou Diop</h4>
                   <p class="text-xs text-gray-400">Directeur de la Communication, Institution Publique</p>
@@ -1047,10 +1214,12 @@
                 ★★★★★
               </div>
               <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
-                « Pour la refonte de notre plateforme web et la commande de goodies de fin d'année, nous avons eu un service impeccable. Réactivité, professionnalisme et respect des délais. »
+                « Pour la refonte de notre plateforme web et la commande de goodies de fin d'année, nous avons eu un
+                service impeccable. Réactivité, professionnalisme et respect des délais. »
               </p>
               <div class="flex items-center gap-3 mt-auto">
-                <div class="w-11 h-11 rounded-full bg-cyan/20 flex items-center justify-center font-bold text-cyan">FS</div>
+                <div class="w-11 h-11 rounded-full bg-cyan/20 flex items-center justify-center font-bold text-cyan">FS
+                </div>
                 <div>
                   <h4 class="font-outfit font-bold text-white text-sm">Fatou Sall</h4>
                   <p class="text-xs text-gray-400">Responsable Marketing, Entreprise Énergétique</p>
@@ -1066,10 +1235,13 @@
                 ★★★★★
               </div>
               <p class="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 italic">
-                « Travailler avec Kreativ'Pulse, c'est l'assurance d'une direction artistique digne des meilleures agences internationales, avec une parfaite compréhension du terrain local. »
+                « Travailler avec Kreativ'Pulse, c'est l'assurance d'une direction artistique digne des meilleures
+                agences internationales, avec une parfaite compréhension du terrain local. »
               </p>
               <div class="flex items-center gap-3 mt-auto">
-                <div class="w-11 h-11 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">AN</div>
+                <div
+                  class="w-11 h-11 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">
+                  AN</div>
                 <div>
                   <h4 class="font-outfit font-bold text-white text-sm">Alioune Ndiaye</h4>
                   <p class="text-xs text-gray-400">Fondateur & CEO, Startup Tech Dakar</p>
@@ -1081,6 +1253,17 @@
         </div>
       </div>
 
+      <!-- Navigation Flèches & Dots Slider -->
+      <div class="flex justify-center items-center gap-3 mt-8">
+        <button id="testimonial-prev" class="slider-arrow-btn" aria-label="Avis précédent">‹</button>
+        <div class="flex items-center gap-2" id="testimonial-dots">
+          <span class="testimonial-dot active" data-index="0"></span>
+          <span class="testimonial-dot" data-index="1"></span>
+          <span class="testimonial-dot" data-index="2"></span>
+        </div>
+        <button id="testimonial-next" class="slider-arrow-btn" aria-label="Avis suivant">›</button>
+      </div>
+
     </section>
 
     <!-- ========================================== -->
@@ -1088,24 +1271,29 @@
     <!-- ========================================== -->
     <section class="py-12 sm:py-14 bg-surface/30 border-y border-white/10">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
-        
-        <div class="text-center mb-8">
+
+        <div class="text-center max-w-2xl mx-auto mb-8">
           <span class="section-pill mb-2.5">QUESTIONS FRÉQUENTES</span>
-          <h2 class="section-title text-xl sm:text-2xl">
+          <h2 class="section-title">
             Vous avez des questions ? <br />
             <span class="gradient-text-orange">Nous avons les réponses.</span>
           </h2>
+          <p class="text-gray-300 text-xs sm:text-sm mt-3 max-w-xl mx-auto">
+            Trouvez rapidement les réponses à vos interrogations sur nos prestations, nos délais et nos process d'accompagnement.
+          </p>
         </div>
 
         <div class="space-y-3" id="faqAccordion">
-          
+
           <div class="faq-item">
             <button class="faq-question">
               <span>Quels sont les délais moyens pour la création d'un site web ou d'une refonte ?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Pour un site vitrine ou institutionnel, nos délais se situent généralement entre 2 et 4 semaines selon la complexité et les validations des maquettes. Pour des plateformes sur mesure ou e-commerce, comptez entre 4 et 8 semaines avec phases de tests rigoureuses.</p>
+              <p>Pour un site vitrine ou institutionnel, nos délais se situent généralement entre 2 et 4 semaines selon
+                la complexité et les validations des maquettes. Pour des plateformes sur mesure ou e-commerce, comptez
+                entre 4 et 8 semaines avec phases de tests rigoureuses.</p>
             </div>
           </div>
 
@@ -1115,7 +1303,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Oui, absolument ! Même si notre siège est basé à Dakar, nous accompagnons régulièrement des clients dans toute l'Afrique de l'Ouest (Côte d'Ivoire, Mali, Guinée) ainsi qu'en Europe pour leurs besoins en développement web, identité de marque et supports digitaux.</p>
+              <p>Oui, absolument ! Même si notre siège est basé à Dakar, nous accompagnons régulièrement des clients
+                dans toute l'Afrique de l'Ouest (Côte d'Ivoire, Mali, Guinée) ainsi qu'en Europe pour leurs besoins en
+                développement web, identité de marque et supports digitaux.</p>
             </div>
           </div>
 
@@ -1125,7 +1315,8 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p>Oui, nous disposons d'un catalogue très fourni d'objets promotionnels (écologiques, high-tech, textiles corporate) avec possibilité d'échantillonnage préalable avant lancement de la production en série.</p>
+              <p>Oui, nous disposons d'un catalogue très fourni d'objets promotionnels (écologiques, high-tech, textiles
+                corporate) avec possibilité d'échantillonnage préalable avant lancement de la production en série.</p>
             </div>
           </div>
 
@@ -1138,10 +1329,11 @@
     <!-- SECTION 9: GET IN TOUCH / CONTACT GLASS    -->
     <!-- ========================================== -->
     <section id="contact" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative contact-glass-wrapper">
-      
+
       <!-- Studio Live Status Radar -->
-      <div class="mb-12 flex flex-wrap items-center justify-between gap-4 p-3.5 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md max-w-2xl mx-auto">
-        <div class="flex items-center gap-3 px-2">
+      <div
+        class="contact-radar-container mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 p-3.5 rounded-2xl sm:rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md max-w-2xl mx-auto">
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3 px-1 sm:px-2">
           <span class="relative flex h-2.5 w-2.5">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange"></span>
@@ -1152,8 +1344,9 @@
           <span class="hidden sm:inline text-gray-500">•</span>
           <span class="hidden sm:inline text-xs text-gray-300">Sicap Liberté 5/C n° 5656</span>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1 rounded-full bg-orange/10 border border-orange/30 text-orange text-[11px] font-semibold flex items-center gap-1.5">
+        <div class="flex items-center justify-center sm:justify-end gap-2">
+          <span
+            class="px-3 py-1 rounded-full bg-orange/10 border border-orange/30 text-orange text-[11px] font-semibold flex items-center gap-1.5">
             <span class="w-1.5 h-1.5 rounded-full bg-orange animate-pulse"></span>
             Disponibilité Immédiate
           </span>
@@ -1161,38 +1354,50 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
+
         <!-- Left Column: Coordonnées de l'Agence -->
         <div class="lg:col-span-5 space-y-3">
-          <div class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">Coordonnées de l'Agence</div>
-          
+          <div
+            class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">
+            Coordonnées de l'Agence</div>
+
           <div class="glass-card-container p-8 sm:p-10 flex flex-col justify-between min-h-[460px]">
             <div class="glass-specular-sheen"></div>
-            
+
             <div class="relative z-10">
               <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-outfit tracking-tight mb-3">
                 Restons en <span class="text-orange">Contact</span>
               </h2>
               <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-8">
-                Nous sommes à votre écoute pour échanger sur votre projet et donner vie à vos ambitions avec un design et une production d'exception.
+                Nous sommes à votre écoute pour échanger sur votre projet et donner vie à vos ambitions avec un design
+                et une production d'exception.
               </p>
 
               <!-- Contact list with minimal sleek icons -->
               <div class="space-y-5">
-                
+
                 <!-- Email -->
                 <div class="flex items-center gap-3.5 group">
                   <div class="text-orange shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect width="20" height="16" x="2" y="4" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
                   </div>
-                  <a href="mailto:contact@kreativpulse.net" class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors truncate">contact@kreativpulse.net</a>
-                  <button class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all" data-copy="contact@kreativpulse.net">Copier</button>
+                  <a href="mailto:contact@kreativpulse.net"
+                    class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors truncate">contact@kreativpulse.net</a>
+                  <button
+                    class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all"
+                    data-copy="contact@kreativpulse.net">Copier</button>
                 </div>
 
                 <!-- Adresse Officielle -->
                 <div class="flex items-start gap-3.5 group">
                   <div class="text-orange shrink-0 mt-0.5">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                      <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
                   </div>
                   <div class="text-xs sm:text-sm text-white font-medium leading-snug">
                     Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656<br />
@@ -1203,13 +1408,22 @@
                 <!-- Téléphone -->
                 <div class="flex items-center gap-3.5 group">
                   <div class="text-orange shrink-0">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
                   </div>
                   <div class="flex flex-col">
-                    <a href="tel:+221338250909" class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors">+221 33 825 09 09</a>
-                    <a href="tel:+221776442442" class="text-[11px] text-gray-400 hover:text-orange transition-colors">+221 77 644 24 42 (Ligne Directe & WA)</a>
+                    <a href="tel:+221338250909"
+                      class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors">+221 33 825
+                      09 09</a>
+                    <a href="tel:+221776442442"
+                      class="text-[11px] text-gray-400 hover:text-orange transition-colors">+221 77 644 24 42 (Ligne
+                      Directe & WA)</a>
                   </div>
-                  <button class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all" data-copy="+221 77 644 24 42">Copier</button>
+                  <button
+                    class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all"
+                    data-copy="+221 77 644 24 42">Copier</button>
                 </div>
 
               </div>
@@ -1217,8 +1431,13 @@
 
             <!-- Fast WhatsApp Handoff CTA -->
             <div class="relative z-10 pt-6 mt-6 border-t border-white/10">
-              <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse%20!%20J%27aimerais%20discuter%20d%27un%20projet%20avec%20votre%20direction." target="_blank" rel="noopener" class="w-full py-3.5 px-4 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#25D366] hover:text-black transition-all">
-                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+              <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse%20!%20J%27aimerais%20discuter%20d%27un%20projet%20avec%20votre%20direction."
+                target="_blank" rel="noopener"
+                class="w-full py-3.5 px-4 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#25D366] hover:text-black transition-all">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                </svg>
                 <span>Accès WhatsApp Direction</span> ↗
               </a>
             </div>
@@ -1228,52 +1447,69 @@
 
         <!-- Right Column: Formulaire de Contact -->
         <div class="lg:col-span-7 space-y-3">
-          <div class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">Formulaire de Contact</div>
-          
+          <div
+            class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">
+            Formulaire de Contact</div>
+
           <div class="glass-card-container p-8 sm:p-10">
             <div class="glass-specular-sheen"></div>
-            
+
             <form id="interactiveBriefForm" class="space-y-4 relative z-10">
-              
+
               <!-- Votre Nom & Prénom * -->
               <div>
-                <input type="text" id="briefName" required placeholder="Votre Nom & Prénom *" class="glass-pill-input" />
+                <input type="text" id="briefName" required placeholder="Votre Nom & Prénom *"
+                  class="glass-pill-input" />
               </div>
 
               <!-- Adresse Email * -->
               <div class="relative">
-                <input type="email" id="briefEmail" required placeholder="Adresse Email Professionnelle *" class="glass-pill-input pr-11" />
+                <input type="email" id="briefEmail" required placeholder="Adresse Email Professionnelle *"
+                  class="glass-pill-input pr-11" />
                 <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
                 </div>
               </div>
 
               <!-- Votre Entreprise ou Site Web (Optionnel) -->
               <div>
-                <input type="text" id="briefCompany" placeholder="Votre Entreprise ou Site Web (Optionnel)" class="glass-pill-input" />
+                <input type="text" id="briefCompany" placeholder="Votre Entreprise ou Site Web (Optionnel)"
+                  class="glass-pill-input" />
               </div>
 
               <!-- Écrivez votre message... -->
               <div>
-                <textarea id="briefMessage" required placeholder="Écrivez votre message ou décrivez votre projet..." class="glass-pill-textarea" rows="4"></textarea>
+                <textarea id="briefMessage" required placeholder="Écrivez votre message ou décrivez votre projet..."
+                  class="glass-pill-textarea" rows="4"></textarea>
               </div>
 
               <!-- Bouton d'action et redirection WhatsApp -->
               <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button type="submit" class="btn-glass-gradient w-full sm:w-auto">
                   <span>Envoyer le message</span>
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </button>
-                
-                <button type="button" id="btnSendBriefWhatsapp" class="text-xs text-[#25D366] hover:underline flex items-center gap-1.5 font-semibold">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+
+                <button type="button" id="btnSendBriefWhatsapp"
+                  class="text-xs text-[#25D366] hover:underline flex items-center gap-1.5 font-semibold">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                  </svg>
                   <span>Envoyer via WhatsApp</span> ↗
                 </button>
               </div>
 
               <!-- Confirmation & Feedback Banner -->
-              <div id="brief-success-banner" class="hidden p-4 rounded-2xl bg-green-500/20 border border-green-500/40 text-green-400 text-xs text-center animate-scale-up mt-3">
-                ✓ <strong>Message bien reçu !</strong> Notre direction de création à Dakar vous répondra sous 2 heures ouvrées.
+              <div id="brief-success-banner"
+                class="hidden p-4 rounded-2xl bg-green-500/20 border border-green-500/40 text-green-400 text-xs text-center animate-scale-up mt-3">
+                ✓ <strong>Message bien reçu !</strong> Notre direction de création à Dakar vous répondra sous 2 heures
+                ouvrées.
               </div>
 
             </form>
@@ -1294,53 +1530,101 @@
   <!-- ========================================== -->
   <footer class="bg-black border-t border-white/10 pt-16 pb-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
+
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-        
+
         <!-- Brand Info -->
         <div class="lg:col-span-2 space-y-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
-              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+            <div
+              class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+                class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
             </div>
             <div class="flex flex-col">
-              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span class="text-orange">'PULSE</span></span>
+              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span
+                  class="text-orange">'PULSE</span></span>
               <span class="font-handwriting text-orange text-xs tracking-wide">Le pouls créatif !</span>
             </div>
           </div>
           <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
-            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne vie à vos ambitions depuis 2014.
+            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne
+            vie à vos ambitions depuis 2014.
           </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">IN</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok">TK</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">FB</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">IG</a>
+          <!-- Réseaux Sociaux Officiels Kreativ'Pulse -->
+          <div class="flex items-center gap-2.5 pt-2">
+            <!-- LinkedIn -->
+            <a href="https://sn.linkedin.com/company/kreativ-pulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="LinkedIn Kreativ'Pulse" title="LinkedIn - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63c0-.9-.73-1.63-1.63-1.63Z" />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://www.instagram.com/kreativpulse2/" target="_blank" rel="noopener" class="social-btn"
+              aria-label="Instagram Kreativ'Pulse" title="Instagram - @kreativpulse2">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a href="https://www.facebook.com/p/Kreativ-Pulse-61577734215567/" target="_blank" rel="noopener"
+              class="social-btn" aria-label="Facebook Kreativ'Pulse" title="Facebook - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a href="https://www.tiktok.com/@kreativpulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="TikTok Kreativ'Pulse" title="TikTok - @kreativpulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/221776442442" target="_blank" rel="noopener" class="social-btn"
+              aria-label="WhatsApp Kreativ'Pulse" title="WhatsApp Direct - +221 77 644 24 42">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <!-- Navigation Links -->
-        <div>
-          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="#accueil" class="hover:text-orange transition-colors">Accueil</a></li>
-            <li><a href="#agence" class="hover:text-orange transition-colors">L'Agence</a></li>
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Nos Prestations</a></li>
-            <li><a href="#realisations" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
-            <li><a href="#methodologie" class="hover:text-orange transition-colors">Méthodologie</a></li>
-          </ul>
-        </div>
+        <!-- Navigation & Services Links (2 cols on mobile, dissolved via sm:contents on desktop) -->
+        <div class="grid grid-cols-2 gap-6 sm:contents">
+          <!-- Navigation Links -->
+          <div>
+            <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li><a href="#accueil" class="hover:text-orange transition-colors">Accueil</a></li>
+              <li><a href="#agence" class="hover:text-orange transition-colors">L'Agence</a></li>
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Nos Prestations</a></li>
+              <li><a href="#realisations" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
+              <li><a href="#methodologie" class="hover:text-orange transition-colors">Méthodologie</a></li>
+            </ul>
+          </div>
 
-        <!-- Services Links -->
-        <div>
-          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
-          <ul class="space-y-2 text-sm text-gray-400">
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Développement Web</a></li>
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Identité Visuelle & Logo</a></li>
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Audiovisuel & Motion 3D</a></li>
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Goodies & Événementiel</a></li>
-            <li><a href="#prestations" class="hover:text-orange transition-colors">Habillage Véhicules</a></li>
-          </ul>
+          <!-- Services Links -->
+          <div>
+            <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Développement Web</a></li>
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Identité Visuelle & Logo</a></li>
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Audiovisuel & Motion 3D</a></li>
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Goodies & Événementiel</a></li>
+              <li><a href="#prestations" class="hover:text-orange transition-colors">Habillage Véhicules</a></li>
+            </ul>
+          </div>
         </div>
 
         <!-- Contact Direct -->
@@ -1351,14 +1635,16 @@
             Immeuble Adja Binta Ndiaye n° 5656<br />
             Dakar — Sénégal
           </p>
-          <a href="tel:+221338250909" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 825 09 09</a>
-          <a href="mailto:contact@kreativpulse.net" class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
+          <a href="tel:+221338250909" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 825
+            09 09</a>
+          <a href="mailto:contact@kreativpulse.net"
+            class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
         </div>
 
       </div>
 
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
-        <p>© 2026 Kreativ'Pulse. Tous droits réservés. Refonte UX/UI optimisée pour la performance.</p>
+        <p>© 2026 Kreativ'Pulse. Tous droits réservé.</p>
         <div class="flex items-center gap-6">
           <a href="#" class="hover:underline">Mentions Légales</a>
           <a href="#" class="hover:underline">Politique de Confidentialité</a>
@@ -1371,10 +1657,13 @@
   <!-- ========================================== -->
   <!-- MODAL : ESTIMATEUR DE DEVIS EXPRESS        -->
   <!-- ========================================== -->
-  <div id="quoteModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity">
-    <div class="bg-surface border border-white/15 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl animate-scale-up">
-      <button id="btn-close-quote-modal" class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl font-light w-9 h-9 rounded-full bg-white/5 flex items-center justify-center focus:outline-none">×</button>
-      
+  <div id="quoteModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden transition-opacity">
+    <div
+      class="bg-surface border border-white/15 rounded-3xl max-w-xl w-full p-6 sm:p-8 relative shadow-2xl animate-scale-up">
+      <button id="btn-close-quote-modal"
+        class="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl font-light w-9 h-9 rounded-full bg-white/5 flex items-center justify-center focus:outline-none">×</button>
+
       <div class="mb-6">
         <span class="badge-mini text-orange bg-orange/10 border border-orange/20">ESTIMATEUR DE PROJET</span>
         <h3 class="font-outfit font-bold text-2xl text-white mt-2">Configurez votre projet en 3 clics</h3>
@@ -1383,7 +1672,8 @@
 
       <form id="modalQuoteForm" class="space-y-4">
         <div>
-          <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">1. Choisissez vos domaines d'intervention</label>
+          <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">1. Choisissez vos domaines
+            d'intervention</label>
           <div class="grid grid-cols-2 gap-2 text-xs">
             <label class="quote-check-label">
               <input type="checkbox" name="services" value="web" class="accent-orange" checked />
@@ -1429,7 +1719,8 @@
           <input type="email" required placeholder="contact@votre-boite.sn" class="form-input text-xs" />
         </div>
 
-        <button type="submit" class="btn-primary w-full py-3.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4">
+        <button type="submit"
+          class="btn-primary w-full py-3.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4">
           <span>Demander l'estimation gratuite</span>
           <span class="arrow-badge">↗</span>
         </button>
@@ -1440,13 +1731,15 @@
   <!-- ========================================== -->
   <!-- WIDGET WHATSAPP FLOTTANT (DAKAR CONVERSION) -->
   <!-- ========================================== -->
-  <div class="fixed bottom-6 right-6 z-40 flex flex-col items-end">
-    
+  <div class="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
+
     <!-- WhatsApp Chat Bubble Drawer -->
-    <div id="whatsappDrawer" class="hidden mb-3 bg-[#111B21] border border-white/10 rounded-2xl p-4 shadow-2xl max-w-xs w-72 animate-slide-up">
+    <div id="whatsappDrawer"
+      class="hidden mb-3 bg-[#111B21] border border-white/10 rounded-2xl p-4 shadow-2xl max-w-xs w-72 animate-slide-up">
       <div class="flex items-center justify-between pb-3 border-b border-white/10">
         <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-[#00A884] flex items-center justify-center text-white font-bold text-xs">KP</div>
+          <div class="w-8 h-8 rounded-full bg-[#00A884] flex items-center justify-center text-white font-bold text-xs">
+            KP</div>
           <div>
             <div class="text-xs font-bold text-white">Kreativ'Pulse Sénégal</div>
             <div class="text-[10px] text-green-400 flex items-center gap-1">
@@ -1459,24 +1752,32 @@
       <div class="py-3 text-xs text-gray-200">
         Bonjour ! 👋 Vous avez un projet web, branding ou événementiel à Dakar ? Écrivez-nous directement sur WhatsApp !
       </div>
-      <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse,%20j%27aimerais%20discuter%20d%27un%20projet%20pour%20mon%20entreprise." target="_blank" rel="noopener" class="block w-full py-2.5 rounded-xl bg-[#25D366] text-black font-bold text-xs text-center hover:bg-[#1EBE5D] transition-colors">
+      <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse,%20j%27aimerais%20discuter%20d%27un%20projet%20pour%20mon%20entreprise."
+        target="_blank" rel="noopener"
+        class="block w-full py-2.5 rounded-xl bg-[#25D366] text-black font-bold text-xs text-center hover:bg-[#1EBE5D] transition-colors">
         Lancer la discussion WhatsApp ↗
       </a>
     </div>
 
     <!-- WhatsApp Floating Trigger Button -->
     <button id="whatsappTriggerBtn" class="whatsapp-btn relative group" aria-label="Discuter sur WhatsApp">
-      <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-orange text-[10px] font-bold text-white flex items-center justify-center animate-bounce">1</span>
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg>
+      <span
+        class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-orange text-[10px] font-bold text-white flex items-center justify-center animate-bounce">1</span>
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+      </svg>
     </button>
   </div>
 
   <!-- ========================================== -->
   <!-- MODAL : LIGHTBOX MULTI-IMAGES GALERIE PRO  -->
   <!-- ========================================== -->
-  <div id="projectLightbox" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-xl hidden transition-all duration-300">
-    <div class="relative max-w-5xl w-full bg-[#0E1015] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh] animate-scale-up">
-      
+  <div id="projectLightbox"
+    class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/90 backdrop-blur-xl hidden transition-all duration-300">
+    <div
+      class="relative max-w-5xl w-full bg-[#0E1015] border border-white/15 rounded-3xl overflow-hidden shadow-2xl flex flex-col max-h-[92vh] animate-scale-up">
+
       <!-- Top Bar: Title & Close -->
       <div class="px-5 py-4 border-b border-white/10 flex items-center justify-between bg-surface/50">
         <div class="flex items-center gap-3">
@@ -1484,31 +1785,42 @@
           <span id="lightboxClient" class="text-xs font-semibold text-gray-300">SOGIP Diamniadio</span>
           <span id="lightboxYear" class="text-[11px] px-2 py-0.5 rounded bg-white/5 text-gray-400">2025</span>
         </div>
-        <button id="closeLightboxBtn" class="w-9 h-9 rounded-full bg-white/5 hover:bg-orange hover:text-black text-gray-300 text-xl flex items-center justify-center transition-all focus:outline-none" aria-label="Fermer la galerie">×</button>
+        <button id="closeLightboxBtn"
+          class="w-9 h-9 rounded-full bg-white/5 hover:bg-orange hover:text-black text-gray-300 text-xl flex items-center justify-center transition-all focus:outline-none"
+          aria-label="Fermer la galerie">×</button>
       </div>
 
       <!-- Main Stage: Image with Navigation Controls -->
-      <div class="relative bg-black flex-1 min-h-[300px] max-h-[58vh] flex items-center justify-center overflow-hidden select-none">
-        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="w-full h-full object-contain transition-opacity duration-300" />
-        
+      <div
+        class="relative bg-black flex-1 min-h-[300px] max-h-[58vh] flex items-center justify-center overflow-hidden select-none">
+        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse"
+          class="w-full h-full object-contain transition-opacity duration-300" />
+
         <!-- Navigation Arrows (if multi-image) -->
         <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4" aria-label="Image précédente">‹</button>
         <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4" aria-label="Image suivante">›</button>
 
         <!-- Floating Image Counter Badge -->
-        <div id="lightboxCounter" class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold flex items-center gap-1.5">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <div id="lightboxCounter"
+          class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold flex items-center gap-1.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
           <span id="lightboxCounterText">Photo 1 / 5</span>
         </div>
       </div>
 
       <!-- Thumbnails Strip (if multi-image) -->
-      <div id="lightboxThumbsContainer" class="px-5 py-3 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2.5 overflow-x-auto">
+      <div id="lightboxThumbsContainer"
+        class="px-5 py-3 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2.5 overflow-x-auto">
         <!-- Generated dynamically via app.js -->
       </div>
 
       <!-- Bottom Panel: Project Brief & Impact -->
-      <div class="p-5 sm:p-6 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div
+        class="p-5 sm:p-6 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div class="max-w-2xl">
           <h3 id="lightboxTitle" class="font-outfit font-bold text-lg sm:text-xl text-white"></h3>
           <p id="lightboxDesc" class="text-xs sm:text-sm text-gray-300 mt-1 leading-relaxed"></p>
@@ -1518,10 +1830,12 @@
         </div>
 
         <div class="flex items-center gap-3 shrink-0">
-          <a id="lightboxWhatsappBtn" href="https://wa.me/221776442442" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold hover:bg-[#25D366] hover:text-black transition-all flex items-center gap-1.5">
+          <a id="lightboxWhatsappBtn" href="https://wa.me/221776442442" target="_blank" rel="noopener"
+            class="px-4 py-2.5 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 text-[#25D366] text-xs font-bold hover:bg-[#25D366] hover:text-black transition-all flex items-center gap-1.5">
             <span>WhatsApp</span> ↗
           </a>
-          <a href="#contact" id="lightboxQuoteBtn" class="px-4 py-2.5 rounded-xl bg-orange text-black text-xs font-bold hover:bg-orange-light transition-all flex items-center gap-1.5 shadow-lg shadow-orange/20">
+          <a href="#contact" id="lightboxQuoteBtn"
+            class="px-4 py-2.5 rounded-xl bg-orange text-black text-xs font-bold hover:bg-orange-light transition-all flex items-center gap-1.5 shadow-lg shadow-orange/20">
             <span>Demander un devis</span> ↗
           </a>
         </div>
@@ -1532,4 +1846,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
