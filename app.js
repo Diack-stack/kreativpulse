@@ -1610,7 +1610,7 @@ document.addEventListener('DOMContentLoaded', () => {
     catalogGrid.innerHTML = visible.map(p => `
       <div class="catalog-product-card" data-id="${p.id}" data-ref="${p.ref}">
         <div class="product-card-media">
-          <img src="${p.image}" alt="${p.name}" class="product-card-img" loading="lazy" onerror="this.src='assets/portfolio/sentrak.png'" />
+          <img src="${p.image}" alt="${p.name}" class="product-card-img" loading="lazy" decoding="async" width="300" height="225" onerror="this.src='assets/portfolio/sentrak.png'" />
           <span class="product-badge-cat">${p.subLabel}</span>
         </div>
         <div class="product-card-body">
