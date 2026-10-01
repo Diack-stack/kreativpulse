@@ -19,8 +19,9 @@
    - `Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656, Dakar — Sénégal`
    - **JAMAIS** Sacré-Cœur 3 ni VDN.
 3. **Langue :** 100% Français sur toute l'interface.
-4. **Portfolio :** 15 projets réels intégrés avec galerie lightbox multi-images.
-5. **Partenaires :** 16 logos officiels transparents dans le ruban marquee défilant.
-6. **Hub de Contact :** Studio Brief interactif glassmorphic avec pilules de services et budget.
+4. **Mention des Projets :** JAMAIS de comptage ou mention du nombre de projets (pas de "(+15 études de cas)", pas de "15 projets", pas de "(15)").
+5. **Portfolio :** Projets réels intégrés avec galerie lightbox multi-images.
+6. **Partenaires :** 16 logos officiels transparents dans le ruban marquee défilant.
+7. **Hub de Contact :** Studio Brief interactif glassmorphic avec pilules de services et budget.
 
 Consulter [AGENTS.md](file:///c:/Users/hp/Desktop/Kreativ%27Pulse/AGENTS.md) pour les détails exhaustifs de l'historique et des composants.

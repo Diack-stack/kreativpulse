@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse Studio Manager — Administration Frontend | Kreativ'Pulse</title>
+  <!-- Favicon officiel Kreativ'Pulse (identique au frontend) -->
+  <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
+  <link rel="apple-touch-icon" href="assets/logos/kreativpulse-icon.webp" />
+
+  <!-- Google Fonts: Inter (UI) & Outfit (Titres) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              DEFAULT: '#FF7500',
+              500: '#FF7500',
+              600: '#E06500'
+            },
+            cyan: {
+              DEFAULT: '#00F2FE',
+              400: '#38BDF8'
+            },
+            darkBg: '#08090C',
+            darkSurface: '#0E121B'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Admin Stylesheet -->
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="bg-[#08090C] text-gray-200 font-sans antialiased min-h-screen selection:bg-orange selection:text-black">
+
+  <!-- Ambient Glow -->
+  <div class="admin-ambient-bg"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="adminToastContainer" class="admin-toast-container"></div>
+
+  <!-- ========================================================== -->
+  <!-- 1. AUTHENTIFICATION GATEKEEPER                             -->
+  <!-- ========================================================== -->
+  <div id="adminAuthOverlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#08090C]/95 backdrop-blur-2xl">
+    <div class="w-full max-w-sm p-7 rounded-2xl bg-[#0E121B] border border-white/10 shadow-2xl relative">
+      <div class="text-center">
+        <!-- Logo Officiel Kreativ'Pulse -->
+        <div class="inline-flex items-center justify-center gap-3 mb-5 px-4 py-2 rounded-2xl bg-white/[0.03] border border-white/10 shadow-glow-sm">
+          <div class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-surface border border-white/10 shadow-glow-sm">
+            <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-6 h-6 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+          </div>
+          <span class="font-outfit font-black text-sm text-white tracking-wider">KREATIV'<span class="text-orange">PULSE</span></span>
+        </div>
+
+        <h1 class="text-lg font-display font-bold text-white mb-1">Pulse Studio Manager</h1>
+        <p class="text-xs text-gray-400 mb-6 leading-relaxed">
+          Espace de gestion interne du frontend
+        </p>
+
+        <form id="adminLoginForm" class="space-y-4 text-left">
+          <div>
+            <label for="adminPinInput" class="block text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1.5">
+              Code PIN d'accès
+            </label>
+            <input 
+              type="password" 
+              id="adminPinInput" 
+              placeholder="••••"
+              class="admin-input text-center text-base tracking-widest font-mono py-2.5" 
+              autocomplete="current-password"
+              required 
+            />
+          </div>
+
+          <div id="adminAuthError" class="hidden text-xs text-red-400 text-center font-medium bg-red-500/10 border border-red-500/20 py-2 rounded-lg">
+            Code incorrect. (Code par défaut : 2026)
+          </div>
+
+          <button type="submit" class="w-full btn-admin-primary py-2.5 justify-center">
+            <span>Déverrouiller</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </form>
+
+        <div class="mt-5 pt-5 border-t border-white/5 space-y-2">
+          <button type="button" id="btnDemoLogin" class="w-full btn-admin-secondary text-xs py-2 justify-center text-gray-300 hover:text-white">
+            <span>Accès Direct Démonstration</span>
+          </button>
+          <div>
+            <a href="index.html" class="text-xs text-gray-500 hover:text-gray-300 transition-colors inline-block mt-2">
+              Retourner au site vitrine
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- 2. MAIN DASHBOARD SHELL (MOBILE FIRST & STABLE DESKTOP)     -->
+  <!-- ========================================================== -->
+  <!-- Mobile Backdrop Overlay -->
+  <div id="adminMobileBackdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden hidden transition-opacity duration-300"></div>
+
+  <div id="adminMainDashboard" class="hidden h-[100dvh] max-h-[100dvh] overflow-hidden flex flex-col md:flex-row relative z-10">
+    
+    <!-- TOPBAR MOBILE DÉDIÉE (Uniquement sur écrans < md) -->
+    <header id="adminMobileHeader" class="h-14 px-4 bg-[#090B10] border-b border-white/10 flex items-center justify-between md:hidden sticky top-0 z-30 shrink-0">
+      <div class="flex items-center gap-3">
+        <button type="button" id="btnAdminMobileMenuToggle" class="w-9 h-9 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/[0.08] transition-colors" aria-label="Ouvrir le menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="flex items-center gap-2">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-6 h-6 object-contain drop-shadow-[0_0_6px_rgba(255,117,0,0.4)]" />
+          <span class="font-outfit font-black text-xs text-white tracking-wider">KREATIV'<span class="text-orange">PULSE</span></span>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span id="mobileHeaderActiveBadge" class="text-[11px] font-medium text-orange bg-orange/10 px-2.5 py-0.5 rounded-full border border-orange/20 font-sans">Aperçu</span>
+        <button type="button" id="btnAdminMobileLogout" class="w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-gray-400 hover:text-red-400 transition-colors" title="Fermer la session">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- SIDEBAR (DRAWER FLUIDE SUR MOBILE · FIXE & STABLE SUR DESKTOP) -->
+    <aside id="adminSidebar" class="fixed inset-y-0 left-0 z-50 w-72 max-w-[85vw] md:max-w-none md:static md:w-72 lg:w-80 h-full md:h-screen md:max-h-screen bg-[#090B10] border-r border-white/10 md:border-white/5 shrink-0 flex flex-col justify-between overflow-hidden transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shadow-2xl md:shadow-none">
+      
+      <!-- Sidebar Header avec le Vrai Logo Officiel Kreativ'Pulse & bouton fermeture mobile -->
+      <div class="p-4 sm:p-5 border-b border-white/5 shrink-0 flex items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="relative flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm shrink-0">
+            <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse" class="w-6 h-6 sm:w-7 sm:h-7 object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_8px_rgba(255,117,0,0.35)]" />
+          </div>
+          <div>
+            <div class="font-outfit font-black text-sm text-white tracking-wider leading-tight">KREATIV'<span class="text-orange">PULSE</span></div>
+            <div class="text-[9px] uppercase tracking-widest text-gray-400 font-semibold mt-0.5">Studio Manager</div>
+          </div>
+        </a>
+
+        <!-- Bouton fermer drawer sur mobile -->
+        <button type="button" id="btnAdminCloseSidebar" class="md:hidden w-8 h-8 rounded-lg bg-white/[0.04] border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors" aria-label="Fermer le menu">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <!-- Navigation Items (Défilement interne si l'écran est petit) -->
+      <nav class="p-3 space-y-1 flex-1 overflow-y-auto">
+        <a href="#overview" data-tab="overview" class="admin-sidebar-nav-item active flex items-center gap-2.5 whitespace-nowrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-gray-400"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          <span class="whitespace-nowrap">Vue d'ensemble</span>
+        </a>
+
+        <a href="#portfolio" data-tab="portfolio" class="admin-sidebar-nav-item flex items-center gap-2.5 whitespace-nowrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-gray-400"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polygon points="12 11 12 17 17 14"/></svg>
+          <span class="whitespace-nowrap">Portfolio & Projets</span>
+        </a>
+
+        <a href="#catalog" data-tab="catalog" class="admin-sidebar-nav-item flex items-center gap-2.5 whitespace-nowrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-gray-400"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="whitespace-nowrap">Catalogue & Boutique</span>
+        </a>
+
+        <a href="#leads" data-tab="leads" class="admin-sidebar-nav-item flex items-center justify-between whitespace-nowrap">
+          <div class="flex items-center gap-2.5 min-w-0 shrink-0">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-gray-400"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+            <span class="whitespace-nowrap">Demandes de devis</span>
+          </div>
+          <span class="admin-badge admin-badge-orange text-[10px] py-0 px-1.5 shrink-0 ml-auto font-mono">Inbox</span>
+        </a>
+
+        <a href="#settings" data-tab="settings" class="admin-sidebar-nav-item flex items-center gap-2.5 whitespace-nowrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-gray-400"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <span class="whitespace-nowrap">Paramètres Agence</span>
+        </a>
+      </nav>
+
+      <!-- Sidebar Footer (100% Fixe & Stable en bas de la barre latérale) -->
+      <div class="p-3 border-t border-white/5 space-y-1.5 shrink-0 mt-auto bg-[#090B10]">
+        <a href="index.html" target="_blank" class="w-full btn-admin-secondary text-xs py-2 justify-center gap-2">
+          <span>Voir le site public</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <button type="button" id="btnAdminLogout" class="w-full text-xs text-gray-500 hover:text-red-400 py-1.5 transition-colors flex items-center justify-center gap-1.5">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          <span>Fermer la session</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE (Zone de contenu avec défilement autonome sans double-scroll) -->
+    <main class="flex-1 h-full overflow-y-auto min-w-0 bg-[#08090C] overscroll-contain flex flex-col">
+      
+      <!-- Top Navigation Bar Desktop -->
+      <header class="h-14 px-4 sm:px-6 border-b border-white/5 bg-[#08090C]/90 backdrop-blur-xl hidden md:flex items-center justify-between sticky top-0 z-30 shrink-0">
+        <div class="flex items-center gap-2 text-xs">
+          <span class="text-gray-500">Studio Manager</span>
+          <span class="text-gray-600">/</span>
+          <span id="breadcrumbCurrentView" class="font-medium text-white">Vue d'ensemble</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/5 text-[11px] text-gray-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Sicap Liberté 5 · Dakar</span>
+          </div>
+
+          <button type="button" id="btnExportAllData" class="btn-admin-secondary text-xs py-1.5 px-3 gap-1.5" title="Télécharger un backup JSON">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span class="hidden sm:inline">Export JSON</span>
+          </button>
+
+          <a href="panier.html" target="_blank" class="btn-admin-secondary text-xs py-1.5 px-3 gap-1.5 hidden md:inline-flex">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <span>Panier Devis</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Scrollable Body Content -->
+      <div class="px-3.5 py-4 pb-28 sm:px-6 sm:py-6 md:p-8 max-w-7xl mx-auto w-full flex-1">
+        <div class="space-y-6 sm:space-y-8">
+
+          <!-- ================= TAB 1 : VUE D'ENSEMBLE ================= -->
+          <section id="tab-overview" class="admin-tab-panel space-y-8">
+            <div>
+              <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Tableau de bord</h2>
+              <p class="text-xs text-gray-400 mt-1">Supervision globale des projets, demandes entrantes et articles du catalogue.</p>
+            </div>
+
+            <!-- 3 BALANCED KPI CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <!-- KPI 1 -->
+              <div class="admin-kpi-card">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Projets Référencés</span>
+                  <div class="admin-kpi-icon-wrap text-orange">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polygon points="12 11 12 17 17 14"/></svg>
+                  </div>
+                </div>
+                <div class="text-3xl font-display font-extrabold text-white" id="kpi-projects-count">15</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-gray-500 mt-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  <span>Synchronisé en direct avec le site</span>
+                </div>
+              </div>
+
+              <!-- KPI 2 -->
+              <div class="admin-kpi-card">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Demandes & Devis</span>
+                  <div class="admin-kpi-icon-wrap text-cyan">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+                  </div>
+                </div>
+                <div class="text-3xl font-display font-extrabold text-white" id="kpi-leads-count">2</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-gray-500 mt-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange"></span>
+                  <span>Briefs clients et paniers devis</span>
+                </div>
+              </div>
+
+              <!-- KPI 3 -->
+              <div class="admin-kpi-card">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">Catalogue Produits</span>
+                  <div class="admin-kpi-icon-wrap text-gray-300">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                  </div>
+                </div>
+                <div class="text-3xl font-display font-extrabold text-white" id="kpi-catalog-count">200+</div>
+                <div class="flex items-center gap-1.5 text-[11px] text-gray-500 mt-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-cyan"></span>
+                  <span>4 univers & 28 sous-catégories</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2-COLUMN BALANCED WORKSPACE -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
+              <!-- LEFT : DEMANDES ENTRANTES (2 COLONNES) -->
+              <div class="lg:col-span-2 admin-card p-6 space-y-4">
+                <div class="flex items-center justify-between border-b border-white/5 pb-4">
+                  <div>
+                    <h3 class="font-display font-bold text-white text-base">Dernières demandes reçues</h3>
+                    <p class="text-xs text-gray-400">Briefs interactifs et paniers devis soumis en ligne</p>
+                  </div>
+                  <button type="button" onclick="window.switchAdminTab ? window.switchAdminTab('leads') : document.querySelector('[data-tab=leads]').click()" class="text-xs text-orange hover:text-[#FF8A00] font-medium transition-colors">
+                    Consulter l'inbox →
+                  </button>
+                </div>
+
+                <div id="overview-recent-leads" class="space-y-3">
+                  <!-- Dynamically rendered via admin.js -->
+                </div>
+              </div>
+
+              <!-- RIGHT : ACTIONS RAPIDES & AGENCE (1 COLONNE) -->
+              <div class="space-y-6">
+                
+                <!-- Quick Tools -->
+                <div class="admin-card p-6 space-y-4">
+                  <h3 class="font-display font-bold text-white text-base border-b border-white/5 pb-3">Actions rapides</h3>
+                  
+                  <div class="space-y-2">
+                    <button type="button" onclick="if (window.switchAdminTab) { window.switchAdminTab('portfolio'); } else { document.querySelector('[data-tab=portfolio]')?.click(); } setTimeout(() => document.getElementById('btnAddNewProject')?.click(), 100);" class="w-full btn-admin-primary justify-start text-xs py-2.5 px-3">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      <span>Nouveau projet portfolio</span>
+                    </button>
+
+                    <button type="button" onclick="if (window.switchAdminTab) { window.switchAdminTab('catalog'); } else { document.querySelector('[data-tab=catalog]')?.click(); }" class="w-full btn-admin-secondary justify-start text-xs py-2.5 px-3">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                      <span>Consulter le catalogue</span>
+                    </button>
+
+                    <button type="button" onclick="if (window.switchAdminTab) { window.switchAdminTab('settings'); } else { document.querySelector('[data-tab=settings]')?.click(); }" class="w-full btn-admin-secondary justify-start text-xs py-2.5 px-3">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                      <span>Coordonnées de l'agence</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Agency Official Coordinates Badge -->
+                <div class="admin-card p-5 space-y-2 border-orange/20 bg-orange/[0.02]">
+                  <div class="flex items-center gap-2 text-xs font-semibold text-orange">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Siège Officiel</span>
+                  </div>
+                  <p class="text-xs text-gray-300 leading-relaxed">
+                    Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656, Dakar
+                  </p>
+                  <div class="text-[11px] text-gray-500 font-mono">
+                    Standard : +221 33 827 80 80
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </section>
+
+          <!-- ================= TAB 2 : GESTION DU PORTFOLIO ================= -->
+          <section id="tab-portfolio" class="admin-tab-panel hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Gestion du Portfolio</h2>
+                <p class="text-xs text-gray-400 mt-1">Créez, éditez et actualisez les réalisations visibles sur le site public.</p>
+              </div>
+              <button type="button" id="btnAddNewProject" class="btn-admin-primary text-xs py-2 px-3.5 self-start sm:self-auto">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Nouveau projet</span>
+              </button>
+            </div>
+
+            <!-- Search Filter Bar -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="portfolio-search-input" 
+                placeholder="Rechercher par titre, client ou catégorie..." 
+                class="admin-input pl-9 text-xs" 
+              />
+              <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+            </div>
+
+            <!-- Table -->
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th class="w-14">Aperçu</th>
+                    <th>Titre & Tagline</th>
+                    <th>Client</th>
+                    <th>Catégorie</th>
+                    <th>Année</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="portfolio-items-table-body">
+                  <!-- Injected via admin.js -->
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- ================= TAB 3 : GESTION DU CATALOGUE ================= -->
+          <section id="tab-catalog" class="admin-tab-panel hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Catalogue Objets & Signalétique</h2>
+                <p class="text-xs text-gray-400 mt-1">Gérez, ajoutez et actualisez les articles de la boutique avec import d'images.</p>
+              </div>
+              <button type="button" id="btnAddNewProduct" class="btn-admin-primary text-xs py-2 px-3.5 self-start sm:self-auto">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Nouveau produit</span>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="sm:col-span-2 relative">
+                <input 
+                  type="text" 
+                  id="catalog-admin-search" 
+                  placeholder="Rechercher un produit, référence ou technique..." 
+                  class="admin-input pl-9 text-xs" 
+                />
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </span>
+              </div>
+
+              <div>
+                <select id="catalog-admin-universe-filter" class="admin-input text-xs">
+                  <option value="all">Tous les univers (+200)</option>
+                  <option value="10-objets-publicitaires">Objets Publicitaires</option>
+                  <option value="11-decorations-numeriques">Décoration Numérique</option>
+                  <option value="12-salons-evenements">Salons & Événements</option>
+                  <option value="13-presentoirs-affichages">Présentoirs & Affichage</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="admin-table-container">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th class="w-14">Visuel</th>
+                    <th>Désignation & Référence</th>
+                    <th>Univers</th>
+                    <th>Sous-catégorie</th>
+                    <th class="text-right">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="catalog-items-table-body">
+                  <!-- Injected via admin.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Pagination & Compteur -->
+            <div id="catalog-pagination-box" class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-400">
+              <span id="catalog-count-info">Chargement des références...</span>
+              <button type="button" id="btnLoadMoreProducts" class="btn-admin-secondary text-xs px-3.5 py-1.5 hidden">
+                Afficher 50 articles supplémentaires
+              </button>
+            </div>
+          </section>
+
+          <!-- ================= TAB 4 : BOÎTE DE RÉCEPTION DES LEADS ================= -->
+          <section id="tab-leads" class="admin-tab-panel hidden space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Boîte de réception des Devis</h2>
+                <p class="text-xs text-gray-400 mt-1">Toutes les demandes de devis et briefs soumis depuis le site public.</p>
+              </div>
+              <button type="button" id="btnRefreshLeads" class="btn-admin-secondary text-xs py-2 px-3.5 gap-2 self-start sm:self-auto hover:text-white" title="Actualiser la liste des demandes">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                <span>Actualiser</span>
+              </button>
+            </div>
+
+            <div id="leads-list-container" class="space-y-3">
+              <!-- Injected via admin.js -->
+            </div>
+          </section>
+
+          <!-- ================= TAB 5 : PARAMÈTRES DE L'AGENCE ================= -->
+          <section id="tab-settings" class="admin-tab-panel hidden space-y-6 max-w-3xl">
+            <div>
+              <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Paramètres de l'Agence</h2>
+              <p class="text-xs text-gray-400 mt-1">Coordonnées officielles de Kreativ'Pulse affichées sur l'ensemble du site.</p>
+            </div>
+
+            <form id="formAgencySettings" class="admin-card p-6 space-y-5">
+              <div>
+                <label for="settingAddress" class="admin-label">Adresse Officielle</label>
+                <input 
+                  type="text" 
+                  id="settingAddress" 
+                  class="admin-input text-xs" 
+                  value="Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656, Dakar — Sénégal" 
+                  required 
+                />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="settingPhone" class="admin-label">Téléphone Fixe</label>
+                  <input type="text" id="settingPhone" class="admin-input text-xs font-mono" value="+221 33 827 80 80" required />
+                </div>
+                <div>
+                  <label for="settingWhatsApp" class="admin-label">Numéro WhatsApp Pro</label>
+                  <input type="text" id="settingWhatsApp" class="admin-input text-xs font-mono" value="+221 77 644 24 42" required />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="settingEmail" class="admin-label">Email Principal</label>
+                  <input type="email" id="settingEmail" class="admin-input text-xs" value="contact@kreativpulse.net" required />
+                </div>
+                <div>
+                  <label for="settingHours" class="admin-label">Horaires d'Ouverture</label>
+                  <input type="text" id="settingHours" class="admin-input text-xs" value="Lundi – Vendredi : 08h30 – 18h00" required />
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-white/5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <button type="button" id="btnResetDefaults" class="btn-admin-danger text-xs py-2 justify-center">
+                  Restaurer valeurs initiales
+                </button>
+                <button type="submit" class="btn-admin-primary text-xs py-2 justify-center">
+                  Enregistrer les coordonnées
+                </button>
+              </div>
+            </form>
+
+            <!-- CARTE SÉCURITÉ & GESTION DU MOT DE PASSE STUDIO -->
+            <div class="admin-card p-5 sm:p-6 space-y-5">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 border-b border-white/5 pb-4">
+                <div>
+                  <h3 class="font-display font-bold text-white text-sm sm:text-base flex items-center gap-2">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-orange"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>Sécurité & Code d'Accès Studio</span>
+                  </h3>
+                  <p class="text-xs text-gray-400 mt-1">Personnalisez le code PIN ou mot de passe requis pour déverrouiller l'espace d'administration.</p>
+                </div>
+                <span id="badgeCurrentPasswordStatus" class="admin-badge admin-badge-cyan text-[10px] shrink-0 self-start font-mono">
+                  Code par défaut (2026)
+                </span>
+              </div>
+
+              <form id="formAdminPassword" class="space-y-4">
+                <div>
+                  <label for="adminCurrentPassword" class="admin-label">Mot de passe actuel</label>
+                  <input 
+                    type="password" 
+                    id="adminCurrentPassword" 
+                    class="admin-input text-xs" 
+                    placeholder="Saisissez le mot de passe actuel (ex: 2026)" 
+                    required 
+                    autocomplete="current-password" 
+                  />
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="adminNewPassword" class="admin-label">Nouveau mot de passe / Code PIN</label>
+                    <div class="relative">
+                      <input 
+                        type="password" 
+                        id="adminNewPassword" 
+                        class="admin-input text-xs pr-10" 
+                        placeholder="Minimum 4 caractères" 
+                        required 
+                        autocomplete="new-password" 
+                        minlength="4" 
+                      />
+                      <button type="button" class="btn-toggle-password-visibility absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-1" data-target="adminNewPassword" title="Afficher/Masquer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label for="adminConfirmPassword" class="admin-label">Confirmer le nouveau mot de passe</label>
+                    <div class="relative">
+                      <input 
+                        type="password" 
+                        id="adminConfirmPassword" 
+                        class="admin-input text-xs pr-10" 
+                        placeholder="Retapez le mot de passe" 
+                        required 
+                        autocomplete="new-password" 
+                        minlength="4" 
+                      />
+                      <button type="button" class="btn-toggle-password-visibility absolute right-2.5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-1" data-target="adminConfirmPassword" title="Afficher/Masquer">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="passwordErrorMsg" class="hidden text-xs text-red-400 bg-red-500/10 border border-red-500/20 p-2.5 rounded-lg"></div>
+
+                <div class="pt-3 border-t border-white/5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                  <button type="button" id="btnResetPasswordDefault" class="btn-admin-secondary text-xs py-2 justify-center text-gray-400 hover:text-white">
+                    Rétablir code par défaut (2026)
+                  </button>
+                  <button type="submit" class="btn-admin-primary text-xs py-2 justify-center">
+                    <span>Mettre à jour le mot de passe</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </main>
+
+    <!-- BOTTOM TAB BAR MOBILE (Navigation tactile fluide façon App Native) -->
+    <nav id="adminMobileBottomNav" class="fixed bottom-0 left-0 right-0 h-16 bg-[#090B10]/95 backdrop-blur-xl border-t border-white/10 flex items-center justify-around px-1 z-30 md:hidden">
+      <a href="#overview" data-tab="overview" class="admin-mobile-nav-btn active flex-1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        <span class="text-[10px] mt-1 font-medium tracking-tight">Aperçu</span>
+      </a>
+
+      <a href="#portfolio" data-tab="portfolio" class="admin-mobile-nav-btn flex-1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><polygon points="12 11 12 17 17 14"/></svg>
+        <span class="text-[10px] mt-1 font-medium tracking-tight">Projets</span>
+      </a>
+
+      <a href="#catalog" data-tab="catalog" class="admin-mobile-nav-btn flex-1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="text-[10px] mt-1 font-medium tracking-tight">Boutique</span>
+      </a>
+
+      <a href="#leads" data-tab="leads" class="admin-mobile-nav-btn relative flex-1">
+        <div class="relative">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+          <span id="mobileBadgeLeadsCount" class="absolute -top-1.5 -right-2 w-4 h-4 bg-orange text-white text-[9px] font-bold rounded-full flex items-center justify-center font-mono">0</span>
+        </div>
+        <span class="text-[10px] mt-1 font-medium tracking-tight">Devis</span>
+      </a>
+
+      <a href="#settings" data-tab="settings" class="admin-mobile-nav-btn flex-1">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span class="text-[10px] mt-1 font-medium tracking-tight">Réglages</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- 3. MODALE D'ÉDITION DE PROJET                              -->
+  <!-- ========================================================== -->
+  <div id="modalProjectEditor" class="admin-modal-backdrop">
+    <div class="admin-modal-card p-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3.5 mb-5">
+        <h3 id="modalProjectTitle" class="font-display font-bold text-white text-base">Éditer le projet</h3>
+        <button type="button" class="btn-close-modal text-gray-400 hover:text-white p-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="formProjectEditor" class="space-y-4">
+        <input type="hidden" id="projEditId" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="projEditTitle" class="admin-label">Titre du Projet</label>
+            <input type="text" id="projEditTitle" class="admin-input text-xs" placeholder="Ex : Collé Sow Ardo" required />
+          </div>
+          <div>
+            <label for="projEditClient" class="admin-label">Client</label>
+            <input type="text" id="projEditClient" class="admin-input text-xs" placeholder="Ex : Maison Haute Couture" required />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="projEditCategory" class="admin-label">Pôle d'Expertise</label>
+            <select id="projEditCategory" class="admin-input text-xs">
+              <option value="branding">Branding & Mode</option>
+              <option value="event">Événementiel & Sommets</option>
+              <option value="digital">Campagnes & Digital</option>
+              <option value="print">Signalétique & Print</option>
+            </select>
+          </div>
+          <div>
+            <label for="projEditYear" class="admin-label">Année</label>
+            <input type="text" id="projEditYear" class="admin-input text-xs font-mono" placeholder="2026" />
+          </div>
+        </div>
+
+        <div>
+          <label for="projEditTagline" class="admin-label">Phrase d'Accroche</label>
+          <input type="text" id="projEditTagline" class="admin-input text-xs" placeholder="Ex : Scénographie et aménagement d'exception" />
+        </div>
+
+        <div>
+          <label for="projEditDesc" class="admin-label">Description du Projet</label>
+          <textarea id="projEditDesc" rows="3" class="admin-input text-xs leading-relaxed" placeholder="Présentation du défi créatif et des résultats..."></textarea>
+        </div>
+
+        <!-- Section Image de Couverture avec Upload Direct & Drag-and-Drop -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="admin-label mb-0">Image de Couverture</label>
+            <div class="flex items-center gap-1 bg-white/[0.04] p-0.5 rounded-lg border border-white/5">
+              <button type="button" id="tabUploadCoverModeFile" class="admin-tab-toggle-btn active">
+                Fichier (Upload)
+              </button>
+              <button type="button" id="tabUploadCoverModeUrl" class="admin-tab-toggle-btn">
+                Lien / Chemin
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode 1 : Drag & Drop Zone + Preview -->
+          <div id="coverUploadFilePane" class="space-y-2">
+            <div id="coverDropzone" class="admin-dropzone group">
+              <input type="file" id="coverFileInput" accept="image/png, image/jpeg, image/webp" class="hidden" />
+              <div class="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-orange group-hover:border-orange/30 transition-all mb-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <p class="text-xs font-medium text-white mb-0.5">
+                <span class="text-orange underline decoration-orange/40 underline-offset-2">Cliquez pour parcourir</span> ou glissez une image ici
+              </p>
+              <p class="text-[11px] text-gray-500">Formats supportés : JPG, PNG, WebP (compressé automatiquement)</p>
+            </div>
+
+            <!-- Preview Card -->
+            <div id="coverPreviewBox" class="hidden rounded-xl bg-white/[0.02] border border-white/10 p-2.5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <img id="coverPreviewImg" src="" alt="Aperçu couverture" class="w-14 h-12 object-cover rounded-lg border border-white/10 bg-black shrink-0" />
+                <div class="min-w-0">
+                  <div id="coverFileName" class="text-xs font-semibold text-white truncate">image-projet.jpg</div>
+                  <div id="coverFileMeta" class="text-[10px] text-gray-400 mt-0.5">Image prête pour le portfolio</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" id="btnReplaceCover" class="btn-admin-secondary text-xs px-2.5 py-1">Changer</button>
+                <button type="button" id="btnRemoveCover" class="btn-admin-danger text-xs px-2 py-1 flex items-center justify-center" title="Supprimer l'image">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mode 2 : Saisie manuelle de chemin ou URL -->
+          <div id="coverUploadUrlPane" class="hidden">
+            <input type="text" id="projEditCover" class="admin-input text-xs font-mono" placeholder="assets/portfolio/sentrak.png" />
+            <p class="text-[11px] text-gray-500 mt-1">Exemple : <code>assets/portfolio/sentrak.png</code> ou URL web directe.</p>
+          </div>
+        </div>
+
+        <!-- Section Galerie Additionnelle (Multi-Images pour la Lightbox) -->
+        <div class="space-y-2 pt-2 border-t border-white/5">
+          <div class="flex items-center justify-between">
+            <label class="admin-label mb-0">Photos additionnelles (Galerie Lightbox)</label>
+            <span class="text-[11px] text-gray-500">Optionnel</span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2" id="galleryThumbsContainer">
+            <!-- Bouton d'ajout de photo de galerie -->
+            <label id="btnAddGalleryPhoto" class="cursor-pointer w-14 h-14 rounded-lg border border-dashed border-white/20 hover:border-orange/50 hover:bg-orange/[0.04] transition-all flex flex-col items-center justify-center text-gray-400 hover:text-orange shrink-0">
+              <input type="file" id="galleryFileInput" accept="image/png, image/jpeg, image/webp" multiple class="hidden" />
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              <span class="text-[9px] mt-0.5 font-medium">+ Photo</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="projEditDeliverables" class="admin-label">Livrables Clés (Séparés par des virgules)</label>
+          <input type="text" id="projEditDeliverables" class="admin-input text-xs" placeholder="Ex : Charte graphique, Shooting HD, Packaging" />
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-end gap-2.5">
+          <button type="button" class="btn-close-modal btn-admin-secondary text-xs">Annuler</button>
+          <button type="submit" class="btn-admin-primary text-xs">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================================== -->
+  <!-- 4. MODALE D'ÉDITION DE PRODUIT (BOUTIQUE & CATALOGUE)      -->
+  <!-- ========================================================== -->
+  <div id="modalProductEditor" class="admin-modal-backdrop">
+    <div class="admin-modal-card p-6">
+      <div class="flex items-center justify-between border-b border-white/10 pb-3.5 mb-5">
+        <h3 id="modalProductTitle" class="font-display font-bold text-white text-base">Nouveau produit du catalogue</h3>
+        <button type="button" class="btn-close-modal text-gray-400 hover:text-white p-1">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="formProductEditor" class="space-y-4">
+        <input type="hidden" id="prodEditId" />
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="prodEditName" class="admin-label">Désignation du Produit</label>
+            <input type="text" id="prodEditName" class="admin-input text-xs" placeholder="Ex : Coffret Téranga Bambou" required />
+          </div>
+          <div>
+            <label for="prodEditRef" class="admin-label">Référence (Code Réf.)</label>
+            <input type="text" id="prodEditRef" class="admin-input text-xs font-mono" placeholder="Ex : 009845" required />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="prodEditUniverse" class="admin-label">Grand Univers</label>
+            <select id="prodEditUniverse" class="admin-input text-xs">
+              <option value="10-objets-publicitaires">Objets Publicitaires</option>
+              <option value="11-decorations-numeriques">Décoration Numérique</option>
+              <option value="12-salons-evenements">Salons & Événements</option>
+              <option value="13-presentoirs-affichages">Présentoirs & Affichage</option>
+            </select>
+          </div>
+          <div>
+            <label for="prodEditSubLabel" class="admin-label">Sous-Catégorie / Rayon</label>
+            <input type="text" id="prodEditSubLabel" class="admin-input text-xs" placeholder="Ex : Coffrets cadeaux, Stylos, Mugs..." required />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+          <div>
+            <label for="prodEditTechnique" class="admin-label">Technique(s) de Marquage</label>
+            <input type="text" id="prodEditTechnique" class="admin-input text-xs" placeholder="Ex : Sérigraphie, Gravure laser, UV" />
+          </div>
+          <div>
+            <label for="prodEditMatiere" class="admin-label">Matière / Matériau</label>
+            <input type="text" id="prodEditMatiere" class="admin-input text-xs" placeholder="Ex : Bois bambou, Céramique, Métal" />
+          </div>
+        </div>
+
+        <div>
+          <label for="prodEditDesc" class="admin-label">Description & Spécifications</label>
+          <textarea id="prodEditDesc" rows="3" class="admin-input text-xs leading-relaxed" placeholder="Présentation du produit, contenance, finitions et options de personnalisation..."></textarea>
+        </div>
+
+        <!-- Section Image du Produit avec Upload Direct -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <label class="admin-label mb-0">Photo du Produit</label>
+            <div class="flex items-center gap-1 bg-white/[0.04] p-0.5 rounded-lg border border-white/5">
+              <button type="button" id="tabUploadProdModeFile" class="admin-tab-toggle-btn active">
+                Fichier (Upload)
+              </button>
+              <button type="button" id="tabUploadProdModeUrl" class="admin-tab-toggle-btn">
+                Lien / Chemin
+              </button>
+            </div>
+          </div>
+
+          <!-- Mode 1 : Drag & Drop Zone + Preview -->
+          <div id="prodUploadFilePane" class="space-y-2">
+            <div id="prodDropzone" class="admin-dropzone group">
+              <input type="file" id="prodFileInput" accept="image/png, image/jpeg, image/webp" class="hidden" />
+              <div class="w-10 h-10 rounded-full bg-white/[0.04] border border-white/10 flex items-center justify-center text-gray-400 group-hover:text-orange group-hover:border-orange/30 transition-all mb-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              </div>
+              <p class="text-xs font-medium text-white mb-0.5">
+                <span class="text-orange underline decoration-orange/40 underline-offset-2">Cliquez pour parcourir</span> ou glissez une photo ici
+              </p>
+              <p class="text-[11px] text-gray-500">Formats supportés : JPG, PNG, WebP (compressé automatiquement)</p>
+            </div>
+
+            <!-- Preview Card -->
+            <div id="prodPreviewBox" class="hidden rounded-xl bg-white/[0.02] border border-white/10 p-2.5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3 min-w-0">
+                <img id="prodPreviewImg" src="" alt="Aperçu produit" class="w-14 h-12 object-contain rounded-lg border border-white/10 bg-black/50 shrink-0 p-1" />
+                <div class="min-w-0">
+                  <div id="prodFileName" class="text-xs font-semibold text-white truncate">produit.jpg</div>
+                  <div id="prodFileMeta" class="text-[10px] text-gray-400 mt-0.5">Photo prête pour le catalogue</div>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button type="button" id="btnReplaceProdImg" class="btn-admin-secondary text-xs px-2.5 py-1">Changer</button>
+                <button type="button" id="btnRemoveProdImg" class="btn-admin-danger text-xs px-2 py-1 flex items-center justify-center" title="Supprimer la photo">
+                  <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mode 2 : Saisie manuelle de chemin ou URL -->
+          <div id="prodUploadUrlPane" class="hidden">
+            <input type="text" id="prodEditImage" class="admin-input text-xs font-mono" placeholder="assets/catalogue/mon-produit.jpg" />
+            <p class="text-[11px] text-gray-500 mt-1">Exemple : <code>assets/catalogue/...</code> ou URL web directe.</p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-end gap-2.5">
+          <button type="button" class="btn-close-modal btn-admin-secondary text-xs">Annuler</button>
+          <button type="submit" class="btn-admin-primary text-xs">Enregistrer le Produit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="catalog-data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

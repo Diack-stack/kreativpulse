@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Studio Brief | Kreativ'Pulse Dakar</title>
+  <meta name="description"
+    content="Contactez Kreativ'Pulse à Dakar pour vos projets de branding, digital, événementiel et objets publicitaires. Siège à Sicap Liberté 5." />
+  <link rel="canonical" href="https://www.kreativpulse.net/contact" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#FF7500', light: '#FF8A00', dark: '#E06000' },
+            dark: { DEFAULT: '#08090C', surface: '#101217', card: '#161920' },
+            cyan: { DEFAULT: '#00E5A3', glow: 'rgba(0, 229, 163, 0.3)' }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            handwriting: ['Caveat', 'cursive']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark text-light antialiased selection:bg-orange selection:text-white">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-top-right"></div>
+  </div>
+  <div class="grid-mesh-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-dark/85 border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Kreativ'Pulse Accueil">
+        <div
+          class="flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+            class="w-8 h-8 object-contain transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
+            KREATIV<span class="text-orange">'PULSE</span>
+          </span>
+          <span class="font-handwriting text-orange text-sm tracking-wide -mt-0.5">Le pouls créatif !</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="a-propos.html" class="nav-link">L'Agence</a>
+        <a href="services.html" class="nav-link">Nos Prestations</a>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+        <a href="catalogue.html" class="nav-link">Catalogue</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions: Panier & Devis -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="panier.html" class="btn-nav-cart" aria-label="Voir le panier de devis" title="Panier de devis">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+        <a href="https://wa.me/221776442442" target="_blank" rel="noopener"
+          class="btn-primary flex items-center gap-2 text-xs font-bold uppercase tracking-wider py-2.5 px-5">
+          <span>WhatsApp Direct</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Right Controls (Cart + Hamburger) -->
+      <div class="md:hidden flex items-center gap-2.5">
+        <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="mobile-cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+
+        <button id="mobile-menu-toggle"
+          class="flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none"
+          aria-label="Menu de navigation">
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-3.5 h-0.5 bg-orange self-start ml-3 transition-all duration-300"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer (Luxury Fullscreen Overlay) -->
+    <div id="mobile-menu-drawer" class="md:hidden hidden">
+      <!-- Top Bar -->
+      <div class="mobile-menu-topbar">
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-xl bg-surface border border-white/10 flex items-center justify-center p-1.5 shadow-glow-xs">
+            <svg viewBox="0 0 120 120" class="w-full h-full" fill="none">
+              <path d="M25 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M25 60L55 20V100" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M65 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M65 20H85C96 20 105 29 105 40C105 51 96 60 85 60H65" stroke="#00F2FE" stroke-width="12"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-outfit font-extrabold tracking-wider text-base leading-none text-white">
+              KREATIV<span class="text-orange">'PULSE</span>
+            </span>
+            <span class="font-handwriting text-orange text-xs tracking-wide -mt-0.5">Le pouls créatif !</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-badge-count hidden">0</span>
+          </a>
+          <button type="button" class="mobile-menu-close-btn" aria-label="Fermer le menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Rows -->
+      <nav class="mobile-menu-body">
+        <a href="index.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">01</span>
+            <span class="mobile-nav-title">Accueil</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="a-propos.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">02</span>
+            <span class="mobile-nav-title">L'Agence</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="services.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">03</span>
+            <span class="mobile-nav-title">Nos Prestations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="realisations.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">04</span>
+            <span class="mobile-nav-title">Nos Réalisations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="catalogue.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">05</span>
+            <span class="mobile-nav-title">Boutique & Goodies</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="panier.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">06</span>
+            <span class="mobile-nav-title">Panier de Devis</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="contact.html" class="mobile-nav-row active">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">07</span>
+            <span class="mobile-nav-title">Contact & Studio</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+      </nav>
+
+      <!-- Footer & Coordonnées -->
+      <div class="mobile-menu-footer">
+        <a href="#brief-form"
+          class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-xs font-bold uppercase tracking-wider rounded-xl">
+          <span>Remplir le Brief Studio</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="https://wa.me/221770000000?text=Bonjour%20Kreativ'Pulse" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-emerald-400 font-semibold hover:bg-emerald-500/10 text-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px]">WhatsApp Direct</span>
+          </a>
+          <a href="tel:+221338278080"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold hover:bg-white/10 text-center">
+            <span class="text-[11px]">📞 +221 33 827 80</span>
+          </a>
+        </div>
+        <div class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+          <span class="text-orange">📍</span>
+          <span>Sicap Liberté 5, Imm. Adja Binta Ndiaye • Dakar</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-16 relative z-10 w-full overflow-hidden contact-glass-wrapper min-h-screen">
+
+    <!-- Orbes d'ambiance néon : subtils sur desktop, doux et discrets sur mobile -->
+    <div
+      class="hidden sm:block absolute -top-32 -left-20 w-[600px] h-[600px] bg-orange/[0.08] rounded-full blur-[160px] pointer-events-none">
+    </div>
+    <div
+      class="hidden sm:block absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-orange/[0.05] rounded-full blur-[160px] pointer-events-none">
+    </div>
+    <div
+      class="hidden sm:block absolute top-2/3 right-0 w-[500px] h-[500px] bg-[#00E5A3]/[0.05] rounded-full blur-[150px] pointer-events-none">
+    </div>
+    <div
+      class="hidden sm:block absolute bottom-10 left-10 w-[450px] h-[450px] bg-orange/[0.06] rounded-full blur-[140px] pointer-events-none">
+    </div>
+    <!-- Halo discret spécifique mobile -->
+    <div
+      class="sm:hidden absolute top-0 left-1/2 -translate-x-1/2 w-72 h-44 bg-orange/[0.05] rounded-full blur-3xl pointer-events-none">
+    </div>
+
+    <!-- HERO SECTION CONTACT -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-center relative z-10">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange/15 border border-orange/30 text-orange text-xs font-bold uppercase tracking-wider mb-4">
+        <span>PARLONS DE VOTRE PROJET</span>
+      </div>
+      <h1
+        class="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase max-w-4xl mx-auto leading-tight">
+        Lançons ensemble votre <span class="gradient-text-orange">prochaine réussite.</span>
+      </h1>
+      <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+        Vous avez un projet de refonte d'identité, de création de site web, d'événementiel ou d'objets publicitaires à
+        Dakar ? Échangeons dès aujourd'hui.
+      </p>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION CONTACT GLASSMORPHIC & QG DAKAR   -->
+    <!-- (MÊME FORMULAIRE ET DISPOSITION QUE L'ACCUEIL) -->
+    <!-- ========================================== -->
+    <section id="contact" class="py-6 sm:py-10 w-full relative z-10">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Studio Live Status Radar -->
+        <div
+          class="contact-radar-container mb-12 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 p-3.5 rounded-2xl sm:rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-md max-w-2xl mx-auto">
+          <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 sm:gap-3 px-1 sm:px-2">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange"></span>
+            </span>
+            <span class="text-[11px] font-bold tracking-wider text-orange uppercase font-outfit">QG DAKAR</span>
+            <span class="text-gray-500">•</span>
+            <span class="text-xs text-white font-mono font-bold" id="dakar-clock">00:00:00 GMT</span>
+            <span class="hidden sm:inline text-gray-500">•</span>
+            <span class="hidden sm:inline text-xs text-gray-300">Sicap Liberté 5/C n° 5656</span>
+          </div>
+          <div class="flex items-center justify-center sm:justify-end gap-2">
+            <span
+              class="px-3 py-1 rounded-full bg-orange/10 border border-orange/30 text-orange text-[11px] font-semibold flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-orange animate-pulse"></span>
+              Disponibilité Immédiate
+            </span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+          <!-- Left Column: Coordonnées de l'Agence -->
+          <div class="lg:col-span-5 flex flex-col space-y-3">
+            <div
+              class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">
+              Coordonnées de l'Agence</div>
+
+            <div class="glass-card-container p-8 sm:p-10 flex flex-col justify-between h-full">
+              <div class="glass-specular-sheen"></div>
+
+              <div class="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-outfit tracking-tight mb-3">
+                    Restons en <span class="text-orange">Contact</span>
+                  </h2>
+                  <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-8">
+                    Nous sommes à votre écoute pour échanger sur votre projet et donner vie à vos ambitions avec un
+                    design
+                    et une production d'exception.
+                  </p>
+
+                  <!-- Contact list with minimal sleek icons -->
+                  <div class="space-y-6">
+
+                    <!-- Email -->
+                    <div class="flex items-center gap-3.5 group">
+                      <div class="text-orange shrink-0">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <rect width="20" height="16" x="2" y="4" rx="2" />
+                          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                      </div>
+                      <a href="mailto:contact@kreativpulse.net"
+                        class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors truncate">contact@kreativpulse.net</a>
+                      <button
+                        class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all"
+                        data-copy="contact@kreativpulse.net">Copier</button>
+                    </div>
+
+                    <!-- Adresse Officielle -->
+                    <div class="flex items-start gap-3.5 group">
+                      <div class="text-orange shrink-0 mt-0.5">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                          <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                      </div>
+                      <div class="text-xs sm:text-sm text-white font-medium leading-snug">
+                        Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656<br />
+                        <span class="text-gray-400 text-xs">En face supermarché Auchan · Dakar — Sénégal</span>
+                      </div>
+                    </div>
+
+                    <!-- Téléphone -->
+                    <div class="flex items-center gap-3.5 group">
+                      <div class="text-orange shrink-0">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                          stroke-width="2">
+                          <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                      </div>
+                      <div class="flex flex-col">
+                        <a href="tel:+221338250909"
+                          class="text-xs sm:text-sm text-white font-medium hover:text-orange transition-colors">+221 33
+                          825
+                          09 09</a>
+                        <a href="tel:+221776442442"
+                          class="text-[11px] text-gray-400 hover:text-orange transition-colors">+221 77 644 24 42 (Ligne
+                          Directe & WA)</a>
+                      </div>
+                      <button
+                        class="btn-copy-contact ml-auto text-[10px] px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-orange hover:border-orange/40 hover:bg-orange/10 transition-all"
+                        data-copy="+221 77 644 24 42">Copier</button>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Fast WhatsApp Handoff CTA -->
+                <div class="pt-6 mt-8 border-t border-white/10">
+                  <a href="https://wa.me/221776442442?text=Bonjour%20Kreativ%27Pulse%20!%20J%27aimerais%20discuter%20d%27un%20projet%20avec%20votre%20direction."
+                    target="_blank" rel="noopener"
+                    class="w-full py-3.5 px-4 rounded-full bg-[#25D366]/15 border border-[#25D366]/30 text-[#25D366] font-bold text-xs flex items-center justify-center gap-2 hover:bg-[#25D366] hover:text-black transition-all">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                    </svg>
+                    <span>Accès WhatsApp Direction</span>
+                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-current/20 text-xs font-bold">↗</span>
+                  </a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Formulaire de Contact -->
+          <div class="lg:col-span-7 flex flex-col space-y-3">
+            <div
+              class="text-[11px] font-bold text-orange uppercase tracking-widest text-center lg:text-left px-2 font-outfit">
+              Formulaire de Contact</div>
+
+            <div class="glass-card-container p-8 sm:p-10 flex flex-col justify-between h-full">
+              <div class="glass-specular-sheen"></div>
+
+              <form id="interactiveBriefForm" class="space-y-4 relative z-10 flex flex-col justify-between h-full">
+
+                <div class="space-y-4">
+                  <!-- Votre Nom & Prénom * -->
+                  <div>
+                    <input type="text" id="briefName" required placeholder="Votre Nom & Prénom *"
+                      class="glass-pill-input" />
+                  </div>
+
+                  <!-- Adresse Email * -->
+                  <div class="relative">
+                    <input type="email" id="briefEmail" required placeholder="Adresse Email Professionnelle *"
+                      class="glass-pill-input pr-11" />
+                    <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <!-- Votre Entreprise ou Site Web (Optionnel) -->
+                  <div>
+                    <input type="text" id="briefCompany" placeholder="Votre Entreprise ou Organisation (Optionnel)"
+                      class="glass-pill-input" />
+                  </div>
+
+                  <!-- Téléphone / WhatsApp (Optionnel) -->
+                  <div>
+                    <input type="tel" id="briefPhone" placeholder="Téléphone ou WhatsApp (Optionnel)"
+                      class="glass-pill-input" />
+                  </div>
+
+                  <!-- Écrivez votre message... -->
+                  <div>
+                    <textarea id="briefMessage" required placeholder="Écrivez votre message ou décrivez votre projet..."
+                      class="glass-pill-textarea" rows="4"></textarea>
+                  </div>
+                </div>
+
+                <!-- Bouton d'action et redirection WhatsApp -->
+                <div
+                  class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 mt-auto">
+                  <button type="submit" class="btn-glass-gradient w-full sm:w-auto">
+                    <span>Envoyer le message</span>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
+
+                  <button type="button" id="btnSendBriefWhatsapp"
+                    class="text-xs text-[#25D366] hover:underline flex items-center gap-1.5 font-semibold">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+                    </svg>
+                    <span>Envoyer via WhatsApp</span>
+                    <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#25D366]/20 text-[#25D366] text-xs font-bold">↗</span>
+                  </button>
+                </div>
+
+                <!-- Confirmation & Feedback Banner -->
+                <div id="brief-success-banner"
+                  class="hidden p-4 rounded-2xl bg-green-500/20 border border-green-500/40 text-green-400 text-xs text-center animate-scale-up mt-3">
+                  ✓ <strong>Message bien reçu !</strong> Notre direction de création à Dakar vous répondra sous 2 heures
+                  ouvrées.
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carte Google Maps (Localisation Siège Dakar) -->
+        <div
+          class="mt-8 rounded-3xl overflow-hidden border border-white/10 relative h-64 sm:h-72 w-full group shadow-2xl bg-surface/50 backdrop-blur-xl">
+          <iframe
+            src="https://maps.google.com/maps?q=Libert%C3%A9%205%20En%20face%20Auchan&t=m&z=15&output=embed&iwloc=near"
+            title="Google Maps QG Kreativ'Pulse Liberté 5 Dakar"
+            class="w-full h-full border-0 filter grayscale-[15%] contrast-[105%] group-hover:grayscale-0 transition-all duration-500"
+            loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+
+      <!-- Rayon épuré signature -->
+      <div class="contact-beam-divider"></div>
+
+    </section>
+
+    <!-- SECTION NEWSLETTER -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <div class="newsletter-banner">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+              Restez branchés sur notre <span class="text-orange">pouls</span> créatif.
+            </h3>
+            <p class="text-gray-300 text-xs sm:text-sm mt-1">1 email par mois, les meilleures inspirations et tendances
+              dakaroises.</p>
+          </div>
+          <div class="lg:col-span-5">
+            <form id="newsletter-form" class="space-y-3">
+              <div class="newsletter-input-pill">
+                <input type="email" id="newsletter-email" required placeholder="Votre adresse email"
+                  class="bg-transparent border-none outline-none text-white text-xs sm:text-sm flex-1 min-w-0" />
+                <button type="submit"
+                  class="btn-newsletter px-5 py-2.5 rounded-full bg-orange hover:bg-orange-light text-white font-bold text-xs uppercase tracking-wider transition-all shrink-0">S'inscrire</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER OFFICIEL MULTIPAGE -->
+  <footer class="bg-black border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+                class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span
+                  class="text-orange">'PULSE</span></span>
+              <span class="font-handwriting text-orange text-xs tracking-wide">Le pouls créatif !</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne
+            vie à vos ambitions depuis 2014.
+          </p>
+          <!-- Réseaux Sociaux Officiels Kreativ'Pulse -->
+          <div class="flex items-center gap-2.5 pt-2">
+            <a href="https://sn.linkedin.com/company/kreativ-pulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="LinkedIn Kreativ'Pulse" title="LinkedIn - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63c0-.9-.73-1.63-1.63-1.63Z" />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/kreativpulse2/" target="_blank" rel="noopener" class="social-btn"
+              aria-label="Instagram Kreativ'Pulse" title="Instagram - @kreativpulse2">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <a href="https://www.facebook.com/p/Kreativ-Pulse-61577734215567/" target="_blank" rel="noopener"
+              class="social-btn" aria-label="Facebook Kreativ'Pulse" title="Facebook - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+
+            <a href="https://www.tiktok.com/@kreativpulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="TikTok Kreativ'Pulse" title="TikTok - @kreativpulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+
+            <a href="https://wa.me/221776442442" target="_blank" rel="noopener" class="social-btn"
+              aria-label="WhatsApp Kreativ'Pulse" title="WhatsApp Direct - +221 77 644 24 42">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-orange transition-colors">Accueil</a></li>
+            <li><a href="a-propos.html" class="hover:text-orange transition-colors">L'Agence</a></li>
+            <li><a href="services.html" class="hover:text-orange transition-colors">Nos Prestations</a></li>
+            <li><a href="realisations.html" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Boutique & Goodies</a></li>
+            <li><a href="panier.html" class="hover:text-orange transition-colors">Mon Panier de Devis</a></li>
+            <li><a href="contact.html" class="text-orange font-semibold">Contact & Studio Brief</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="services.html#web" class="hover:text-orange transition-colors">Développement Web & Mobile</a>
+            </li>
+            <li><a href="services.html#branding" class="hover:text-orange transition-colors">Identité Visuelle &
+                Logo</a></li>
+            <li><a href="services.html#audiovisuel" class="hover:text-orange transition-colors">Audiovisuel & Motion
+                3D</a></li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Goodies & Cadeaux d'Affaires</a>
+            </li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Signalétique & Habillage Flotte</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Direct -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Siège Dakar</h4>
+          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3">
+            Sicap Liberté 5/C<br />
+            Immeuble Adja Binta Ndiaye n° 5656<br />
+            Dakar — Sénégal
+          </p>
+          <a href="tel:+221338278080" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 827
+            80 80</a>
+          <a href="mailto:contact@kreativpulse.net"
+            class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p class="text-center md:text-left text-gray-400">
+          © 2026 Kreativ'Pulse SARL · Tous droits réservés · Sicap Liberté 5/C, Dakar — Sénégal.
+        </p>
+        <div class="flex items-center justify-center gap-4 text-[11px] text-gray-400">
+          <a href="#" class="hover:text-orange transition-colors">Mentions Légales</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="#" class="hover:text-orange transition-colors">Politique de Confidentialité</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="admin.html" class="hover:text-orange transition-colors flex items-center gap-1.5 opacity-70 hover:opacity-100" title="Espace de pilotage Studio Manager">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-70"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Studio Admin</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="catalog-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

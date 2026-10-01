@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boutique & Catalogue Goodies | Kreativ'Pulse Dakar — +200 Références</title>
+  <meta name="description"
+    content="Catalogue officiel d'objets publicitaires, cadeaux d'entreprise, signalétique et décoration numérique à Dakar. Commandez vos devis en ligne." />
+  <link rel="canonical" href="https://www.kreativpulse.net/catalogue" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#FF7500', light: '#FF8A00', dark: '#E06000' },
+            dark: { DEFAULT: '#08090C', surface: '#101217', card: '#161920' },
+            cyan: { DEFAULT: '#00E5A3', glow: 'rgba(0, 229, 163, 0.3)' }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            handwriting: ['Caveat', 'cursive']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark text-light antialiased selection:bg-orange selection:text-white">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-top-right"></div>
+  </div>
+  <div class="grid-mesh-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-dark/85 border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Kreativ'Pulse Accueil">
+        <div
+          class="flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+            class="w-8 h-8 object-contain transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
+            KREATIV<span class="text-orange">'PULSE</span>
+          </span>
+          <span class="font-handwriting text-orange text-sm tracking-wide -mt-0.5">Le pouls créatif !</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="a-propos.html" class="nav-link">L'Agence</a>
+        <a href="services.html" class="nav-link">Nos Prestations</a>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+
+        <!-- Menu Item avec Méga-Menu Catalogue -->
+        <div class="nav-has-megamenu py-2">
+          <a href="catalogue.html" class="nav-link active flex items-center gap-1 group text-orange">
+            <span>Catalogue</span>
+            <span class="text-[10px] text-orange transition-transform duration-200 group-hover:rotate-180">▼</span>
+          </a>
+
+          <!-- Mega-Menu Dropdown Glassmorphic -->
+          <div class="mega-menu-dropdown">
+            <div class="mega-menu-grid">
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"
+                  data-filter-universe="10-objets-publicitaires"><span>Objets Publicitaires</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="673-coffrets">Coffrets cadeaux</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="33-blocs-notes">Carnets & agendas</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="34-stylos">Stylos & instruments</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="35-collection-mugs">Mugs &
+                    isothermes</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="38-vetements">Textile & tote bags</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="40-high-tech">High-tech & clés USB</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="41-accessoires-de-bureaux">Bureau &
+                    bagagerie</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"
+                  data-filter-universe="11-decorations-numeriques"><span>Décoration Numérique</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="222-branding-d-ascenseur">Ascenseurs &
+                    portes</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="305-branding-d-automobiles">Habillage
+                    véhicules</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="221-branding-vitrines">Sols &
+                    vitrines</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="220-habillages-muraux">Murs & papier
+                    peint</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="218-petits-objets-decoratifs">Objets
+                    décoratifs</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="219-tableaux-personnalises">Tableaux
+                    personnalisés</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="733-materiaux-imprimes-rigides">Supports rigides</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title" data-filter-universe="12-salons-evenements"><span>Salons
+                    & Événements</span> <span class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="93-materiel-gonflables">Gonflables
+                    extérieurs</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="95-photocall-d-interieur">Photocalls &
+                    kakémonos</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="97-comptoirs-mobiles">Comptoirs &
+                    stands</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="99-badges-de-salons-cordons">Badges &
+                    cordons</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="100-special-expositions">Expositions</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="101-special-inaugurations">Inaugurations</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="716-trophees-emblemes-by-mandarine">Trophées & distinctions</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"
+                  data-filter-universe="13-presentoirs-affichages"><span>Présentoirs & Signalétique</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="200-solutions-tactiles-et-affichages-dynamiques">Écrans & totems LED</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="185-presentoirs-de-comptoir-et-table">Présentoirs de comptoir</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="197-distributeurs-de-brochures-dans-les-halls">Distributeurs brochures</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="205-presentoirs-de-magasin">Présentoirs magasins</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="213-solution-d-affichage-grand-format">Affichage grand format</a>
+                  <a href="catalogue.html" class="mega-sub-link" data-filter-sub="751-enseignes-lettrages">Enseignes &
+                    lettrages</a>
+                  <a href="catalogue.html" class="mega-sub-link"
+                    data-filter-sub="794-collections-by-mandarine">Signalétique entreprise</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions: Panier & Devis -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="panier.html" class="btn-nav-cart" aria-label="Voir le panier de devis" title="Panier de devis">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+        <a href="panier.html"
+          class="btn-primary flex items-center gap-2 text-xs font-bold uppercase tracking-wider py-2.5 px-5">
+          <span>Mon Panier Devis</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Right Controls (Cart + Hamburger) -->
+      <div class="md:hidden flex items-center gap-2.5">
+        <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="mobile-cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+
+        <button id="mobile-menu-toggle"
+          class="flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none"
+          aria-label="Menu de navigation">
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-3.5 h-0.5 bg-orange self-start ml-3 transition-all duration-300"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer (Luxury Fullscreen Overlay) -->
+    <div id="mobile-menu-drawer" class="md:hidden hidden">
+      <!-- Top Bar -->
+      <div class="mobile-menu-topbar">
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-xl bg-surface border border-white/10 flex items-center justify-center p-1.5 shadow-glow-xs">
+            <svg viewBox="0 0 120 120" class="w-full h-full" fill="none">
+              <path d="M25 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M25 60L55 20V100" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M65 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M65 20H85C96 20 105 29 105 40C105 51 96 60 85 60H65" stroke="#00F2FE" stroke-width="12"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-outfit font-extrabold tracking-wider text-base leading-none text-white">
+              KREATIV<span class="text-orange">'PULSE</span>
+            </span>
+            <span class="font-handwriting text-orange text-xs tracking-wide -mt-0.5">Le pouls créatif !</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-badge-count hidden">0</span>
+          </a>
+          <button type="button" class="mobile-menu-close-btn" aria-label="Fermer le menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Rows -->
+      <nav class="mobile-menu-body">
+        <a href="index.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">01</span>
+            <span class="mobile-nav-title">Accueil</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="a-propos.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">02</span>
+            <span class="mobile-nav-title">L'Agence</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="services.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">03</span>
+            <span class="mobile-nav-title">Nos Prestations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="realisations.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">04</span>
+            <span class="mobile-nav-title">Nos Réalisations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="catalogue.html" class="mobile-nav-row active">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">05</span>
+            <span class="mobile-nav-title">Boutique & Goodies</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="panier.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">06</span>
+            <span class="mobile-nav-title">Panier de Devis</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="contact.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">07</span>
+            <span class="mobile-nav-title">Contact & Studio</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+      </nav>
+
+      <!-- Footer & Coordonnées -->
+      <div class="mobile-menu-footer">
+        <a href="panier.html"
+          class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-xs font-bold uppercase tracking-wider rounded-xl">
+          <span>Accéder au Panier de Devis</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="https://wa.me/221770000000?text=Bonjour%20Kreativ'Pulse" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-emerald-400 font-semibold hover:bg-emerald-500/10 text-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px]">WhatsApp Direct</span>
+          </a>
+          <a href="tel:+221338278080"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold hover:bg-white/10 text-center">
+            <span class="text-[11px]">📞 +221 33 827 80</span>
+          </a>
+        </div>
+        <div class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+          <span class="text-orange">📍</span>
+          <span>Sicap Liberté 5, Imm. Adja Binta Ndiaye • Dakar</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-16 relative z-10">
+
+    <!-- HERO SECTION CATALOGUE -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-center">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange/15 border border-orange/30 text-orange text-xs font-bold uppercase tracking-wider mb-4">
+        <span>BOUTIQUE OFFICIELLE KREATIV'PULSE DAKAR</span>
+      </div>
+      <h1
+        class="font-outfit font-black text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase max-w-4xl mx-auto leading-tight">
+        Catalogue Publicitaire & <span class="gradient-text-orange">Supports de Marque</span>
+      </h1>
+      <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mt-4 leading-relaxed">
+        Découvrez notre catalogue complet de plus de 200 références de goodies personnalisables, cadeaux VIP,
+        signalétique d'entreprise et matériel événementiel.
+      </p>
+    </section>
+
+    <!-- HUB DE RECHERCHE ET FILTRES DU CATALOGUE -->
+    <section id="catalogue" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+
+      <div class="space-y-6 mb-10">
+
+        <!-- Search Bar -->
+        <div class="max-w-2xl mx-auto">
+          <div class="relative flex items-center">
+            <span class="absolute left-4 text-gray-400">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </span>
+            <input type="text" id="catalog-search-input"
+              placeholder="Rechercher une référence, goodies, support... (ex: mug, bambou, totem)"
+              class="w-full pl-12 pr-28 py-3.5 rounded-full bg-[#12141A] border border-white/15 focus:border-orange focus:ring-2 focus:ring-orange/30 text-white placeholder-gray-500 text-xs sm:text-sm outline-none transition-all shadow-inner" />
+            <button id="btn-clear-search"
+              class="absolute right-3 px-3 py-1 text-xs text-gray-400 hover:text-white rounded-full bg-white/5 hover:bg-white/10 hidden">
+              Effacer
+            </button>
+          </div>
+        </div>
+
+        <!-- 4 Universe Tabs (Horizontal Momentum Scroll on Mobile) -->
+        <div
+          class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start sm:justify-center px-1 -mx-2 sm:mx-0">
+          <button class="catalog-universe-tab active" data-universe="all">
+            <span>✦ Tous les univers</span>
+          </button>
+          <button class="catalog-universe-tab" data-universe="10-objets-publicitaires">
+            <span>🎁 Objets Publicitaires</span>
+          </button>
+          <button class="catalog-universe-tab" data-universe="11-decorations-numeriques">
+            <span>🖼️ Décoration Numérique</span>
+          </button>
+          <button class="catalog-universe-tab" data-universe="12-salons-evenements">
+            <span>🎪 Salons & Événements</span>
+          </button>
+          <button class="catalog-universe-tab" data-universe="13-presentoirs-affichages">
+            <span>📺 Présentoirs & Affichage</span>
+          </button>
+        </div>
+
+        <!-- Dynamic Subcategory Pills (Desktop) -->
+        <div id="catalog-subcategories-bar"
+          class="hidden sm:flex flex-wrap items-center justify-center gap-2 pt-1"></div>
+
+        <!-- Dynamic Subcategory Select (Mobile) -->
+        <div id="catalog-mobile-sub-wrapper" class="sm:hidden w-full max-w-sm mx-auto pt-1">
+          <label for="catalog-mobile-sub-select" class="mobile-filter-label">
+            <span>Type & Sous-catégorie</span>
+            <span id="catalog-mobile-sub-count" class="text-[10px] text-orange bg-orange/15 px-2 py-0.5 rounded-full border border-orange/30">Toutes</span>
+          </label>
+          <div class="mobile-filter-select-wrapper">
+            <select id="catalog-mobile-sub-select" class="mobile-filter-select" aria-label="Filtrer par type de produit">
+              <option value="all">✦ Tous les types</option>
+            </select>
+            <div class="mobile-select-chevron" aria-hidden="true">▼</div>
+          </div>
+        </div>
+
+        <!-- Results Info & Sorting -->
+        <div
+          class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-white/10 pt-4 gap-2 text-xs text-gray-400">
+          <div id="catalog-results-info">Chargement des références...</div>
+          <div class="flex items-center gap-2 self-end sm:self-auto">
+            <span>Tri :</span>
+            <select id="catalog-sort-select"
+              class="bg-surface border border-white/10 text-gray-300 text-xs rounded-lg px-2.5 py-1 outline-none">
+              <option value="featured">Recommandés</option>
+              <option value="name-asc">Nom (A → Z)</option>
+              <option value="name-desc">Nom (Z → A)</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Products Grid -->
+      <div id="catalog-grid" class="catalog-grid"></div>
+
+      <!-- Empty State -->
+      <div id="catalog-empty-state"
+        class="hidden text-center py-16 bg-surface/30 rounded-2xl border border-white/10 max-w-xl mx-auto my-8">
+        <div
+          class="w-16 h-16 rounded-full bg-white/5 mx-auto flex items-center justify-center text-3xl mb-4 text-orange">
+          🔍</div>
+        <h3 class="font-outfit font-bold text-xl text-white mb-2">Aucun produit ne correspond à votre recherche</h3>
+        <p class="text-gray-400 text-xs sm:text-sm max-w-sm mx-auto mb-6">Essayez d'autres mots-clés ou réinitialisez
+          les filtres.</p>
+        <button id="btn-reset-catalog-filter" class="btn-glass-gradient py-2 px-6 text-xs">Réinitialiser les
+          filtres</button>
+      </div>
+
+      <!-- Load More Button -->
+      <div id="catalog-load-more-container" class="text-center mt-12">
+        <button id="btn-catalog-load-more" class="btn-glass-gradient group">
+          <span>Afficher plus de produits</span>
+          <span class="transition-transform group-hover:translate-y-0.5">▾</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- BANNER VERS LE PANIER -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div
+        class="p-8 sm:p-12 rounded-3xl bg-surface/80 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div>
+          <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white">Vous avez sélectionné vos articles ?
+          </h3>
+          <p class="text-gray-300 text-xs sm:text-sm mt-1">Accédez à votre panier pour finaliser votre demande de devis
+            express.</p>
+        </div>
+        <a href="panier.html" class="btn-primary py-3.5 px-8 text-xs font-bold uppercase shrink-0 flex items-center justify-center gap-2">
+          <span>Accéder à mon Panier de Devis</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER BANNER -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <div class="newsletter-banner">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+              Restez branchés sur notre <span class="text-orange">pouls</span> créatif.
+            </h3>
+            <p class="text-gray-300 text-xs sm:text-sm mt-1">Recevez notre sélection mensuelle d'objets publicitaires et
+              goodies innovants.</p>
+          </div>
+          <div class="lg:col-span-5">
+            <form id="newsletter-form" class="space-y-3">
+              <div class="newsletter-input-pill">
+                <input type="email" id="newsletter-email" required placeholder="Votre adresse email"
+                  class="bg-transparent border-none outline-none text-white text-xs sm:text-sm flex-1 min-w-0" />
+                <button type="submit"
+                  class="btn-newsletter px-5 py-2.5 rounded-full bg-orange hover:bg-orange-light text-white font-bold text-xs uppercase tracking-wider transition-all shrink-0">S'inscrire</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODALE : FICHE PRODUIT DU CATALOGUE -->
+  <div id="productDetailModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-dialog p-5 sm:p-8 bg-[#0E1015] border border-white/15">
+      <button id="closeProductModalBtn" class="modal-close-btn" aria-label="Fermer">✕</button>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div class="space-y-4">
+          <div
+            class="relative w-full aspect-square bg-[#060709] rounded-2xl overflow-hidden border border-white/10 flex items-center justify-center p-2">
+            <img id="modalProductImg" src="" alt="Produit" class="w-full h-full object-contain" />
+            <span id="modalProductRef" class="product-badge-ref">RÉF. 000000</span>
+          </div>
+          <div class="flex items-center justify-between text-xs text-gray-400 px-1">
+            <span id="modalProductUniverse" class="text-orange font-bold uppercase">UNIVERS</span>
+            <span id="modalProductSub" class="text-gray-300">Catégorie</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col space-y-5">
+          <div>
+            <h3 id="modalProductTitle" class="font-outfit font-extrabold text-2xl sm:text-3xl text-white leading-tight">
+            </h3>
+            <p id="modalProductDesc" class="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed"></p>
+          </div>
+
+          <div class="p-3.5 rounded-xl bg-surface border border-white/10 space-y-2">
+            <div class="text-[11px] font-bold uppercase text-orange">Spécifications & Marquages</div>
+            <div id="modalProductSpecs" class="flex flex-wrap gap-1.5 text-xs text-gray-300"></div>
+          </div>
+
+          <!-- Contrôle Quantité et Presets Rapides -->
+          <div class="space-y-2.5 pt-1">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider">Quantité souhaitée</label>
+              <span class="text-[11px] text-gray-400">Tarif dégressif</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+              <div class="qty-stepper justify-between sm:justify-start">
+                <button id="modalQtyMinus" type="button" class="qty-stepper-btn btn-minus" aria-label="Diminuer">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <input id="modalQtyInput" type="number" min="1" value="50" class="qty-stepper-input" />
+                <button id="modalQtyPlus" type="button" class="qty-stepper-btn btn-plus" aria-label="Augmenter">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+              </div>
+
+              <!-- Grille de Presets toujours alignée horizontalement (4 colonnes) -->
+              <div class="grid grid-cols-4 gap-1.5 flex-1">
+                <button type="button" class="qty-preset-btn active" data-qty="50">50</button>
+                <button type="button" class="qty-preset-btn" data-qty="100">100</button>
+                <button type="button" class="qty-preset-btn" data-qty="250">250</button>
+                <button type="button" class="qty-preset-btn" data-qty="500">500</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 space-y-2.5">
+            <button id="modalBtnAddToCart" type="button"
+              class="w-full py-3.5 rounded-full bg-orange hover:bg-orange-light text-black font-outfit font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-lg shadow-orange/20">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                <path d="M3 6h18" />
+                <path d="M16 10a4 4 0 0 1-8 0" />
+              </svg>
+              <span>Ajouter à ma demande de devis</span>
+            </button>
+            <a id="modalBtnProductWhatsapp" href="https://wa.me/221776442442" target="_blank" rel="noopener"
+              class="w-full py-3 rounded-full bg-[#25D366]/15 hover:bg-[#25D366] text-[#25D366] hover:text-black border border-[#25D366]/40 font-outfit font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-all">
+              <span>Poser une question sur WhatsApp</span>
+              <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-current/15 text-xs font-bold">↗</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER OFFICIEL MULTIPAGE -->
+  <footer class="bg-black border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+                class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span
+                  class="text-orange">'PULSE</span></span>
+              <span class="font-handwriting text-orange text-xs tracking-wide">Le pouls créatif !</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne
+            vie à vos ambitions depuis 2014.
+          </p>
+          <!-- Réseaux Sociaux Officiels Kreativ'Pulse -->
+          <div class="flex items-center gap-2.5 pt-2">
+            <a href="https://sn.linkedin.com/company/kreativ-pulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="LinkedIn Kreativ'Pulse" title="LinkedIn - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63c0-.9-.73-1.63-1.63-1.63Z" />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/kreativpulse2/" target="_blank" rel="noopener" class="social-btn"
+              aria-label="Instagram Kreativ'Pulse" title="Instagram - @kreativpulse2">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <a href="https://www.facebook.com/p/Kreativ-Pulse-61577734215567/" target="_blank" rel="noopener"
+              class="social-btn" aria-label="Facebook Kreativ'Pulse" title="Facebook - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+
+            <a href="https://www.tiktok.com/@kreativpulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="TikTok Kreativ'Pulse" title="TikTok - @kreativpulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+
+            <a href="https://wa.me/221776442442" target="_blank" rel="noopener" class="social-btn"
+              aria-label="WhatsApp Kreativ'Pulse" title="WhatsApp Direct - +221 77 644 24 42">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-orange transition-colors">Accueil</a></li>
+            <li><a href="a-propos.html" class="hover:text-orange transition-colors">L'Agence</a></li>
+            <li><a href="services.html" class="hover:text-orange transition-colors">Nos Prestations</a></li>
+            <li><a href="realisations.html" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
+            <li><a href="catalogue.html" class="text-orange font-semibold">Boutique & Goodies</a></li>
+            <li><a href="panier.html" class="hover:text-orange transition-colors">Mon Panier de Devis</a></li>
+            <li><a href="contact.html" class="hover:text-orange transition-colors">Contact & Studio Brief</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="services.html#web" class="hover:text-orange transition-colors">Développement Web & Mobile</a>
+            </li>
+            <li><a href="services.html#branding" class="hover:text-orange transition-colors">Identité Visuelle &
+                Logo</a></li>
+            <li><a href="services.html#audiovisuel" class="hover:text-orange transition-colors">Audiovisuel & Motion
+                3D</a></li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Goodies & Cadeaux d'Affaires</a>
+            </li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Signalétique & Habillage Flotte</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Direct -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Siège Dakar</h4>
+          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3">
+            Sicap Liberté 5/C<br />
+            Immeuble Adja Binta Ndiaye n° 5656<br />
+            Dakar — Sénégal
+          </p>
+          <a href="tel:+221338278080" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 827
+            80 80</a>
+          <a href="mailto:contact@kreativpulse.net"
+            class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p class="text-center md:text-left text-gray-400">
+          © 2026 Kreativ'Pulse SARL · Tous droits réservés · Sicap Liberté 5/C, Dakar — Sénégal.
+        </p>
+        <div class="flex items-center justify-center gap-4 text-[11px] text-gray-400">
+          <a href="#" class="hover:text-orange transition-colors">Mentions Légales</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="#" class="hover:text-orange transition-colors">Politique de Confidentialité</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="admin.html" class="hover:text-orange transition-colors flex items-center gap-1.5 opacity-70 hover:opacity-100" title="Espace de pilotage Studio Manager">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-70"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Studio Admin</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="catalog-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

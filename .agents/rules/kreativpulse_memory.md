@@ -23,7 +23,9 @@ Tu es Antigravity, l'assistant expert en développement et design web. Tu travai
    - Accents : `#00F2FE` (cyan subtil)
 2. **Adresse Officielle Validée :**
    - `Sicap Liberté 5/C Immeuble Adja Binta Ndiaye n° 5656, Dakar — Sénégal`
-3. **15 Projets Réels dans le Portfolio :**
+3. **Mention des Projets :**
+   - Ne JAMAIS mentionner le nombre de projets (pas de "(+15 études de cas)", pas de "15 projets", pas de "(15)"). Présenter sobrement "Découvrir toutes nos réalisations" ou "Tous les projets".
+4. **Projets Réels dans le Portfolio :**
    - Collé Sow Ardo, GSEF Dakar 2023, SONACOS, Ergobit, Sentrak Logistics, SENELEC, DP World, SOGIP, SONAGED, Lions du Sénégal, DHL Express, BHS, ANER, CROUS, SICAP SA.
    - Tous équipés de la galerie lightbox multi-images.
 4. **Formulaire / Studio Brief Interactif :**

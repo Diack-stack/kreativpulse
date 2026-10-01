@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À Propos | Kreativ'Pulse — Agence Créative à Dakar depuis 2014</title>
+  <meta name="description"
+    content="Découvrez l'histoire, la vision et l'équipe de Kreativ'Pulse, agence de communication globale, branding et création digitale basée à Sicap Liberté 5, Dakar." />
+  <meta name="keywords"
+    content="agence communication Dakar, KreativPulse, branding Sénégal, histoire agence créative, Liberté 5 Dakar" />
+  <link rel="canonical" href="https://www.kreativpulse.net/a-propos" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/logos/kreativpulse-icon.webp" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            orange: { DEFAULT: '#FF7500', light: '#FF8A00', dark: '#E06000' },
+            dark: { DEFAULT: '#08090C', surface: '#101217', card: '#161920' },
+            cyan: { DEFAULT: '#00E5A3', glow: 'rgba(0, 229, 163, 0.3)' }
+          },
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            outfit: ['Outfit', 'sans-serif'],
+            handwriting: ['Caveat', 'cursive']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-dark text-light antialiased selection:bg-orange selection:text-white">
+
+  <!-- Ambient Glow -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+    <div class="ambient-glow glow-top-left"></div>
+    <div class="ambient-glow glow-top-right"></div>
+  </div>
+  <div class="grid-mesh-overlay" aria-hidden="true"></div>
+
+  <!-- NAVIGATION HEADER -->
+  <header id="navbar"
+    class="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-dark/85 border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none" aria-label="Kreativ'Pulse Accueil">
+        <div
+          class="flex items-center justify-center w-11 h-11 rounded-xl bg-surface border border-white/10 group-hover:border-orange/50 transition-all shadow-glow-sm">
+          <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+            class="w-8 h-8 object-contain transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+        </div>
+        <div class="flex flex-col">
+          <span
+            class="font-outfit font-extrabold tracking-wider text-xl leading-none text-white group-hover:text-orange transition-colors">
+            KREATIV<span class="text-orange">'PULSE</span>
+          </span>
+          <span class="font-handwriting text-orange text-sm tracking-wide -mt-0.5">Le pouls créatif !</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-gray-300">
+        <a href="index.html" class="nav-link">Accueil</a>
+        <a href="a-propos.html" class="nav-link active">L'Agence</a>
+        <a href="services.html" class="nav-link">Nos Prestations</a>
+        <a href="realisations.html" class="nav-link">Réalisations</a>
+
+        <!-- Menu Item avec Méga-Menu Catalogue -->
+        <div class="nav-has-megamenu py-2">
+          <a href="catalogue.html" class="nav-link flex items-center gap-1 group">
+            <span>Catalogue</span>
+            <span class="text-[10px] text-orange transition-transform duration-200 group-hover:rotate-180">▼</span>
+          </a>
+
+          <!-- Mega-Menu Dropdown Glassmorphic -->
+          <div class="mega-menu-dropdown">
+            <div class="mega-menu-grid">
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"><span>Objets Publicitaires</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link">Coffrets cadeaux</a>
+                  <a href="catalogue.html" class="mega-sub-link">Carnets & agendas</a>
+                  <a href="catalogue.html" class="mega-sub-link">Stylos & instruments</a>
+                  <a href="catalogue.html" class="mega-sub-link">Mugs & isothermes</a>
+                  <a href="catalogue.html" class="mega-sub-link">Textile & tote bags</a>
+                  <a href="catalogue.html" class="mega-sub-link">High-tech & clés USB</a>
+                  <a href="catalogue.html" class="mega-sub-link">Bureau & bagagerie</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"><span>Décoration Numérique</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link">Ascenseurs & portes</a>
+                  <a href="catalogue.html" class="mega-sub-link">Habillage véhicules</a>
+                  <a href="catalogue.html" class="mega-sub-link">Sols & vitrines</a>
+                  <a href="catalogue.html" class="mega-sub-link">Murs & papier peint</a>
+                  <a href="catalogue.html" class="mega-sub-link">Objets décoratifs</a>
+                  <a href="catalogue.html" class="mega-sub-link">Tableaux personnalisés</a>
+                  <a href="catalogue.html" class="mega-sub-link">Supports rigides</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"><span>Salons & Événements</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link">Gonflables extérieurs</a>
+                  <a href="catalogue.html" class="mega-sub-link">Photocalls & kakémonos</a>
+                  <a href="catalogue.html" class="mega-sub-link">Comptoirs & stands</a>
+                  <a href="catalogue.html" class="mega-sub-link">Badges & cordons</a>
+                  <a href="catalogue.html" class="mega-sub-link">Expositions</a>
+                  <a href="catalogue.html" class="mega-sub-link">Inaugurations</a>
+                  <a href="catalogue.html" class="mega-sub-link">Trophées & distinctions</a>
+                </div>
+              </div>
+              <div class="mega-cat-col">
+                <a href="catalogue.html" class="mega-cat-title"><span>Présentoirs & Signalétique</span> <span
+                    class="text-orange text-xs">↗</span></a>
+                <div class="mega-cat-links">
+                  <a href="catalogue.html" class="mega-sub-link">Écrans & totems LED</a>
+                  <a href="catalogue.html" class="mega-sub-link">Présentoirs de comptoir</a>
+                  <a href="catalogue.html" class="mega-sub-link">Distributeurs brochures</a>
+                  <a href="catalogue.html" class="mega-sub-link">Présentoirs magasins</a>
+                  <a href="catalogue.html" class="mega-sub-link">Affichage grand format</a>
+                  <a href="catalogue.html" class="mega-sub-link">Enseignes & lettrages</a>
+                  <a href="catalogue.html" class="mega-sub-link">Signalétique entreprise</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Header Actions: Panier & Devis -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="panier.html" class="btn-nav-cart" aria-label="Voir le panier de devis" title="Panier de devis">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+        <a href="contact.html"
+          class="btn-primary flex items-center gap-2 text-xs font-bold uppercase tracking-wider py-2.5 px-5">
+          <span>Demander un devis</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+      </div>
+
+      <!-- Mobile Right Controls (Cart + Hamburger) -->
+      <div class="md:hidden flex items-center gap-2.5">
+        <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+            <path d="M3 6h18" />
+            <path d="M16 10a4 4 0 0 1-8 0" />
+          </svg>
+          <span id="mobile-cart-badge-count" class="cart-badge-count hidden">0</span>
+        </a>
+
+        <button id="mobile-menu-toggle"
+          class="flex flex-col justify-center items-center w-11 h-11 rounded-lg bg-surface border border-white/10 text-white focus:outline-none"
+          aria-label="Menu de navigation">
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-5 h-0.5 bg-white transition-all duration-300 mb-1.5"></span>
+          <span class="hamburger-bar w-3.5 h-0.5 bg-orange self-start ml-3 transition-all duration-300"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer (Luxury Fullscreen Overlay) -->
+    <div id="mobile-menu-drawer" class="md:hidden hidden">
+      <!-- Top Bar -->
+      <div class="mobile-menu-topbar">
+        <a href="index.html" class="flex items-center gap-3">
+          <div
+            class="w-9 h-9 rounded-xl bg-surface border border-white/10 flex items-center justify-center p-1.5 shadow-glow-xs">
+            <svg viewBox="0 0 120 120" class="w-full h-full" fill="none">
+              <path d="M25 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M25 60L55 20V100" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M65 20V100" stroke="#FF7500" stroke-width="12" stroke-linecap="round" />
+              <path d="M65 20H85C96 20 105 29 105 40C105 51 96 60 85 60H65" stroke="#00F2FE" stroke-width="12"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-outfit font-extrabold tracking-wider text-base leading-none text-white">
+              KREATIV<span class="text-orange">'PULSE</span>
+            </span>
+            <span class="font-handwriting text-orange text-xs tracking-wide -mt-0.5">Le pouls créatif !</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-2">
+          <a href="panier.html" class="btn-nav-cart w-10 h-10" aria-label="Voir mon panier">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+              <path d="M3 6h18" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            <span class="cart-badge-count hidden">0</span>
+          </a>
+          <button type="button" class="mobile-menu-close-btn" aria-label="Fermer le menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Rows -->
+      <nav class="mobile-menu-body">
+        <a href="index.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">01</span>
+            <span class="mobile-nav-title">Accueil</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="a-propos.html" class="mobile-nav-row active">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">02</span>
+            <span class="mobile-nav-title">L'Agence</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="services.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">03</span>
+            <span class="mobile-nav-title">Nos Prestations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="realisations.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">04</span>
+            <span class="mobile-nav-title">Nos Réalisations</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="catalogue.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">05</span>
+            <span class="mobile-nav-title">Boutique & Goodies</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="panier.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">06</span>
+            <span class="mobile-nav-title">Panier de Devis</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+        <a href="contact.html" class="mobile-nav-row">
+          <div class="flex items-center gap-3">
+            <span class="mobile-nav-num">07</span>
+            <span class="mobile-nav-title">Contact & Studio</span>
+          </div>
+          <span class="mobile-nav-arrow">→</span>
+        </a>
+      </nav>
+
+      <!-- Footer & Coordonnées -->
+      <div class="mobile-menu-footer">
+        <a href="contact.html"
+          class="btn-primary w-full justify-center flex items-center gap-2 py-3.5 text-xs font-bold uppercase tracking-wider rounded-xl">
+          <span>Lancer un projet / Devis</span>
+          <span class="arrow-badge">↗</span>
+        </a>
+        <div class="grid grid-cols-2 gap-2 text-xs">
+          <a href="https://wa.me/221770000000?text=Bonjour%20Kreativ'Pulse" target="_blank" rel="noopener"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-emerald-400 font-semibold hover:bg-emerald-500/10 text-center">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="text-[11px]">WhatsApp Direct</span>
+          </a>
+          <a href="tel:+221338278080"
+            class="flex items-center justify-center gap-1.5 py-2.5 px-2 rounded-xl bg-white/5 border border-white/10 text-gray-300 font-semibold hover:bg-white/10 text-center">
+            <span class="text-[11px]">📞 +221 33 827 80</span>
+          </a>
+        </div>
+        <div class="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+          <span class="text-orange">📍</span>
+          <span>Sicap Liberté 5, Imm. Adja Binta Ndiaye • Dakar</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-28 pb-16 relative z-10">
+
+    <!-- HERO SECTION À PROPOS -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20 text-center">
+      <div
+        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange/15 border border-orange/30 text-orange text-xs font-bold uppercase tracking-wider mb-5">
+        <span>DEPUIS 2014 À DAKAR</span>
+      </div>
+      <h1
+        class="font-outfit font-black text-2xl sm:text-5xl lg:text-6xl text-white tracking-tight uppercase max-w-4xl mx-auto leading-tight">
+        L'histoire d'une passion : donner du <span class="gradient-text-orange">pouls</span> aux marques.
+      </h1>
+      <p class="text-gray-300 text-xs sm:text-base lg:text-lg max-w-3xl mx-auto mt-4 sm:mt-6 leading-relaxed">
+        Kreativ'Pulse est née d'une conviction profonde : la créativité ouest-africaine mérite une exigence visuelle et
+        technologique de rang mondial. De l'identité visuelle à la scénographie de grands sommets internationaux, nous
+        accompagnons les leaders institutionnels et les entreprises ambitieuses.
+      </p>
+    </section>
+
+    <!-- CHIFFRES CLÉS -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+        <div class="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-surface/70 border border-white/10 text-center">
+          <div class="font-outfit font-black text-2xl sm:text-4xl lg:text-5xl text-orange mb-1">+10</div>
+          <div class="text-[11px] sm:text-xs text-gray-300 font-semibold uppercase tracking-wider">Années d'expertise
+          </div>
+        </div>
+        <div class="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-surface/70 border border-white/10 text-center">
+          <div class="font-outfit font-black text-2xl sm:text-4xl lg:text-5xl text-white mb-1">+100</div>
+          <div class="text-[11px] sm:text-xs text-gray-300 font-semibold uppercase tracking-wider">Projets livrés</div>
+        </div>
+        <div class="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-surface/70 border border-white/10 text-center">
+          <div class="font-outfit font-black text-2xl sm:text-4xl lg:text-5xl text-orange mb-1">16+</div>
+          <div class="text-[11px] sm:text-xs text-gray-300 font-semibold uppercase tracking-wider">Grands comptes &
+            institutions</div>
+        </div>
+        <div class="p-3.5 sm:p-6 rounded-xl sm:rounded-2xl bg-surface/70 border border-white/10 text-center">
+          <div class="font-outfit font-black text-2xl sm:text-4xl lg:text-5xl text-white mb-1">98%</div>
+          <div class="text-[11px] sm:text-xs text-gray-300 font-semibold uppercase tracking-wider">Satisfaction client
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTRE ADN & VISION -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+
+        <!-- Panneau Gauche : Notre ADN & Raison d'Être -->
+        <div class="relative flex">
+          <div
+            class="w-full p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#141722] to-[#0E1017] border border-white/12 shadow-2xl relative overflow-hidden backdrop-blur-xl flex flex-col justify-between">
+            <div class="absolute -top-16 -left-16 w-48 h-48 bg-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-4">
+              <!-- En-tête jumeau : Badge Pill + Titre H2 -->
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/10 border border-orange/25 text-orange text-[11px] font-bold uppercase tracking-wider font-outfit">
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange animate-pulse"></span>
+                  <span>Notre Raison d'Être</span>
+                </div>
+                <h2 class="font-outfit font-extrabold text-xl sm:text-2xl text-white tracking-tight leading-tight">
+                  Pourquoi <span class="gradient-text-orange">«&nbsp;Kreativ'Pulse&nbsp;»</span>&nbsp;?
+                </h2>
+              </div>
+
+              <!-- Corps narratif avec typographie fine et fluide -->
+              <div class="space-y-3.5 text-gray-300 text-xs sm:text-sm leading-relaxed pt-1">
+                <p>
+                  Le <strong class="text-white">pouls</strong> est ce qui bat en silence pour donner la vie. Dans un marché saturé de messages standardisés, une marque sans énergie créative s'éteint.
+                </p>
+                <p>
+                  Notre mission est de réveiller cette impulsion vitale en combinant <strong class="text-white">direction artistique pointue, développement digital sur-mesure</strong> et <strong class="text-white">fabrication physique d'exception</strong> (goodies, signalétique grand format, scénographie événementielle).
+                </p>
+                <p class="text-gray-400 text-xs">
+                  Implantés au cœur de Dakar à Sicap Liberté 5, nous accompagnons avec la même exigence institutions républicaines (SENELEC, SONAGED, ANER, FSF) et leaders continentaux.
+                </p>
+              </div>
+            </div>
+
+            <!-- Pied de carte : 3 indicateurs clés qui égalisent parfaitement la hauteur -->
+            <div class="pt-6 mt-6 border-t border-white/10 grid grid-cols-3 gap-2.5 text-center">
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all">
+                <div class="font-outfit font-black text-orange text-base sm:text-lg">2014</div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Fondation</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all">
+                <div class="font-outfit font-black text-white text-base sm:text-lg">Dakar</div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Siège Liberté 5</div>
+              </div>
+              <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all">
+                <div class="font-outfit font-black text-orange text-base sm:text-lg">360°</div>
+                <div class="text-[10px] text-gray-400 uppercase tracking-wider mt-0.5">Expertises</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Panneau Droit : Nos Valeurs Fondamentales -->
+        <div class="relative flex">
+          <div
+            class="w-full p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#141722] to-[#0E1017] border border-white/12 shadow-2xl relative overflow-hidden backdrop-blur-xl flex flex-col justify-between">
+            <div class="absolute -top-16 -right-16 w-48 h-48 bg-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="space-y-4">
+              <!-- En-tête jumeau : Badge Pill + Titre H3 -->
+              <div class="space-y-2">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange/10 border border-orange/25 text-orange text-[11px] font-bold uppercase tracking-wider font-outfit">
+                  <span class="w-1.5 h-1.5 rounded-full bg-orange animate-pulse"></span>
+                  <span>ADN & Culture Agence</span>
+                </div>
+                <h3 class="font-outfit font-extrabold text-xl sm:text-2xl text-white tracking-tight leading-tight">
+                  Nos Valeurs <span class="gradient-text-orange">Fondamentales</span>
+                </h3>
+              </div>
+
+              <!-- Liste des 4 valeurs sous forme de micro-cartes soignées -->
+              <div class="space-y-3 pt-1">
+                <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all group">
+                  <span class="w-8 h-8 rounded-xl bg-orange/10 border border-orange/30 text-orange font-outfit font-black text-xs flex items-center justify-center shrink-0 group-hover:bg-orange group-hover:text-black transition-colors">01</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-white group-hover:text-orange transition-colors">Audace Visuelle</h4>
+                    <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Nous refusons la tiédeur et les modèles génériques. Chaque création doit marquer les esprits.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all group">
+                  <span class="w-8 h-8 rounded-xl bg-orange/10 border border-orange/30 text-orange font-outfit font-black text-xs flex items-center justify-center shrink-0 group-hover:bg-orange group-hover:text-black transition-colors">02</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-white group-hover:text-orange transition-colors">Rigueur & Délais d'Acier</h4>
+                    <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Respect absolu des plannings pour vos événements officiels et lancements de produits.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all group">
+                  <span class="w-8 h-8 rounded-xl bg-orange/10 border border-orange/30 text-orange font-outfit font-black text-xs flex items-center justify-center shrink-0 group-hover:bg-orange group-hover:text-black transition-colors">03</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-white group-hover:text-orange transition-colors">Créativité Africaine, Standards Mondiaux</h4>
+                    <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Valoriser les codes contemporains de l'Afrique avec un niveau de finition international.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3.5 p-3 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-orange/30 transition-all group">
+                  <span class="w-8 h-8 rounded-xl bg-orange/10 border border-orange/30 text-orange font-outfit font-black text-xs flex items-center justify-center shrink-0 group-hover:bg-orange group-hover:text-black transition-colors">04</span>
+                  <div>
+                    <h4 class="font-bold text-sm text-white group-hover:text-orange transition-colors">Impact & Rentabilité (ROI)</h4>
+                    <p class="text-xs text-gray-400 mt-0.5 leading-relaxed">Chaque support publicitaire ou site web conçu a pour vocation directe de développer votre activité.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION PARTENAIRES & CLIENTS (ILS NOUS FONT CONFIANCE) -->
+    <section class="py-12 border-y border-white/10 bg-surface/40 overflow-hidden relative my-4">
+      <div class="max-w-6xl mx-auto px-4 mb-6 text-center">
+        <span
+          class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange/10 border border-orange/20 text-orange text-[11px] font-bold uppercase tracking-widest mb-2">
+          Grands Comptes & Institutions
+        </span>
+        <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+          Ils nous font confiance
+        </h3>
+        <p class="text-xs sm:text-sm text-gray-400 mt-1 max-w-xl mx-auto">
+          Plus de 10 ans de collaborations stratégiques avec les institutions publiques, leaders industriels et grandes
+          marques au Sénégal et à l'international.
+        </p>
+      </div>
+
+      <div class="marquee-track">
+        <div class="marquee-content flex items-center gap-6 sm:gap-8">
+          <!-- Senelec -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
+          </div>
+          <!-- DP World -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
+          </div>
+          <!-- SOGIP -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
+          </div>
+          <!-- SONAGED -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
+          </div>
+          <!-- FSF -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
+          </div>
+          <!-- ANER -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
+          </div>
+          <!-- COSEC -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
+          </div>
+          <!-- DHL -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
+          </div>
+          <!-- FHS -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
+          </div>
+          <!-- SENTRAK -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
+          </div>
+          <!-- SONACOS -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
+          </div>
+          <!-- CROUS -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
+          </div>
+          <!-- GSEF -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
+          </div>
+          <!-- CAF -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
+          </div>
+          <!-- BHS -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
+          </div>
+          <!-- SICAP -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
+          </div>
+
+          <!-- DUPLICATE SET FOR INFINITE SEAMLESS SCROLL -->
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-senelec.png" alt="Senelec"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENELEC</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dpworld.png" alt="DP World Dakar"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DP WORLD</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sogip.png" alt="SOGIP Diamniadio"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SOGIP</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonaged.png" alt="SONAGED"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONAGED</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fsf.png" alt="FSF - Lions du Sénégal"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FSF SÉNÉGAL</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-aner.png" alt="ANER Énergies Renouvelables"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">ANER</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-cosec.png" alt="COSEC"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">COSEC</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-dhl.png" alt="DHL Express"
+              class="h-7 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">DHL</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-fhs.png" alt="FHS Habitat Social"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">FHS HABITAT</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sentrak.png" alt="Sentrak Logistics"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SENTRAK</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sonacos.png" alt="SONACOS"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SONACOS</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-crous.png" alt="CROUS Diamniadio"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CROUS</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-gsef.png" alt="GSEF Dakar"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">GSEF DAKAR</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-caf.png" alt="CAF Awards"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">CAF AWARDS</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-bhs.png" alt="BHS Banque"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">BHS BANQUE</span>
+          </div>
+          <div
+            class="partner-badge flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/10 hover:border-orange/50 hover:bg-white/[0.08] transition-all group shrink-0">
+            <img src="assets/logos/partner-sicap.png" alt="SICAP SA"
+              class="h-8 w-auto max-w-[95px] object-contain group-hover:scale-105 transition-transform" />
+            <span class="font-outfit font-bold text-xs text-white/90">SICAP SA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIÈGE ET COORDONNÉES OFFICIELLES -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div
+        class="p-8 sm:p-12 rounded-3xl bg-surface/60 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="space-y-3 max-w-xl">
+          <span class="badge-mini text-orange bg-orange/20 border border-orange/40">SIÈGE SOCIAL OFFICIEL</span>
+          <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white">Venez nous rencontrer à Liberté 5</h3>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            <strong>Sicap Liberté 5/C · Immeuble Adja Binta Ndiaye n° 5656</strong> — Dakar, Sénégal.<br />
+            Nos portes sont ouvertes du lundi au vendredi de 08h30 à 18h00 pour échanger sur vos projets.
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto shrink-0">
+          <a href="https://maps.google.com/?q=Libert%C3%A9+5+En+face+Auchan+Dakar" target="_blank" rel="noopener"
+            class="btn-primary py-3.5 px-5 text-xs uppercase font-bold flex items-center justify-center gap-2 text-center w-full sm:w-auto">
+            <span>Google Maps</span>
+            <span class="arrow-badge">↗</span>
+          </a>
+          <a href="https://wa.me/221776442442" target="_blank" rel="noopener"
+            class="px-5 py-3.5 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] text-black font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 text-center w-full sm:w-auto shadow-[0_4px_15px_rgba(37,211,102,0.25)]">
+            <span>WhatsApp</span>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-black/15 text-black font-bold text-xs">↗</span>
+          </a>
+          <a href="contact.html"
+            class="btn-glass py-3.5 px-5 text-xs uppercase font-bold flex items-center justify-center gap-2 text-center w-full sm:w-auto">
+            <span>Nous Contacter</span>
+            <span class="arrow-badge">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION NEWSLETTER -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+      <div class="newsletter-banner">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <h3 class="font-outfit font-extrabold text-2xl sm:text-3xl text-white uppercase tracking-tight">
+              Restez branchés sur notre <span class="text-orange">pouls</span> créatif.
+            </h3>
+            <p class="text-gray-300 text-xs sm:text-sm mt-1">1 email par mois, dernières créations et tendances design à
+              Dakar.</p>
+          </div>
+          <div class="lg:col-span-5">
+            <form id="newsletter-form" class="space-y-3">
+              <div class="newsletter-input-pill">
+                <input type="email" id="newsletter-email" required placeholder="Votre adresse email"
+                  class="bg-transparent border-none outline-none text-white text-xs sm:text-sm flex-1 min-w-0" />
+                <button type="submit"
+                  class="btn-newsletter px-5 py-2.5 rounded-full bg-orange hover:bg-orange-light text-white font-bold text-xs uppercase tracking-wider transition-all shrink-0">S'inscrire</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER OFFICIEL MULTIPAGE -->
+  <footer class="bg-black border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
+
+        <!-- Brand Info -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-surface border border-white/10 flex items-center justify-center shadow-glow-sm">
+              <img src="assets/logos/kreativpulse-icon.webp" alt="Kreativ'Pulse"
+                class="w-7 h-7 object-contain drop-shadow-[0_0_8px_rgba(255,117,0,0.4)]" />
+            </div>
+            <div class="flex flex-col">
+              <span class="font-outfit font-extrabold text-xl tracking-wider text-white">KREATIV<span
+                  class="text-orange">'PULSE</span></span>
+              <span class="font-handwriting text-orange text-xs tracking-wide">Le pouls créatif !</span>
+            </div>
+          </div>
+          <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+            Agence de communication globale, création digitale et production événementielle. Le pouls créatif qui donne
+            vie à vos ambitions depuis 2014.
+          </p>
+          <!-- Réseaux Sociaux Officiels Kreativ'Pulse -->
+          <div class="flex items-center gap-2.5 pt-2">
+            <a href="https://sn.linkedin.com/company/kreativ-pulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="LinkedIn Kreativ'Pulse" title="LinkedIn - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63s.73 1.63 1.63 1.63 1.63-.73 1.63-1.63c0-.9-.73-1.63-1.63-1.63Z" />
+              </svg>
+            </a>
+
+            <a href="https://www.instagram.com/kreativpulse2/" target="_blank" rel="noopener" class="social-btn"
+              aria-label="Instagram Kreativ'Pulse" title="Instagram - @kreativpulse2">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+
+            <a href="https://www.facebook.com/p/Kreativ-Pulse-61577734215567/" target="_blank" rel="noopener"
+              class="social-btn" aria-label="Facebook Kreativ'Pulse" title="Facebook - Kreativ'Pulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+
+            <a href="https://www.tiktok.com/@kreativpulse" target="_blank" rel="noopener" class="social-btn"
+              aria-label="TikTok Kreativ'Pulse" title="TikTok - @kreativpulse">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg>
+            </a>
+
+            <a href="https://wa.me/221776442442" target="_blank" rel="noopener" class="social-btn"
+              aria-label="WhatsApp Kreativ'Pulse" title="WhatsApp Direct - +221 77 644 24 42">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.861.174.086.275.073.376-.044.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.159.579 4.183 1.594 5.928l-1.594 5.828 6.006-1.575c1.713.937 3.682 1.47 5.774 1.47 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Navigation</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="index.html" class="hover:text-orange transition-colors">Accueil</a></li>
+            <li><a href="a-propos.html" class="text-orange font-semibold">L'Agence</a></li>
+            <li><a href="services.html" class="hover:text-orange transition-colors">Nos Prestations</a></li>
+            <li><a href="realisations.html" class="hover:text-orange transition-colors">Nos Réalisations</a></li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Boutique & Goodies</a></li>
+            <li><a href="panier.html" class="hover:text-orange transition-colors">Mon Panier de Devis</a></li>
+            <li><a href="contact.html" class="hover:text-orange transition-colors">Contact & Studio Brief</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Pôles d'Expertise</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="services.html#web" class="hover:text-orange transition-colors">Développement Web & Mobile</a>
+            </li>
+            <li><a href="services.html#branding" class="hover:text-orange transition-colors">Identité Visuelle &
+                Logo</a></li>
+            <li><a href="services.html#audiovisuel" class="hover:text-orange transition-colors">Audiovisuel & Motion
+                3D</a></li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Goodies & Cadeaux d'Affaires</a>
+            </li>
+            <li><a href="catalogue.html" class="hover:text-orange transition-colors">Signalétique & Habillage Flotte</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Direct -->
+        <div>
+          <h4 class="font-outfit font-bold text-white text-sm uppercase tracking-wider mb-4">Siège Dakar</h4>
+          <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-3">
+            Sicap Liberté 5/C<br />
+            Immeuble Adja Binta Ndiaye n° 5656<br />
+            Dakar — Sénégal
+          </p>
+          <a href="tel:+221338278080" class="text-sm font-semibold text-orange hover:underline block mb-1">+221 33 827
+            80 80</a>
+          <a href="mailto:contact@kreativpulse.net"
+            class="text-sm text-gray-300 hover:underline block">contact@kreativpulse.net</a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+        <p class="text-center md:text-left text-gray-400">
+          © 2026 Kreativ'Pulse SARL · Tous droits réservés · Sicap Liberté 5/C, Dakar — Sénégal.
+        </p>
+        <div class="flex items-center justify-center gap-4 text-[11px] text-gray-400">
+          <a href="#" class="hover:text-orange transition-colors">Mentions Légales</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="#" class="hover:text-orange transition-colors">Politique de Confidentialité</a>
+          <span class="w-1 h-1 rounded-full bg-white/20"></span>
+          <a href="admin.html" class="hover:text-orange transition-colors flex items-center gap-1.5 opacity-70 hover:opacity-100" title="Espace de pilotage Studio Manager">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="opacity-70"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>Studio Admin</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="catalog-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

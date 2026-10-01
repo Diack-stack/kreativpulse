@@ -29,6 +29,7 @@ L'identité visuelle a été strictement définie et validée lors des échanges
 | **Surfaces & Cartes** | Glassmorphism sombre | Fond `rgba(255, 255, 255, 0.03)` à `0.05`, bordure `rgba(255, 255, 255, 0.08)`, blur `16px` |
 | **Typographies** | `Outfit`, `Plus Jakarta Sans`, `Inter` | Titres géométriques percutants, corps de texte lisible |
 | **Langue du site** | **100% Français** | Aucun résidu d'anglais ("Get a Quote" -> "Demander un devis", "Brief Us" -> "Lancer un projet", etc.) |
+| **Mention des Projets** | **JAMAIS de nombre de projets** | Règle stricte : Ne jamais afficher le nombre de projets (ex: pas de "(+15 études de cas)", pas de "15 Projets", pas de "(15)"). Présenter sobrement "Découvrir toutes nos réalisations" ou "Tous les projets". |
 
 ---
 
@@ -87,6 +88,50 @@ Tous les 15 projets du site live ont été récupérés, structurés et intégr�
 - Carte d'information directe avec l'adresse officielle de Liberté 5.
 - Traduction 100% française de tous les textes.
 
+### F. Nouveau : Boutique & Catalogue Publicitaire / Signalétique (Intégration du Refont)
+Suite aux échanges avec le maître de stage et l'audit de `https://new.kreativpulse.net/` :
+- **Catalogue de +200 références réelles** (`catalog-data.js`) :
+  - *Objets publicitaires* (Coffrets, agendas, stylos, mugs, textile, high-tech, bagagerie)
+  - *Décoration numérique* (Ascenseurs, habillage véhicules, vitrines, fresques murales, tableaux)
+  - *Salons & événements* (Gonflables, photocalls, comptoirs, badges, trophées)
+  - *Présentoirs & affichage* (Écrans totems LED, distributeurs, grands formats, enseignes)
+- **Méga-Menu Navbar 4 Colonnes :** Survol fluide avec accès direct aux 28 sous-catégories.
+- **Moteur de Recherche & Filtrage Avancé :** Recherche instantanée avec debouncing, onglets d'univers et pilules de sous-catégories.
+- **Fiches Produits Modales :** Aperçu HD, techniques de marquage, matières, spécifications et sélecteur de quantité.
+- **Panier de Devis & Commande en 2 Étapes :**
+  - Gestion réactive des quantités (`localStorage` sous la clé `kp_cart`).
+  - Badge avec compteur d'articles en direct sur la navbar.
+  - Tunnel devis complet avec coordonnées, ville de livraison, délai, budget indicatif.
+  - Bouton direct **« Transmettre sur WhatsApp »** générant un devis pré-formaté clé en main.
+- **Newsletter :** Bannière moderne *"Restez branchés sur notre pouls créatif"* avec confirmation sans rechargement.
+
+### G. Espace Gestion Frontend — Pulse Studio Manager (`admin.html`)
+Un espace d'administration autonome moderne conçu pour piloter le site sans toucher au code :
+- **Authentification & Sécurité :** Gatekeeper glassmorphic avec gestion personnalisée du mot de passe / code PIN (`localStorage` sous la clé `kp_admin_password`, défaut `2026`).
+- **Gestionnaire du Mot de Passe Studio :** Section dédiée dans l'onglet Paramètres pour modifier le code PIN/mot de passe avec contrôle de l'ancien code, confirmation, bouton d'affichage/masquage en clair, et bouton de réinitialisation d'urgence.
+- **Expérience Mobile-First Complète :**
+  - **Topbar Mobile Dédiée :** En-tête compact avec bouton hamburger tactile, logo officiel, badge de la vue active et déconnexion rapide.
+  - **Tiroir Latéral (Mobile Drawer) :** Sidebar transformé en tiroir coulissant fluide avec backdrop flou assombrissant, bouton de fermeture `(X)`, et auto-fermeture au choix d'un onglet.
+  - **Bottom Tab Bar Mobile :** Barre tactile inférieure fixe avec 5 boutons d'accès rapide (Aperçu, Projets, Boutique, Devis Inbox avec badge dynamique, Réglages) façon application native.
+  - **Modales & Tableaux Adaptatifs :** Vue plein écran sur mobile avec défilement vertical interne sans aucun débordement horizontal.
+- **Gestionnaire de Portfolio & Uploader Visuel :**
+  - CRUD complet (Ajouter, Modifier, Supprimer) synchronisé en temps réel avec `index.html` et `realisations.html` via `localStorage` (`kp_custom_projects`).
+  - **Zone d'upload direct (Glisser-Déposer / Sélecteur de fichier) :** Import direct depuis l'ordinateur de visuels de projet (JPG, PNG, WebP).
+  - **Compression & Optimisation automatique :** Canvas HTML5 client-side pour redimensionner automatiquement les photos HD (~100-200 Ko) tout en préservant un piqué exceptionnel sans saturer le stockage.
+  - **Gestion de Galerie Multi-Photos :** Possibilité d'ajouter des photos secondaires pour alimenter le slider Lightbox du projet.
+  - **Double mode flexible :** Choix en 1 clic entre "Fichier (Upload direct)" et "Lien / Chemin local existant".
+- **Catalogue & Boutique — Gestionnaire & Uploader Dédié :**
+  - CRUD complet pour les articles boutique (Ajouter, Modifier, Supprimer) synchronisé avec `catalogue.html` et le moteur de recherche public via `localStorage` (`kp_custom_catalog`).
+  - **Zone d'upload direct de photo produit (Glisser-Déposer / Sélecteur de fichier) :** Import direct depuis l'ordinateur de visuels de produits (JPG, PNG, WebP).
+  - **Compression automatique Canvas :** Optimisation intelligente de la photo produit (max 1200px, 0.85 qualité) sans saturer le stockage.
+  - **Double mode :** "Fichier (Upload)" ou "Lien / Chemin local" avec prévisualisation en direct, remplacement et suppression rapide.
+  - **Extraction et Affichage Autonome (+200 articles) :** Extraction automatique et sans dépendance depuis `catalog-data.js` avec pagination fluide par tranche de 50 articles, recherche instantanée et filtrage par univers.
+  - Recherche et filtrage en direct parmi les 4 univers (+200 références de `catalog-data.js`).
+- **Boîte de Réception des Briefs & Devis :** Réception automatique des demandes de devis et briefs soumis depuis les formulaires publics (`kp_leads`), avec bouton direct pour répondre au client sur WhatsApp.
+- **Paramètres de l'Agence :** Éditeur des coordonnées officielles de Liberté 5 (téléphone, WhatsApp, email, horaires).
+- **Sauvegarde & Restauration :** Bouton d'exportation d'un backup JSON complet en 1 clic.
+- **Accès Discret :** Lien discret « Studio Admin » avec icône SVG vectorielle intégré dans le pied de page de toutes les pages.
+
 ---
 
 ## 5. Architecture Technique des Fichiers
@@ -98,19 +143,27 @@ Kreativ'Pulse/
 ├── .agents/
 │   └── rules/
 │       └── kreativpulse_memory.md # Règle de contexte workspace injectée
-├── index.html                 # Structure sémantique HTML5 complète
-├── style.css                  # Système de design CSS vanilla moderne & responsive
-├── app.js                     # Logique interactive, données des 15 projets, lightbox, filtres
-├── serve.js                   # Serveur de dev Express avec LiveReload & port fallback
-├── package.json               # Dépendances (express, ws, chokidar)
-├── vercel.json                # Configuration pour déploiement en production
+├── index.html                 # Accueil & Vitrine Teaser multipage (Hero 3D, Bento, 16 logos)
+├── a-propos.html              # L'Agence : Histoire depuis 2014, valeurs, équipe, siège Liberté 5
+├── services.html              # Nos Prestations : Les 5 pôles d'expertise détaillés & livrables
+├── realisations.html          # Nos Réalisations : 15 projets réels, filtres, lightbox interactive
+├── catalogue.html             # Boutique Mandarine SN : +200 produits, recherche, filtres univers
+├── panier.html                # Panier de Devis : Récapitulatif, coordonnées, génération WhatsApp
+├── contact.html               # Contact & Studio Brief : Formulaire interactif et coordonnées
+├── admin.html                 # Pulse Studio Manager : Espace admin autonome de gestion frontend
+├── admin.css                  # Design system glassmorphic sombre pour le dashboard d'administration
+├── admin.js                   # Moteur réactif de gestion de contenu, leads, portfolio et export JSON
+├── style.css                  # Système de design CSS vanilla moderne, méga-menu & catalogue
+├── catalog-data.js            # Base complète des 4 univers et +200 produits Mandarine
+├── app.js                     # Logique interactive, moteur catalogue, panier devis, lightbox
+├── serve.rb                   # Serveur local WEBrick pour macOS (sans dépendances)
+├── serve.js                   # Serveur de dev Node/Express
+├── package.json               # Configuration du projet
+├── vercel.json                # Déploiement Vercel avec Clean URLs
 ├── assets/                    # Logos authentiques, images réelles des projets
 │   ├── logos/                 # 16 logos officiels transparents + logo Kreativ'Pulse
-│   └── projects/              # Médias et visuels réels des projets du portfolio
+│   └── portfolio/             # Médias et visuels réels des projets du portfolio
 └── docs/                      # Documentation, audit UI/UX, historiques
-    ├── AUDIT_UI_UX.md         # Rapport d'audit initial du site wordpress existant
-    ├── PROJECT_MEMORY.md      # Documentation détaillée de reprise
-    └── session_history/       # Sauvegarde des transcripts et logs de session
 ```
 
 ---
