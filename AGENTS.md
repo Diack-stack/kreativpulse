@@ -191,3 +191,22 @@ Lorsque vous arrivez au bureau :
 4. **Premier message à taper dans Antigravity au bureau :**
    > *"Salut ! On continue le projet Kreativ'Pulse là où on s'est arrêté."*
    L'agent saura immédiatement tout ce qui a été fait et pourra enchaîner sans aucune perte d'information !
+
+---
+
+## 7. Scores Google PageSpeed Insights & Stabilité (Validés Octobre 2026)
+
+| Métrique | Ordinateur (Desktop) | Mobile |
+| :--- | :---: | :---: |
+| **Performance globale** | **94 / 100 🟢** *(FCP 0.8s, LCP 1.5s)* | **76 / 100 🟠** *(FCP 3.8s, LCP 4.1s)* |
+| **Accessibilité** | **90 / 100 🟢** | **91 / 100 🟢** |
+| **Bonnes Pratiques** | **100 / 100 🟢** *(Score Parfait)* | **100 / 100 🟢** *(Score Parfait)* |
+| **SEO** | **100 / 100 🟢** *(Score Parfait)* | **100 / 100 🟢** *(Score Parfait)* |
+| **Total Blocking Time (TBT)** | **60 ms 🟢** *(Quasi-nul)* | **0 ms 🟢** *(Parfait absolu)* |
+| **Cumulative Layout Shift (CLS)** | **0.003 🟢** | **0 🟢** *(Parfait absolu)* |
+
+- **Décision technique :** Priorité absolue à la stabilité et à la fidélité visuelle. Le site tourne sur Tailwind Play CDN + CSS personnalisé optimisé.
+- **Badges flottants carrousel :** Masqués sur mobile (`hidden lg:flex` / `style.css` display: none) pour un affichage épuré.
+- **Accès Studio Admin :** Retiré du pied de page public, accessible uniquement via `/admin.html`.
+- **Délai initial des timers (TBT) :** Démarrage de la rotation automatique du carrousel et de l'horloge Dakar différé de 4 secondes pour garantir un thread principal libre lors du premier chargement.
+
