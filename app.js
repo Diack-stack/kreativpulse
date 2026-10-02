@@ -900,7 +900,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const cloudProjects = await window.KreativDB.getProjects();
-      if (!Array.isArray(cloudProjects) || cloudProjects.length === 0) return;
+      if (!Array.isArray(cloudProjects) || cloudProjects.length === 0) {
+        // Nettoyer tout ancien cache temporaire de test pour rétablir les projets authentiques
+        try {
+          const stored = localStorage.getItem('kp_custom_projects');
+          if (stored) {
+            const parsed = JSON.parse(stored);
+            const hasTestProjects = parsed.some(p => p.title && (p.title.includes('Gemini') || p.title.includes('Lundi')));
+            if (hasTestProjects) {
+              localStorage.removeItem('kp_custom_projects');
+              realProjects.length = 0;
+              defaultRealProjects.forEach(p => realProjects.push(p));
+              renderFeaturedProjects();
+              syncFullPortfolioGrid();
+            }
+          }
+        } catch (e) {}
+        return;
+      }
 
       const formattedCloud = cloudProjects.map(cp => {
         const cover = cp.image_url || 'assets/portfolio/sentrak.png';
