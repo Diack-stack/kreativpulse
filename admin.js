@@ -685,7 +685,7 @@
         listContainer.innerHTML = filtered.map(p => `
           <tr data-id="${p.id}">
             <td class="w-14">
-              <img src="${p.cover || 'assets/portfolio/sentrak.png'}" alt="${p.title}" class="w-11 h-9 object-cover rounded-lg border border-white/10 bg-black/40" onerror="this.src='assets/portfolio/sentrak.png'" />
+              <img src="${p.cover || 'assets/portfolio/sentrak.png'}" alt="${p.title}" class="w-11 h-11 object-contain rounded-lg border border-white/10 bg-black/60 p-0.5" onerror="this.src='assets/portfolio/sentrak.png'" />
             </td>
             <td>
               <div class="font-semibold text-white text-xs sm:text-sm">${p.title}</div>
