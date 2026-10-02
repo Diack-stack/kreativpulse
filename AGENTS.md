@@ -210,3 +210,17 @@ Lorsque vous arrivez au bureau :
 - **Accès Studio Admin :** Retiré du pied de page public, accessible uniquement via `/admin.html`.
 - **Délai initial des timers (TBT) :** Démarrage de la rotation automatique du carrousel et de l'horloge Dakar différé de 4 secondes pour garantir un thread principal libre lors du premier chargement.
 
+---
+
+## 8. Base de Données Supabase PostgreSQL (Connectée Octobre 2026)
+
+- **Projet Supabase :** `Kreativ'Pulse` (Région `eu-west-1` Ireland)
+- **URL du projet :** `https://rknazaqjvlwxbdactggf.supabase.co`
+- **Client :** `supabase-client.js` (Architecture Jamstack sans bundle externe via l'API native PostgREST).
+- **Tables créées :**
+  - `kp_leads` : Table des briefs studio, demandes de devis et messages de contact.
+  - `kp_projects` : Table des études de cas du portfolio.
+- **Stratégie de persistance double :** Toute soumission de devis ou brief est enregistrée dans Supabase PostgreSQL ET dans `localStorage` en secours transparent.
+- **Studio Manager (`admin.html`) :** Badge en direct `🟢 Supabase PostgreSQL Connecté` et synchronisation bidirectionnelle des statuts et suppressions.
+
+
