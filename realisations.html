@@ -362,7 +362,7 @@
       </div>
 
       <!-- Portfolio Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start" id="portfolioGrid">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="portfolioGrid">
 
         <!-- Project 0: Collé Sow Ardo -->
         <div class="portfolio-item group" data-category="branding" data-project="0" data-project-id="colle-sow-ardo">
@@ -760,8 +760,9 @@
           aria-label="Fermer">×</button>
       </div>
 
-      <div class="relative bg-black/95 flex-1 min-h-[320px] max-h-[75vh] flex items-center justify-center overflow-hidden p-2 sm:p-4">
-        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="max-w-full max-h-full w-auto h-auto object-contain transition-transform duration-300" />
+      <div class="relative flex-1 lightbox-media-stage flex items-center justify-center overflow-hidden p-3 sm:p-6">
+        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-40"></div>
+        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="relative z-10 transition-all duration-300" />
         <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4" aria-label="Précédent">‹</button>
         <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4" aria-label="Suivant">›</button>
         <div id="lightboxCounter"

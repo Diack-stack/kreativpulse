@@ -573,6 +573,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Smooth image transition
     lightboxImg.style.opacity = '0.3';
+    const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+    if (lightboxBackdrop) {
+      lightboxBackdrop.style.backgroundImage = `url("${currentImgUrl}")`;
+    }
     setTimeout(() => {
       lightboxImg.src = currentImgUrl;
       lightboxImg.style.opacity = '1';
@@ -745,6 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return `
         <div class="portfolio-item group cursor-pointer" data-project-id="${project.id}" data-project-index="${pIndex}">
           <div class="portfolio-media">
+            <div class="portfolio-media-blur" style="background-image: url('${project.cover}');"></div>
             <span class="portfolio-gallery-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -753,7 +758,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </svg>
               ${photoCount} photo${photoCount > 1 ? 's' : ''}
             </span>
-            <img src="${project.cover}" alt="${project.title}" loading="lazy" />
+            <img src="${project.cover}" alt="${project.title}" loading="lazy" class="portfolio-media-img" />
             <div class="portfolio-hover-overlay">
               <span class="badge-mini text-orange bg-orange/20 border border-orange/40">${(project.categoryLabel || 'RÉALISATION').toUpperCase()}</span>
               <h3 class="text-base font-bold font-outfit text-white mt-2">${project.title}</h3>
@@ -799,7 +804,8 @@ document.addEventListener('DOMContentLoaded', () => {
       grid.innerHTML = projects.map((p, idx) => `
         <div class="portfolio-item group" data-category="${p.category || 'branding'}" data-project="${idx}" data-project-id="${p.id}">
           <div class="portfolio-media">
-            <img src="${p.cover || 'assets/portfolio/sentrak.png'}" alt="${p.title}" loading="lazy" onerror="this.src='assets/portfolio/sentrak.png'" />
+            <div class="portfolio-media-blur" style="background-image: url('${p.cover || 'assets/portfolio/sentrak.png'}');"></div>
+            <img src="${p.cover || 'assets/portfolio/sentrak.png'}" alt="${p.title}" loading="lazy" onerror="this.src='assets/portfolio/sentrak.png'" class="portfolio-media-img" />
             <div class="portfolio-hover-overlay">
               <span class="badge-mini text-orange bg-orange/20 border border-orange/40">${(p.categoryLabel || p.category || 'EXPERTISE').toUpperCase()}</span>
               <h3 class="text-lg font-bold font-outfit text-white mt-2">${p.title}</h3>
@@ -832,6 +838,25 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   syncFullPortfolioGrid();
+
+  // Initialisation automatique des fonds floutés d'ambiance sur toutes les cartes portfolio statiques
+  function initPortfolioBackdrops() {
+    document.querySelectorAll('.portfolio-media').forEach(media => {
+      if (!media.querySelector('.portfolio-media-blur')) {
+        const img = media.querySelector('img');
+        if (img) {
+          const src = img.getAttribute('src');
+          if (src) {
+            const blur = document.createElement('div');
+            blur.className = 'portfolio-media-blur';
+            blur.style.backgroundImage = `url("${src}")`;
+            media.insertBefore(blur, media.firstChild);
+          }
+        }
+      }
+    });
+  }
+  initPortfolioBackdrops();
 
   /* ==========================================================
      5. TESTIMONIALS SLIDER (Inspiration Vidéo Pinterest)

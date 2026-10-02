@@ -1001,7 +1001,7 @@
         </div>
 
         <!-- Grille de 4 Projets Vedettes Aléatoires -->
-        <div id="featured-portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start mb-12">
+        <div id="featured-portfolio-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <!-- Populated dynamically via app.js with 4 random projects -->
         </div>
 
@@ -1926,9 +1926,10 @@
 
       <!-- Main Stage: Image with Navigation Controls -->
       <div
-        class="relative bg-black/95 flex-1 min-h-[320px] max-h-[75vh] flex items-center justify-center overflow-hidden select-none p-2 sm:p-4">
+        class="relative flex-1 lightbox-media-stage flex items-center justify-center overflow-hidden select-none p-3 sm:p-6">
+        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-40"></div>
         <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse"
-          class="max-w-full max-h-full w-auto h-auto object-contain transition-opacity duration-300" />
+          class="relative z-10 transition-all duration-300" />
 
         <!-- Navigation Arrows (if multi-image) -->
         <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4" aria-label="Image précédente">‹</button>
