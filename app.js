@@ -850,17 +850,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialisation immédiate des 4 projets vedettes
   renderFeaturedProjects();
 
-  // Synchronisation dynamique du portfolio complet (sur realisations.html) si personnalisé via l'Admin
+  // Synchronisation dynamique du portfolio complet (sur realisations.html)
   function syncFullPortfolioGrid() {
     const grid = document.getElementById('portfolioGrid');
-    const custom = localStorage.getItem('kp_custom_projects');
-    if (!grid || !custom) return;
+    if (!grid || !Array.isArray(realProjects) || realProjects.length === 0) return;
 
     try {
-      const projects = JSON.parse(custom);
-      if (!Array.isArray(projects) || projects.length === 0) return;
-
-      grid.innerHTML = projects.map((p, idx) => `
+      grid.innerHTML = realProjects.map((p, idx) => `
         <div class="portfolio-item group" data-category="${p.category || 'branding'}" data-project="${idx}" data-project-id="${p.id}">
           <div class="portfolio-media">
             <div class="portfolio-media-blur" style="background-image: url('${p.cover || 'assets/portfolio/sentrak.png'}');"></div>
@@ -897,6 +893,75 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   syncFullPortfolioGrid();
+
+  // Synchronisation dynamique avec Supabase PostgreSQL (chargement des nouveaux projets sur mobile et tout navigateur)
+  async function syncProjectsFromCloud() {
+    if (typeof window.KreativDB === 'undefined' || typeof window.KreativDB.getProjects !== 'function') return;
+
+    try {
+      const cloudProjects = await window.KreativDB.getProjects();
+      if (!Array.isArray(cloudProjects) || cloudProjects.length === 0) return;
+
+      const formattedCloud = cloudProjects.map(cp => {
+        const cover = cp.image_url || 'assets/portfolio/sentrak.png';
+        const rawImages = (Array.isArray(cp.gallery_urls) && cp.gallery_urls.length > 0)
+          ? cp.gallery_urls
+          : [cover];
+
+        let categoryLabel = 'Campagnes & Digital';
+        if (cp.category === 'branding') categoryLabel = 'Branding & Mode';
+        else if (cp.category === 'event') categoryLabel = 'Événementiel & Sommets';
+        else if (cp.category === 'print') categoryLabel = 'Signalétique & Print';
+
+        return {
+          id: cp.id || ('cloud-' + Math.random().toString(36).substr(2, 9)),
+          title: cp.title || "Projet Kreativ'Pulse",
+          client: cp.client || "Kreativ'Pulse Studio",
+          category: cp.category || 'digital',
+          categoryLabel: categoryLabel,
+          year: cp.year || String(new Date().getFullYear()),
+          tagline: cp.description || '',
+          desc: cp.description || '',
+          deliverables: ["Direction Artistique", "Déclinaisons Multi-Formats", "Visuels HD"],
+          cover: cover,
+          images: rawImages
+        };
+      });
+
+      // Éviter les doublons avec les 15 projets originaux par défaut
+      const nonDuplicateDefaults = defaultRealProjects.filter(dp =>
+        !formattedCloud.some(cp => cp.title.trim().toLowerCase() === dp.title.trim().toLowerCase())
+      );
+
+      // Les projets du cloud (les plus récents) se placent en tête de liste
+      const merged = [...formattedCloud, ...nonDuplicateDefaults];
+
+      // Mettre à jour realProjects en place
+      realProjects.length = 0;
+      merged.forEach(p => realProjects.push(p));
+
+      // Mettre en cache dans le localStorage du périphérique (mobile, tablette, PC)
+      try {
+        localStorage.setItem('kp_custom_projects', JSON.stringify(merged));
+      } catch (e) {}
+
+      // Mettre à jour l'affichage sur la page
+      renderFeaturedProjects();
+      syncFullPortfolioGrid();
+    } catch (err) {
+      console.warn('[KreativPulse] Synchronisation cloud:', err);
+    }
+  }
+
+  // Déclencher la synchronisation dès que KreativDB est prêt
+  function triggerCloudSync(retries = 6) {
+    if (window.KreativDB && typeof window.KreativDB.getProjects === 'function') {
+      syncProjectsFromCloud();
+    } else if (retries > 0) {
+      setTimeout(() => triggerCloudSync(retries - 1), 250);
+    }
+  }
+  triggerCloudSync();
 
   // Initialisation automatique des fonds floutés d'ambiance sur toutes les cartes portfolio statiques
   function initPortfolioBackdrops() {

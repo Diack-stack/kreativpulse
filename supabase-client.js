@@ -212,14 +212,40 @@
       const payload = {
         title: proj.title || 'Projet Kreativ Pulse',
         category: proj.category || 'digital',
-        client: proj.client || 'Client Agence',
-        year: proj.year || '2026',
+        client: proj.client || "Kreativ'Pulse Studio",
+        year: proj.year || String(new Date().getFullYear()),
         description: proj.desc || proj.tagline || '',
         image_url: proj.cover || 'assets/portfolio/sentrak.png',
-        gallery_urls: Array.isArray(proj.images) ? proj.images : [proj.cover]
+        gallery_urls: Array.isArray(proj.images) && proj.images.length > 0 ? proj.images : [proj.cover || 'assets/portfolio/sentrak.png']
       };
 
       try {
+        // 1. Vérifier si un projet avec ce titre existe déjà pour faire une mise à jour
+        const checkRes = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/kp_projects?title=eq.${encodeURIComponent(payload.title)}&select=id`, {
+          method: 'GET',
+          headers: headers
+        });
+
+        if (checkRes.ok) {
+          const existing = await checkRes.json();
+          if (Array.isArray(existing) && existing.length > 0) {
+            const updateId = existing[0].id;
+            const updateRes = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/kp_projects?id=eq.${updateId}`, {
+              method: 'PATCH',
+              headers: {
+                ...headers,
+                'Prefer': 'return=representation'
+              },
+              body: JSON.stringify(payload)
+            });
+            if (updateRes.ok) {
+              const updated = await updateRes.json();
+              return { success: true, data: updated[0] };
+            }
+          }
+        }
+
+        // 2. Sinon nouvel enregistrement
         const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/kp_projects`, {
           method: 'POST',
           headers: {
@@ -236,6 +262,27 @@
         console.warn('[KreativDB] Erreur enregistrement projet distant:', err);
       }
       return { success: true, localOnly: true };
+    },
+
+    /**
+     * Supprimer un projet dans Supabase kp_projects
+     */
+    async deleteProject(idOrTitle) {
+      if (!idOrTitle) return { success: false };
+      try {
+        let url = `${SUPABASE_CONFIG.url}/rest/v1/kp_projects?id=eq.${encodeURIComponent(idOrTitle)}`;
+        if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(idOrTitle))) {
+          url = `${SUPABASE_CONFIG.url}/rest/v1/kp_projects?title=eq.${encodeURIComponent(String(idOrTitle))}`;
+        }
+        const res = await fetch(url, {
+          method: 'DELETE',
+          headers: headers
+        });
+        return { success: res.ok };
+      } catch (err) {
+        console.warn('[KreativDB] Erreur suppression projet distant:', err);
+        return { success: false, error: err };
+      }
     },
 
     /**

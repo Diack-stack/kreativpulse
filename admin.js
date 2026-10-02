@@ -870,8 +870,12 @@
           btn.addEventListener('click', () => {
             const id = btn.getAttribute('data-id');
             if (confirm('Confirmez-vous la suppression de ce projet ?')) {
+              const toDelete = projects.find(item => item.id === id);
               const updated = projects.filter(item => item.id !== id);
               saveCustomProjects(updated);
+              if (window.KreativDB && typeof window.KreativDB.deleteProject === 'function') {
+                window.KreativDB.deleteProject(toDelete ? (toDelete.id || toDelete.title) : id).catch(() => {});
+              }
               showAdminToast('Projet retiré du portfolio');
               renderPortfolioManager();
               renderDashboardOverview();
@@ -1344,6 +1348,9 @@
       }
 
       saveCustomProjects(projects);
+      if (window.KreativDB && typeof window.KreativDB.saveProject === 'function') {
+        window.KreativDB.saveProject(projectData).catch(() => {});
+      }
       modalProject.classList.remove('active');
       renderPortfolioManager();
       renderDashboardOverview();
@@ -2222,7 +2229,7 @@
       }
     });
 
-    // Synchronisation automatique en arrière-plan avec Supabase PostgreSQL
+    // Synchronisation automatique en arrière-plan avec Supabase PostgreSQL (Leads)
     if (window.KreativDB && typeof window.KreativDB.getLeads === 'function') {
       window.KreativDB.getLeads().then(remoteLeads => {
         if (Array.isArray(remoteLeads) && remoteLeads.length > 0) {
@@ -2232,10 +2239,64 @@
       }).catch(() => {});
     }
 
+    // Synchronisation automatique des projets avec Supabase (Portabilité mobile/multi-appareils)
+    async function syncAdminProjects() {
+      if (!window.KreativDB || typeof window.KreativDB.getProjects !== 'function') return;
+      try {
+        const cloudProjects = await window.KreativDB.getProjects();
+        const localProjects = getCustomProjects();
+
+        // 1. Pousser les projets locaux vers Supabase s'ils n'y sont pas encore
+        if (Array.isArray(localProjects)) {
+          for (const lp of localProjects) {
+            const isDefault = defaultPortfolioProjects.some(dp => dp.id === lp.id || dp.title.trim().toLowerCase() === lp.title.trim().toLowerCase());
+            if (!isDefault) {
+              const inCloud = cloudProjects.some(cp => cp.title.trim().toLowerCase() === lp.title.trim().toLowerCase());
+              if (!inCloud) {
+                await window.KreativDB.saveProject(lp);
+              }
+            }
+          }
+        }
+
+        // 2. Mettre à jour la vue locale avec les projets Supabase
+        const latestCloud = await window.KreativDB.getProjects();
+        if (Array.isArray(latestCloud) && latestCloud.length > 0) {
+          const formatted = latestCloud.map(cp => ({
+            id: cp.id,
+            title: cp.title,
+            client: cp.client || "Kreativ'Pulse Studio",
+            category: cp.category || 'digital',
+            categoryLabel: (cp.category === 'branding' ? 'Branding & Mode' : cp.category === 'event' ? 'Événementiel & Sommets' : cp.category === 'print' ? 'Signalétique & Print' : 'Campagnes & Digital'),
+            year: cp.year || String(new Date().getFullYear()),
+            tagline: cp.description || '',
+            desc: cp.description || '',
+            deliverables: ["Direction Artistique", "Déclinaisons Multi-Formats", "Visuels HD"],
+            cover: cp.image_url || 'assets/portfolio/sentrak.png',
+            images: (Array.isArray(cp.gallery_urls) && cp.gallery_urls.length > 0) ? cp.gallery_urls : [cp.image_url || 'assets/portfolio/sentrak.png']
+          }));
+
+          const nonDupDefaults = defaultPortfolioProjects.filter(dp =>
+            !formatted.some(cp => cp.title.trim().toLowerCase() === dp.title.trim().toLowerCase())
+          );
+
+          const merged = [...formatted, ...nonDupDefaults];
+          saveCustomProjects(merged);
+          renderPortfolioManager();
+          renderDashboardOverview();
+        }
+      } catch (e) {
+        console.warn('[Admin] Sync projets cloud passif:', e);
+      }
+    }
+
+    setTimeout(syncAdminProjects, 500);
+
     // Recharger automatiquement quand l'onglet redevient actif
     window.addEventListener('focus', () => {
       renderDashboardOverview();
       renderLeadsManager();
+      syncAdminProjects();
       if (window.KreativDB && typeof window.KreativDB.getLeads === 'function') {
         window.KreativDB.getLeads().then(remoteLeads => {
           if (Array.isArray(remoteLeads) && remoteLeads.length > 0) {
