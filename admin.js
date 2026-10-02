@@ -1668,6 +1668,7 @@
             if (target) {
               target.status = target.status === 'processed' ? 'new' : 'processed';
               saveLeads(leadsList);
+              if (window.KreativDB) window.KreativDB.updateLeadStatus(id, target.status);
               showAdminToast('Statut mis à jour');
               renderLeadsManager();
               renderDashboardOverview();
@@ -1681,6 +1682,7 @@
             if (confirm('Supprimer cette demande ?')) {
               const updated = leads.filter(item => item.id !== id);
               saveLeads(updated);
+              if (window.KreativDB) window.KreativDB.deleteLead(id);
               showAdminToast('Demande supprimée');
               renderLeadsManager();
               renderDashboardOverview();
@@ -1931,10 +1933,28 @@
       }
     });
 
+    // Synchronisation automatique en arrière-plan avec Supabase PostgreSQL
+    if (window.KreativDB && typeof window.KreativDB.getLeads === 'function') {
+      window.KreativDB.getLeads().then(remoteLeads => {
+        if (Array.isArray(remoteLeads) && remoteLeads.length > 0) {
+          renderDashboardOverview();
+          renderLeadsManager();
+        }
+      }).catch(() => {});
+    }
+
     // Recharger automatiquement quand l'onglet redevient actif
     window.addEventListener('focus', () => {
       renderDashboardOverview();
       renderLeadsManager();
+      if (window.KreativDB && typeof window.KreativDB.getLeads === 'function') {
+        window.KreativDB.getLeads().then(remoteLeads => {
+          if (Array.isArray(remoteLeads) && remoteLeads.length > 0) {
+            renderDashboardOverview();
+            renderLeadsManager();
+          }
+        }).catch(() => {});
+      }
     });
 
     document.querySelectorAll('.btn-close-modal').forEach(btn => {

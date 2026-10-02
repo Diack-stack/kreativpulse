@@ -1101,8 +1101,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Helper pour enregistrer une demande dans le stockage local pour l'Espace Admin
+  // Helper pour enregistrer une demande dans Supabase PostgreSQL + LocalStorage (Fallback)
   function saveLeadToStorage(leadData) {
+    if (window.KreativDB && typeof window.KreativDB.saveLead === 'function') {
+      window.KreativDB.saveLead(leadData);
+      return;
+    }
     try {
       const stored = localStorage.getItem('kp_leads');
       const leads = stored ? JSON.parse(stored) : [];
