@@ -1926,18 +1926,20 @@
 
       <!-- Main Stage: Image with Navigation Controls -->
       <div
-        class="relative flex-1 lightbox-media-stage flex items-center justify-center overflow-hidden select-none p-3 sm:p-6">
-        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-40"></div>
-        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse"
-          class="relative z-10 transition-all duration-300" />
+        class="relative flex-1 min-h-0 lightbox-media-stage flex items-center justify-center overflow-hidden select-none p-3 sm:p-5">
+        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-35"></div>
+        <div class="relative z-10 w-full h-full flex items-center justify-center">
+          <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse"
+            class="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-300 rounded-lg shadow-2xl" />
+        </div>
 
         <!-- Navigation Arrows (if multi-image) -->
-        <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4" aria-label="Image précédente">‹</button>
-        <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4" aria-label="Image suivante">›</button>
+        <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4 z-20" aria-label="Image précédente">‹</button>
+        <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4 z-20" aria-label="Image suivante">›</button>
 
         <!-- Floating Image Counter Badge -->
         <div id="lightboxCounter"
-          class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold flex items-center gap-1.5">
+          class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold flex items-center gap-1.5 z-20">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <rect x="3" y="3" width="18" height="18" rx="2" />
             <circle cx="8.5" cy="8.5" r="1.5" />
@@ -1949,13 +1951,13 @@
 
       <!-- Thumbnails Strip (if multi-image) -->
       <div id="lightboxThumbsContainer"
-        class="px-5 py-3 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2.5 overflow-x-auto">
+        class="px-4 py-2 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2 overflow-x-auto shrink-0">
         <!-- Generated dynamically via app.js -->
       </div>
 
       <!-- Bottom Panel: Project Brief & Impact -->
       <div
-        class="p-5 sm:p-6 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        class="px-5 py-3 sm:px-6 sm:py-3.5 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 shrink-0">
         <div class="max-w-2xl">
           <h3 id="lightboxTitle" class="font-outfit font-bold text-lg sm:text-xl text-white"></h3>
           <p id="lightboxDesc" class="text-xs sm:text-sm text-gray-300 mt-1 leading-relaxed"></p>

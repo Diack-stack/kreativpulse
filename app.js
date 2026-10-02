@@ -580,6 +580,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       lightboxImg.src = currentImgUrl;
       lightboxImg.style.opacity = '1';
+      adjustLightboxImageFit();
     }, 120);
 
     // Update Text Details
@@ -642,6 +643,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function adjustLightboxImageFit() {
+    if (!lightboxImg) return;
+    const stage = document.querySelector('#projectLightbox .lightbox-media-stage');
+    if (stage) {
+      const availH = Math.max(180, stage.clientHeight - 28);
+      const availW = Math.max(180, stage.clientWidth - 40);
+      lightboxImg.style.maxHeight = `${availH}px`;
+      lightboxImg.style.maxWidth = `${availW}px`;
+      lightboxImg.style.width = 'auto';
+      lightboxImg.style.height = 'auto';
+      lightboxImg.style.objectFit = 'contain';
+    }
+  }
+
+  if (lightboxImg) {
+    lightboxImg.addEventListener('load', adjustLightboxImageFit);
+  }
+  window.addEventListener('resize', adjustLightboxImageFit);
+
   function openLightbox(projectIndex, imgIndex = 0) {
     activeProjectIndex = projectIndex;
     activeImageIndex = imgIndex;
@@ -649,6 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightbox) {
       lightbox.classList.remove('hidden');
       document.body.style.overflow = 'hidden'; // Prevent page scroll
+      setTimeout(adjustLightboxImageFit, 50);
     }
   }
 

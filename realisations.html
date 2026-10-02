@@ -760,22 +760,24 @@
           aria-label="Fermer">×</button>
       </div>
 
-      <div class="relative flex-1 lightbox-media-stage flex items-center justify-center overflow-hidden p-3 sm:p-6">
-        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-40"></div>
-        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="relative z-10 transition-all duration-300" />
-        <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4" aria-label="Précédent">‹</button>
-        <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4" aria-label="Suivant">›</button>
+      <div class="relative flex-1 min-h-0 lightbox-media-stage flex items-center justify-center overflow-hidden p-3 sm:p-5">
+        <div id="lightboxBackdrop" class="portfolio-media-blur opacity-35"></div>
+        <div class="relative z-10 w-full h-full flex items-center justify-center">
+          <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-300 rounded-lg shadow-2xl" />
+        </div>
+        <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4 z-20" aria-label="Précédent">‹</button>
+        <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4 z-20" aria-label="Suivant">›</button>
         <div id="lightboxCounter"
-          class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold">
+          class="absolute bottom-4 right-4 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs text-orange font-bold z-20">
           <span id="lightboxCounterText">Photo 1 / 5</span>
         </div>
       </div>
 
       <div id="lightboxThumbsContainer"
-        class="px-5 py-3 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2.5 overflow-x-auto"></div>
+        class="px-4 py-2 border-t border-white/10 bg-[#0A0C10] flex items-center gap-2 overflow-x-auto shrink-0"></div>
 
       <div
-        class="p-5 sm:p-6 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        class="px-5 py-3 sm:px-6 sm:py-3.5 bg-[#0E1015] border-t border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-3 shrink-0">
         <div class="max-w-2xl">
           <h3 id="lightboxTitle" class="font-outfit font-bold text-lg sm:text-xl text-white"></h3>
           <p id="lightboxDesc" class="text-xs sm:text-sm text-gray-300 mt-1 leading-relaxed"></p>
