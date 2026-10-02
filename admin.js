@@ -40,7 +40,7 @@
     hours: 'Lundi – Vendredi : 08h30 – 18h00'
   };
 
-  // Les 15 projets réels authentiques de Kreativ'Pulse (Fallback garanti)
+  // Les 15 projets réels authentiques de Kreativ'Pulse (Fallback garanti avec multi-photos)
   const defaultPortfolioProjects = [
     {
       id: 'colle-sow-ardo',
@@ -52,7 +52,14 @@
       tagline: "Habillage Vitrines, Signalétique Dorée & Scénographie Haute Couture",
       desc: "Aménagement d'exception et habillage vitré pour le 40ème anniversaire de la célèbre maison de couture sénégalaise.",
       deliverables: ["Vitrophanie Intégrale Haute Précision", "Marquage Doré Spécial 40 Ans", "Signalétique Intérieure Showroom"],
-      cover: "assets/portfolio/colle-sow-ardo.webp"
+      cover: "assets/portfolio/colle-sow-ardo.webp",
+      images: [
+        'assets/portfolio/colle-sow-ardo.webp',
+        'assets/portfolio/colle-sow-ardo-1.webp',
+        'assets/portfolio/colle-sow-ardo-2.jpg',
+        'assets/portfolio/colle-sow-ardo-3.jpg',
+        'assets/portfolio/colle-sow-ardo-4.jpg'
+      ]
     },
     {
       id: 'gsef',
@@ -64,7 +71,13 @@
       tagline: "Architecture Événementielle & Stand Forum Mondial",
       desc: "Conception et fabrication du pavillon d'exposition officiel pour le Forum Mondial de l'Économie Sociale et Solidaire.",
       deliverables: ["Stand Modulaire 36m²", "Totems Graphiques Piliers", "Comptoir d'Accueil Personnalisé"],
-      cover: "assets/portfolio/gsef.webp"
+      cover: "assets/portfolio/gsef.webp",
+      images: [
+        'assets/portfolio/gsef.webp',
+        'assets/portfolio/gsef-1.webp',
+        'assets/portfolio/gsef-2.jpg',
+        'assets/portfolio/gsef-3.jpg'
+      ]
     },
     {
       id: 'sonacos',
@@ -76,7 +89,15 @@
       tagline: "Habillage Monumental de Façade & Balcons d'Entreprise",
       desc: "Projet monumental d'habillage architectural des façades et balcons du siège de la SONACOS à l'occasion du cinquantenaire.",
       deliverables: ["Habillage Architectural Multi-niveaux", "Bandeaux Façade Haute Résistance", "Enseignes Rétro-éclairées"],
-      cover: "assets/portfolio/sonacos.webp"
+      cover: "assets/portfolio/sonacos.webp",
+      images: [
+        'assets/portfolio/sonacos.webp',
+        'assets/portfolio/sonacos-1.webp',
+        'assets/portfolio/sonacos-2.jpg',
+        'assets/portfolio/sonacos-3.jpg',
+        'assets/portfolio/sonacos-4.jpg',
+        'assets/portfolio/sonacos-5.jpg'
+      ]
     },
     {
       id: 'senelec',
@@ -86,9 +107,13 @@
       categoryLabel: "Campagnes & Digital",
       year: "2025",
       tagline: "Électrification Citoyenne & Supports Digitaux",
-      desc: "Déploiement digital et signalétique pour le service de prépaiement Woyofal.",
+      desc: "Production de contenus vidéo en motion design expliquant les nouvelles grilles tarifaires et mesures d'économie d'énergie.",
       deliverables: ["Supports de Communication Réseau", "Visuels Campagne Digitale", "Flyers et Affiches Agences"],
-      cover: "assets/portfolio/senelec.png"
+      cover: "assets/portfolio/senelec-motion.png",
+      images: [
+        'assets/portfolio/senelec-motion.png',
+        'assets/portfolio/senelec-1.png'
+      ]
     },
     {
       id: 'dpworld',
@@ -100,7 +125,13 @@
       tagline: "Scénographie Complète & Espace Recrutement",
       desc: "Organisation visuelle et scénographie de la Journée Carrière DP World sous le thème 'Our world is our future'.",
       deliverables: ["Podium & Pupitre Officiel", "Écrans LED & Régie Vidéo", "Photocall Monumental", "Signalétique RH"],
-      cover: "assets/portfolio/dp-world-cover.png"
+      cover: "assets/portfolio/dp-world-cover.png",
+      images: [
+        'assets/portfolio/dp-world-cover.png',
+        'assets/portfolio/dpworld-1.png',
+        'assets/portfolio/dpworld-2.png',
+        'assets/portfolio/dpworld-3.png'
+      ]
     },
     {
       id: 'sogip',
@@ -112,91 +143,157 @@
       tagline: "Scénographie, Banderoles & Signalétique Grand Format",
       desc: "Conception architecturale et habillage événementiel pour l'accueil des délégations officielles au Centre des Expositions de Diamniadio.",
       deliverables: ["Habillage Façade Grand Format", "Scénographie d'Accueil", "Signalétique Directionnelle"],
-      cover: "assets/portfolio/sogip-cover.webp"
+      cover: "assets/portfolio/sogip-cover.webp",
+      images: [
+        'assets/portfolio/sogip-cover.webp',
+        'assets/portfolio/sogip-1.jpg',
+        'assets/portfolio/sogip-2.jpg',
+        'assets/portfolio/sogip-3.jpg',
+        'assets/portfolio/sogip-4.jpg'
+      ]
     },
     {
       id: 'sonaged',
       title: "SONAGED Sénégal Propre",
       client: "SONAGED",
-      category: "digital",
-      categoryLabel: "Campagnes Citoyennes",
+      category: "branding",
+      categoryLabel: "Branding Industriel",
       year: "2025",
       tagline: "Campagne Nationale Éco-Gestes & Salubrité",
-      desc: "Dispositif complet de sensibilisation civique et propreté urbaine déployé sur l'ensemble du territoire national.",
-      deliverables: ["Affiches Grand Format 4x3", "Motion Design Réseaux Sociaux", "Kits de Sensibilisation Quartiers"],
-      cover: "assets/portfolio/sonaged.png"
+      desc: "Campagne d'habillage des véhicules de salubrité publique sur l'ensemble de la métropole dakaroise. Marquage haute visibilité jour/nuit.",
+      deliverables: ["Marquage Adhésif Industriel", "Traitement Résistant Intempéries", "Signalétique Sécurité & Numéro Vert"],
+      cover: "assets/portfolio/sonaged.webp",
+      images: [
+        'assets/portfolio/sonaged.webp',
+        'assets/portfolio/sonaged-1.webp',
+        'assets/portfolio/sonaged-2.jpg',
+        'assets/portfolio/sonaged-3.jpg',
+        'assets/portfolio/sonaged-4.jpg',
+        'assets/portfolio/sonaged-5.jpg'
+      ]
     },
     {
       id: 'tournee-can',
-      title: "Lions du Sénégal & FSF",
+      title: "Bus Sénégal Champion d'Afrique",
       client: "Fédération Sénégalaise de Football",
-      category: "digital",
-      categoryLabel: "Sport & Brand Content",
-      year: "2024",
-      tagline: "Visuels Officiels CAN & Ferveur Nationale",
-      desc: "Campagne visuelle accompagnant l'équipe nationale à la Coupe d'Afrique des Nations.",
-      deliverables: ["Création Graphique Réseaux Sociaux", "Bannières d'Encouragement", "Badges et Supports VIP"],
-      cover: "assets/portfolio/can.png"
+      category: "branding",
+      categoryLabel: "Branding & Flotte",
+      year: "2025",
+      tagline: "Total Covering & Habillage de Flotte Officielle",
+      desc: "Marquage intégral grand format (total covering) du bus officiel des Lions du Sénégal à l'occasion de la grande tournée triomphale.",
+      deliverables: ["Total Covering Intégral", "Vinyle Ultra-Résistant Anti-UV", "Habillage Vitres Micro-perforé"],
+      cover: "assets/portfolio/tournee-can.webp",
+      images: [
+        'assets/portfolio/tournee-can.webp',
+        'assets/portfolio/tournee-can-1.webp',
+        'assets/portfolio/tournee-can-2.jpg',
+        'assets/portfolio/tournee-can-3.jpg',
+        'assets/portfolio/tournee-can-4.jpg',
+        'assets/portfolio/tournee-can-5.jpg'
+      ]
     },
     {
       id: 'dhl',
       title: "Campagnes B2B DHL Express Sénégal",
       client: "DHL Express",
-      category: "branding",
-      categoryLabel: "Branding & Print",
+      category: "event",
+      categoryLabel: "Événementiel Corporate",
       year: "2025",
       tagline: "Supports Commerciaux & Offres Spéciales",
-      desc: "Création de brochures, kakémonos et animations pour valoriser le réseau logistique rapide de DHL au Sénégal.",
-      deliverables: ["Kakémonos Roll-up Premium", "Plaquettes Commerciales B2B", "Goodies Personnalisés"],
-      cover: "assets/portfolio/dhl.png"
+      desc: "Aménagement d'un espace lounge exclusif pour la direction et les clients stratégiques de DHL.",
+      deliverables: ["Scénographie Espace Lounge", "Totem & Signalétique Jaune/Rouge", "Mise en Lumière Ambiance VIP"],
+      cover: "assets/portfolio/dhl.webp",
+      images: [
+        'assets/portfolio/dhl.webp',
+        'assets/portfolio/dhl-1.webp',
+        'assets/portfolio/dhl-2.jpg',
+        'assets/portfolio/dhl-3.jpg',
+        'assets/portfolio/dhl-4.jpg'
+      ]
     },
     {
       id: 'caf-awards',
       title: "Scénographie CAF Awards Dakar",
       client: "CAF / Ministère des Sports",
       category: "event",
-      categoryLabel: "Événements Continentaux",
-      year: "2024",
-      tagline: "Murs Graphiques, Photocalls & VIP Lounges",
-      desc: "Aménagement des espaces VIP et signalétique d'accueil lors de la cérémonie continentale des CAF Awards à Dakar.",
-      deliverables: ["Photocall Tapis Rouge", "Signalétique Espaces VIP", "Branding Conférence de Presse"],
-      cover: "assets/portfolio/caf.png"
-    },
-    {
-      id: 'bhs',
-      title: "BHS Banque de l'Habitat",
-      client: "Banque de l'Habitat du Sénégal",
-      category: "digital",
-      categoryLabel: "Finance & Immobilier",
+      categoryLabel: "Audiovisuel & Cérémonie",
       year: "2025",
-      tagline: "Visuels Produits & Salons Immobiliers",
-      desc: "Campagne de valorisation de l'épargne logement et supports pour la diaspora sénégalaise.",
-      deliverables: ["Dépliants Produits Crédit", "Campagne Social Ads", "Habillage Stand Salon Habitat"],
-      cover: "assets/portfolio/bhs.png"
+      tagline: "Scénographie TV Monumentale & Régie Multimédia",
+      desc: "Conception scénographique 3D pour la prestigieuse cérémonie des CAF Awards. Arche lumineuse centrale, murs d'images LED circulaires.",
+      deliverables: ["Scénographie 3D Circulaire", "Mur d'Écrans LED Haute Définition", "Régie Multimédia Live"],
+      cover: "assets/portfolio/caf-awards.webp",
+      images: [
+        'assets/portfolio/caf-awards.webp',
+        'assets/portfolio/caf-awards-1.webp',
+        'assets/portfolio/caf-awards-2.jpg',
+        'assets/portfolio/caf-awards-3.jpg',
+        'assets/portfolio/caf-awards-4.jpg',
+        'assets/portfolio/caf-awards-5.jpg',
+        'assets/portfolio/caf-awards-6.jpg',
+        'assets/portfolio/caf-awards-7.jpg'
+      ]
     },
     {
       id: 'aner',
-      title: "Rapport Annuel & Plaidoyer ANER",
+      title: "Goodies & Coffrets Institutionnels ANER",
       client: "Agence Nationale Énergies Renouvelables",
-      category: "print",
-      categoryLabel: "Édition & Institutionnel",
-      year: "2024",
-      tagline: "Direction Artistique & Infographies Climat",
-      desc: "Livre institutionnel et cartographies d'impact énergétique pour promouvoir le solaire au Sénégal.",
-      deliverables: ["Mise en Page Éditoriale 64 Pages", "Infographies Climat & Données", "Impression Couverture Vernis Sélectif"],
-      cover: "assets/portfolio/aner.png"
+      category: "goodies",
+      categoryLabel: "Goodies & Papeterie",
+      year: "2026",
+      tagline: "Papeterie de Luxe, Clés USB Bois & Calendriers 2026",
+      desc: "Création et fabrication de la collection d'objets promotionnels pour l'Agence Nationale pour les Énergies Renouvelables.",
+      deliverables: ["Agendas Cuir Gravés Logo", "Calendriers de Bureau 2026", "Clés USB Bois Éco-responsables", "Fanions de Table Officiels"],
+      cover: "assets/portfolio/goodies-aner.png",
+      images: [
+        'assets/portfolio/goodies-aner.png',
+        'assets/portfolio/aner-1.png',
+        'assets/portfolio/aner-2.png',
+        'assets/portfolio/aner-3.png',
+        'assets/portfolio/aner-4.png',
+        'assets/portfolio/aner-5.png',
+        'assets/portfolio/aner-6.png',
+        'assets/portfolio/aner-7.png',
+        'assets/portfolio/aner-8.png',
+        'assets/portfolio/aner-9.png'
+      ]
     },
     {
       id: 'crous',
       title: "Campus Diamniadio CROUS",
       client: "CROUS Diamniadio",
-      category: "print",
-      categoryLabel: "Signalétique Universitaire",
+      category: "digital",
+      categoryLabel: "Digital & Social Media",
       year: "2025",
-      tagline: "Wayfinding & Marquage Grands Espaces",
-      desc: "Signalétique directionnelle complète des pavillons universitaires et restaurants d'étudiants de Diamniadio.",
-      deliverables: ["Plaques de Porte Gravées", "Totems Extérieurs Aluminium", "Plans d'Orientation Campus"],
-      cover: "assets/portfolio/crous.png"
+      tagline: "Création Graphique & Community Management Institutionnel",
+      desc: "Conception de séries de visuels institutionnels pour les temps forts de l'année pour les canaux sociaux du CROUS.",
+      deliverables: ["Gabarits Social Media", "Campagnes Thématiques", "Illustrations Graphiques", "Retouche & Traitement d'Images"],
+      cover: "assets/portfolio/crous.png",
+      images: [
+        'assets/portfolio/crous.png',
+        'assets/portfolio/crous-1.png'
+      ]
+    },
+    {
+      id: 'noom',
+      title: "Objets Publicitaires VIP Noom Hotel",
+      client: "Noom Hotel Dakar Sea Plaza",
+      category: "goodies",
+      categoryLabel: "Objets Publicitaires Luxe",
+      year: "2026",
+      tagline: "Cadeaux d'Affaires Haut de Gamme & Goodies Hôteliers",
+      desc: "Développement d'articles d'accueil de prestige pour les suites et événements corporate du prestigieux palace dakarois.",
+      deliverables: ["Coffrets d'Accueil VIP", "Stylos Métal Gravure Laser", "Carnets Personnalisés", "Objets Souvenirs Hôteliers"],
+      cover: "assets/portfolio/goodies-noom.png",
+      images: [
+        'assets/portfolio/goodies-noom.png',
+        'assets/portfolio/noom-1.png',
+        'assets/portfolio/noom-2.jpeg',
+        'assets/portfolio/noom-3.jpeg',
+        'assets/portfolio/noom-4.jpeg',
+        'assets/portfolio/noom-5.jpeg',
+        'assets/portfolio/noom-6.jpeg',
+        'assets/portfolio/noom-7.jpeg'
+      ]
     },
     {
       id: 'ergobit',
@@ -208,7 +305,15 @@
       tagline: "Cloisons Vitrées Sablées & Décoration Corporate",
       desc: "Aménagement graphique complet des bureaux et espaces d'accueil d'Ergobit Consulting à Dakar.",
       deliverables: ["Films Dépolis Sablés Graphiques", "Signalétique Salles & Direction", "Panneaux Muraux Identitaires"],
-      cover: "assets/portfolio/ergobit-locaux.webp"
+      cover: "assets/portfolio/ergobit-locaux.webp",
+      images: [
+        'assets/portfolio/ergobit-locaux.webp',
+        'assets/portfolio/ergobit-1.jpg',
+        'assets/portfolio/ergobit-2.webp',
+        'assets/portfolio/ergobit-3.jpg',
+        'assets/portfolio/ergobit-4.jpg',
+        'assets/portfolio/ergobit-5.jpg'
+      ]
     },
     {
       id: 'sentrak',
@@ -220,7 +325,11 @@
       tagline: "Direction Artistique Social Media Logistique",
       desc: "Campagnes B2B et temps forts d'entreprise (Octobre Rose, vœux annuels, sécurité portuaire) sur LinkedIn.",
       deliverables: ["Direction Artistique Social Media", "Campagne Octobre Rose Corporate", "Visuels Temps Forts"],
-      cover: "assets/portfolio/sentrak.png"
+      cover: "assets/portfolio/sentrak.png",
+      images: [
+        'assets/portfolio/sentrak.png',
+        'assets/portfolio/sentrak-1.png'
+      ]
     }
   ];
 
@@ -536,7 +645,41 @@
       const stored = localStorage.getItem(ADMIN_STORAGE_KEY_PROJECTS);
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          let modified = false;
+          const healed = parsed.map(p => {
+            const fallback = defaultPortfolioProjects.find(dp => dp.id === p.id) || {};
+            let cover = p.cover || fallback.cover || 'assets/portfolio/sentrak.png';
+            if (cover === 'assets/portfolio/senelec.png') { cover = 'assets/portfolio/senelec-motion.png'; modified = true; }
+            if (cover === 'assets/portfolio/aner.png') { cover = 'assets/portfolio/goodies-aner.png'; modified = true; }
+            if (cover === 'assets/portfolio/can.png') { cover = 'assets/portfolio/tournee-can.webp'; modified = true; }
+            if (cover === 'assets/portfolio/dhl.png') { cover = 'assets/portfolio/dhl.webp'; modified = true; }
+            if (cover === 'assets/portfolio/caf.png') { cover = 'assets/portfolio/caf-awards.webp'; modified = true; }
+            if (cover === 'assets/portfolio/sonaged.png') { cover = 'assets/portfolio/sonaged.webp'; modified = true; }
+            if (cover === 'assets/portfolio/bhs.png') { cover = 'assets/portfolio/dp-world-cover.png'; modified = true; }
+
+            const images = (Array.isArray(p.images) && p.images.length > 0)
+              ? p.images.map(img => {
+                  if (img === 'assets/portfolio/senelec.png') return 'assets/portfolio/senelec-motion.png';
+                  if (img === 'assets/portfolio/aner.png') return 'assets/portfolio/goodies-aner.png';
+                  if (img === 'assets/portfolio/can.png') return 'assets/portfolio/tournee-can.webp';
+                  return img;
+                })
+              : (Array.isArray(fallback.images) && fallback.images.length > 0 ? fallback.images : [cover]);
+
+            return {
+              ...p,
+              categoryLabel: p.categoryLabel || fallback.categoryLabel || 'RÉALISATION',
+              deliverables: (Array.isArray(p.deliverables) && p.deliverables.length > 0) ? p.deliverables : (fallback.deliverables || ['Direction Artistique']),
+              cover,
+              images
+            };
+          });
+          if (modified) {
+            try { localStorage.setItem(ADMIN_STORAGE_KEY_PROJECTS, JSON.stringify(healed)); } catch (err) {}
+          }
+          return healed;
+        }
       }
     } catch (e) {}
     return [...defaultPortfolioProjects];

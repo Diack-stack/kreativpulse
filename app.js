@@ -534,7 +534,46 @@ document.addEventListener('DOMContentLoaded', () => {
       const stored = localStorage.getItem('kp_custom_projects');
       if (stored) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          let hasFixes = false;
+          const healed = parsed.map(p => {
+            const fallback = defaultRealProjects.find(dp => dp.id === p.id) || {};
+            let cover = p.cover || fallback.cover || 'assets/portfolio/sentrak.png';
+            if (cover === 'assets/portfolio/senelec.png') { cover = 'assets/portfolio/senelec-motion.png'; hasFixes = true; }
+            if (cover === 'assets/portfolio/aner.png') { cover = 'assets/portfolio/goodies-aner.png'; hasFixes = true; }
+            if (cover === 'assets/portfolio/can.png') { cover = 'assets/portfolio/tournee-can.webp'; hasFixes = true; }
+            if (cover === 'assets/portfolio/dhl.png') { cover = 'assets/portfolio/dhl.webp'; hasFixes = true; }
+            if (cover === 'assets/portfolio/caf.png') { cover = 'assets/portfolio/caf-awards.webp'; hasFixes = true; }
+            if (cover === 'assets/portfolio/sonaged.png') { cover = 'assets/portfolio/sonaged.webp'; hasFixes = true; }
+            if (cover === 'assets/portfolio/bhs.png') { cover = 'assets/portfolio/dp-world-cover.png'; hasFixes = true; }
+
+            const rawImages = (Array.isArray(p.images) && p.images.length > 0) ? p.images : (fallback.images || [cover]);
+            const images = rawImages.map(img => {
+              if (img === 'assets/portfolio/senelec.png') return 'assets/portfolio/senelec-motion.png';
+              if (img === 'assets/portfolio/aner.png') return 'assets/portfolio/goodies-aner.png';
+              if (img === 'assets/portfolio/can.png') return 'assets/portfolio/tournee-can.webp';
+              return img;
+            });
+
+            return {
+              id: p.id || 'proj-' + Math.random().toString(36).substr(2, 9),
+              title: p.title || fallback.title || 'Projet Kreativ\'Pulse',
+              client: p.client || fallback.client || 'Kreativ\'Pulse Studio',
+              category: p.category || fallback.category || 'branding',
+              categoryLabel: p.categoryLabel || fallback.categoryLabel || 'RÉALISATION',
+              year: p.year || fallback.year || '2026',
+              tagline: p.tagline || fallback.tagline || '',
+              desc: p.desc || fallback.desc || '',
+              deliverables: (Array.isArray(p.deliverables) && p.deliverables.length > 0) ? p.deliverables : (fallback.deliverables || ['Direction Artistique']),
+              cover,
+              images
+            };
+          });
+          if (hasFixes) {
+            try { localStorage.setItem('kp_custom_projects', JSON.stringify(healed)); } catch (e) {}
+          }
+          return healed;
+        }
       }
     } catch (e) {}
     return defaultRealProjects;
@@ -566,33 +605,45 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeImageIndex = 0;
 
   function updateLightboxView() {
+    if (!realProjects || realProjects.length === 0) return;
+    if (activeProjectIndex < 0 || activeProjectIndex >= realProjects.length) {
+      activeProjectIndex = 0;
+    }
     const project = realProjects[activeProjectIndex];
     if (!project) return;
 
-    const currentImgUrl = project.images[activeImageIndex] || project.cover;
+    const images = (Array.isArray(project.images) && project.images.length > 0) ? project.images : [project.cover || 'assets/portfolio/sentrak.png'];
+    if (activeImageIndex < 0) activeImageIndex = images.length - 1;
+    if (activeImageIndex >= images.length) activeImageIndex = 0;
+    
+    const currentImgUrl = images[activeImageIndex] || project.cover || 'assets/portfolio/sentrak.png';
     
     // Smooth image transition
-    lightboxImg.style.opacity = '0.3';
-    const lightboxBackdrop = document.getElementById('lightboxBackdrop');
-    if (lightboxBackdrop) {
-      lightboxBackdrop.style.backgroundImage = `url("${currentImgUrl}")`;
+    if (lightboxImg) {
+      lightboxImg.style.opacity = '0.3';
+      const lightboxBackdrop = document.getElementById('lightboxBackdrop');
+      if (lightboxBackdrop) {
+        lightboxBackdrop.style.backgroundImage = `url("${currentImgUrl}")`;
+      }
+      setTimeout(() => {
+        lightboxImg.src = currentImgUrl;
+        lightboxImg.onerror = () => { lightboxImg.src = 'assets/portfolio/sentrak.png'; };
+        lightboxImg.style.opacity = '1';
+      }, 100);
     }
-    setTimeout(() => {
-      lightboxImg.src = currentImgUrl;
-      lightboxImg.style.opacity = '1';
-    }, 120);
 
     // Update Text Details
-    if (lightboxTitle) lightboxTitle.textContent = project.title;
-    if (lightboxDesc) lightboxDesc.textContent = project.desc;
-    if (lightboxCategory) lightboxCategory.textContent = project.categoryLabel.toUpperCase();
-    if (lightboxClient) lightboxClient.textContent = project.client;
-    if (lightboxYear) lightboxYear.textContent = project.year;
+    if (lightboxTitle) lightboxTitle.textContent = project.title || 'Projet Kreativ\'Pulse';
+    if (lightboxDesc) lightboxDesc.textContent = project.desc || project.tagline || '';
+    if (lightboxCategory) lightboxCategory.textContent = ((project.categoryLabel || project.category || 'RÉALISATION')).toUpperCase();
+    if (lightboxClient) lightboxClient.textContent = project.client || 'Kreativ\'Pulse Studio';
+    if (lightboxYear) lightboxYear.textContent = project.year || '2026';
 
     // Update Deliverables Chips
     if (lightboxDeliverables) {
       lightboxDeliverables.innerHTML = '';
-      project.deliverables.forEach(tag => {
+      const tags = (Array.isArray(project.deliverables) && project.deliverables.length > 0) ? project.deliverables : ['Direction Artistique'];
+      tags.forEach(tag => {
         const span = document.createElement('span');
         span.className = 'deliverable-tag';
         span.textContent = tag;
@@ -602,12 +653,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update WhatsApp link with contextual pre-filled text
     if (lightboxWhatsappBtn) {
-      const msg = encodeURIComponent(`Bonjour Kreativ'Pulse ! J'ai vu votre réalisation "${project.title}" (${project.client}) et je souhaite réaliser un projet similaire pour mon entreprise.`);
+      const msg = encodeURIComponent(`Bonjour Kreativ'Pulse ! J'ai vu votre réalisation "${project.title || ''}" (${project.client || ''}) et je souhaite réaliser un projet similaire pour mon entreprise.`);
       lightboxWhatsappBtn.href = `https://wa.me/221776442442?text=${msg}`;
     }
 
     // Multi-Images Controls (Thumbnails, Arrows, Counter)
-    const totalImages = project.images.length;
+    const totalImages = images.length;
     if (totalImages > 1) {
       if (lightboxCounter) {
         lightboxCounter.style.display = 'flex';
@@ -620,10 +671,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (lightboxThumbsContainer) {
         lightboxThumbsContainer.style.display = 'flex';
         lightboxThumbsContainer.innerHTML = '';
-        project.images.forEach((imgUrl, idx) => {
+        images.forEach((imgUrl, idx) => {
           const thumb = document.createElement('img');
           thumb.src = imgUrl;
           thumb.alt = `Miniature ${idx + 1}`;
+          thumb.onerror = () => { thumb.src = 'assets/portfolio/sentrak.png'; };
           thumb.className = `lightbox-thumb ${idx === activeImageIndex ? 'active' : ''}`;
           thumb.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -643,13 +695,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function openLightbox(projectIndex, imgIndex = 0) {
+    if (!lightbox) return;
+    if (typeof projectIndex !== 'number' || projectIndex < 0 || projectIndex >= realProjects.length) {
+      projectIndex = 0;
+    }
     activeProjectIndex = projectIndex;
     activeImageIndex = imgIndex;
+    lightbox.classList.remove('hidden');
+    document.body.style.overflow = 'hidden'; // Prevent page scroll
     updateLightboxView();
-    if (lightbox) {
-      lightbox.classList.remove('hidden');
-      document.body.style.overflow = 'hidden'; // Prevent page scroll
-    }
   }
 
   function closeLightbox() {
@@ -661,33 +715,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function nextImage() {
     const project = realProjects[activeProjectIndex];
-    if (!project || project.images.length <= 1) return;
-    activeImageIndex = (activeImageIndex + 1) % project.images.length;
+    if (!project) return;
+    const images = (Array.isArray(project.images) && project.images.length > 0) ? project.images : [project.cover || 'assets/portfolio/sentrak.png'];
+    if (images.length <= 1) return;
+    activeImageIndex = (activeImageIndex + 1) % images.length;
     updateLightboxView();
   }
 
   function prevImage() {
     const project = realProjects[activeProjectIndex];
-    if (!project || project.images.length <= 1) return;
-    activeImageIndex = (activeImageIndex - 1 + project.images.length) % project.images.length;
+    if (!project) return;
+    const images = (Array.isArray(project.images) && project.images.length > 0) ? project.images : [project.cover || 'assets/portfolio/sentrak.png'];
+    if (images.length <= 1) return;
+    activeImageIndex = (activeImageIndex - 1 + images.length) % images.length;
     updateLightboxView();
   }
 
-  // Attach click events to portfolio cards
-  const portfolioCards = document.querySelectorAll('.portfolio-item');
-  portfolioCards.forEach(card => {
-    card.addEventListener('click', () => {
-      const pid = card.getAttribute('data-project-id');
-      let pIndex = -1;
-      if (pid) {
-        pIndex = realProjects.findIndex(p => p.id === pid);
+  // Écouteur global pour l'ouverture de la Lightbox sur N'IMPORTE QUELLE carte portfolio
+  document.addEventListener('click', (e) => {
+    const card = e.target.closest('.portfolio-item');
+    if (!card) return;
+
+    // Si on clique sur un lien externe explicite
+    if (e.target.tagName === 'A' && e.target.getAttribute('href') && !e.target.classList.contains('btn-preview-project')) {
+      return;
+    }
+
+    const pid = card.getAttribute('data-project-id');
+    let pIndex = -1;
+    if (pid) {
+      pIndex = realProjects.findIndex(p => p.id === pid);
+    }
+    if (pIndex === -1) {
+      const idxAttr = card.getAttribute('data-project-index') || card.getAttribute('data-project');
+      const parsed = parseInt(idxAttr, 10);
+      if (!isNaN(parsed) && parsed >= 0 && parsed < realProjects.length) {
+        pIndex = parsed;
       }
-      if (pIndex === -1) {
-        const parsed = parseInt(card.getAttribute('data-project'), 10);
-        pIndex = isNaN(parsed) ? 0 : parsed;
-      }
-      openLightbox(pIndex, 0);
-    });
+    }
+    if (pIndex === -1) pIndex = 0;
+
+    openLightbox(pIndex, 0);
   });
 
   // Lightbox Navigation Buttons
@@ -746,10 +814,11 @@ document.addEventListener('DOMContentLoaded', () => {
     featuredPortfolioGrid.innerHTML = featuredProjects.map(project => {
       const pIndex = realProjects.findIndex(p => p.id === project.id);
       const photoCount = (project.images && project.images.length) || 1;
+      const coverImg = project.cover || 'assets/portfolio/sentrak.png';
       return `
         <div class="portfolio-item group cursor-pointer" data-project-id="${project.id}" data-project-index="${pIndex}">
           <div class="portfolio-media">
-            <div class="portfolio-media-blur" style="background-image: url('${project.cover}');"></div>
+            <div class="portfolio-media-blur" style="background-image: url('${coverImg}');"></div>
             <span class="portfolio-gallery-badge">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -758,7 +827,7 @@ document.addEventListener('DOMContentLoaded', () => {
               </svg>
               ${photoCount} photo${photoCount > 1 ? 's' : ''}
             </span>
-            <img src="${project.cover}" alt="${project.title}" loading="lazy" class="portfolio-media-img" />
+            <img src="${coverImg}" alt="${project.title}" loading="lazy" class="portfolio-media-img" onerror="this.src='assets/portfolio/sentrak.png'" />
             <div class="portfolio-hover-overlay">
               <span class="badge-mini text-orange bg-orange/20 border border-orange/40">${(project.categoryLabel || 'RÉALISATION').toUpperCase()}</span>
               <h3 class="text-base font-bold font-outfit text-white mt-2">${project.title}</h3>
@@ -776,16 +845,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       `;
     }).join('');
-
-    // Attacher l'événement d'ouverture de la Lightbox
-    featuredPortfolioGrid.querySelectorAll('.portfolio-item').forEach(card => {
-      card.addEventListener('click', () => {
-        const pIndex = parseInt(card.getAttribute('data-project-index'), 10);
-        if (!isNaN(pIndex) && pIndex >= 0) {
-          openLightbox(pIndex, 0);
-        }
-      });
-    });
   }
 
   // Initialisation immédiate des 4 projets vedettes
@@ -1806,25 +1865,76 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSubcategoryPills(catalogState.universe);
   renderCatalog();
 
+  // Produits vedettes garantis en secours transparent (accueil)
+  const defaultFeaturedProductsFallback = [
+    {
+      id: 'fb-1',
+      ref: '007108',
+      name: 'Bouteille Isotherme Slim Inox',
+      subLabel: 'Mugs & Bouteilles',
+      universeLabel: 'Objets Publicitaires',
+      description: 'Bouteille isotherme 500ml double paroi inox avec gravure laser ou sérigraphie de votre logo d\'entreprise.',
+      image: 'assets/catalogue/134301-home_default_bouteille-isotherme-slim.jpg',
+      techniques: ['Gravure laser', 'Sérigraphie'],
+      matieres: ['Inox double paroi']
+    },
+    {
+      id: 'fb-2',
+      ref: '009717',
+      name: 'Coffret Signature Kraft Prestige',
+      subLabel: 'Coffrets Cadeaux VIP',
+      universeLabel: 'Objets Publicitaires',
+      description: 'Coffret cadeau éco-responsable haut de gamme avec carnet cuir, stylo bambou et porte-clés personnalisé.',
+      image: 'assets/catalogue/144059-home_default_coffret-signature-kraft.jpg',
+      techniques: ['Marquage à chaud', 'Sérigraphie'],
+      matieres: ['Kraft recyclé & Bambou']
+    },
+    {
+      id: 'fb-3',
+      ref: '005935',
+      name: 'Stylo Bille Bambou Luxe',
+      subLabel: 'Stylos & Écriture',
+      universeLabel: 'Objets Publicitaires',
+      description: 'Stylo écologique en bambou naturel avec clip métal et gravure laser haute précision pour vos séminaires.',
+      image: 'assets/catalogue/144238-home_default_stylo-bambou-luxe.jpg',
+      techniques: ['Gravure laser', 'Tampographie'],
+      matieres: ['Bambou naturel & Métal']
+    },
+    {
+      id: 'fb-4',
+      ref: '008667',
+      name: 'Coffret High-Tech Noir Premium',
+      subLabel: 'High-Tech & Connecté',
+      universeLabel: 'Objets Publicitaires',
+      description: 'Kit corporate intégrant une batterie externe induction, une clé USB 3.0 métal et un chargeur rapide sans fil.',
+      image: 'assets/catalogue/141656-home_default_coffret-high-tech-noir.jpg',
+      techniques: ['Impression UV', 'Gravure laser'],
+      matieres: ['Aluminium anodisé & Soft-touch']
+    }
+  ];
+
   // Rendu des 4 Produits Vedettes Aléatoires (Accueil)
   function renderFeaturedProducts() {
     const featuredGrid = document.getElementById('featured-products-grid');
-    if (!featuredGrid || typeof allCatalogProducts === 'undefined' || allCatalogProducts.length === 0) return;
+    if (!featuredGrid) return;
 
-    // Produits avec images réelles
-    const pool = allCatalogProducts.filter(p => p.image && !p.image.includes('placeholder'));
-    
+    let pool = (typeof allCatalogProducts !== 'undefined' && Array.isArray(allCatalogProducts))
+      ? allCatalogProducts.filter(p => p.image && !p.image.includes('placeholder'))
+      : [];
+
+    if (pool.length === 0) {
+      pool = defaultFeaturedProductsFallback;
+    }
+
     // Mélange aléatoire (Fisher-Yates)
-    const shuffled = shuffleCatalogProducts(pool.length > 0 ? pool : allCatalogProducts);
-    
-    // Sélectionner un maximum de 4 produits aléatoires
+    const shuffled = shuffleCatalogProducts(pool.length > 0 ? pool : defaultFeaturedProductsFallback);
     const featuredList = shuffled.slice(0, 4);
 
     featuredGrid.innerHTML = featuredList.map(p => `
       <div class="catalog-product-card" data-id="${p.id}" data-ref="${p.ref}">
         <div class="product-card-media">
           <img src="${p.image}" alt="${p.name}" class="product-card-img" loading="lazy" onerror="this.src='assets/portfolio/sentrak.png'" />
-          <span class="product-badge-cat">${p.subLabel}</span>
+          <span class="product-badge-cat">${p.subLabel || 'Goodies'}</span>
         </div>
         <div class="product-card-body flex flex-col justify-between">
           <div>
@@ -1851,7 +1961,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.addEventListener('click', (e) => {
         if (e.target.closest('.btn-card-quick-add')) return;
         const id = card.getAttribute('data-id');
-        const prod = allCatalogProducts.find(p => p.id === id);
+        const prod = (allCatalogProducts.find(p => p.id === id)) || defaultFeaturedProductsFallback.find(p => p.id === id);
         if (prod) openProductModal(prod);
       });
     });
@@ -1861,17 +1971,17 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = btn.getAttribute('data-id');
-        const prod = allCatalogProducts.find(p => p.id === id);
+        const prod = (allCatalogProducts.find(p => p.id === id)) || defaultFeaturedProductsFallback.find(p => p.id === id);
         if (prod) {
           cartEngine.addItem({
             ref: prod.ref,
             name: prod.name,
             subLabel: prod.subLabel,
-            universeLabel: prod.universeLabel,
+            universeLabel: prod.universeLabel || 'Objets Publicitaires',
             image: prod.image,
             qty: 50,
-            technique: prod.techniques[0] || 'Marquage standard',
-            matiere: prod.matieres[0] || 'Standard'
+            technique: (prod.techniques && prod.techniques[0]) || 'Marquage standard',
+            matiere: (prod.matieres && prod.matieres[0]) || 'Standard'
           });
           showToast(`✓ 50x ${prod.name} ajoutés à votre panier !`);
         }
