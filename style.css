@@ -1581,11 +1581,16 @@ body {
     justify-content: space-between !important;
     overflow: hidden !important;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.95);
-    animation: luxuryMenuFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: luxuryMenuFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   #mobile-menu-drawer.hidden {
     display: none !important;
+  }
+
+  #mobile-menu-drawer.is-closing {
+    animation: luxuryMenuFadeOut 0.22s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+    pointer-events: none;
   }
 
   /* Orbes lumineuses en arrière-plan du menu mobile */
@@ -1616,13 +1621,67 @@ body {
   }
 
   @keyframes luxuryMenuFadeIn {
-    from {
+    0% {
       opacity: 0;
-      transform: translateY(-8px) scale(0.99);
+      transform: translateY(-20px) scale(0.98);
+      filter: blur(6px);
     }
-    to {
+    100% {
       opacity: 1;
       transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes luxuryMenuFadeOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-16px) scale(0.98);
+      filter: blur(4px);
+    }
+  }
+
+  /* Animation fluide et subtile en cascade (stagger) des items de navigation */
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row {
+    animation: mobileRowStaggerIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(1) { animation-delay: 0.05s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(2) { animation-delay: 0.09s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(3) { animation-delay: 0.13s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(4) { animation-delay: 0.17s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(5) { animation-delay: 0.21s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(6) { animation-delay: 0.25s; }
+  #mobile-menu-drawer:not(.hidden) .mobile-nav-row:nth-child(7) { animation-delay: 0.29s; }
+
+  #mobile-menu-drawer:not(.hidden) .mobile-menu-footer {
+    animation: mobileFooterStaggerIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    animation-delay: 0.32s;
+  }
+
+  @keyframes mobileRowStaggerIn {
+    0% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.97);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes mobileFooterStaggerIn {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 

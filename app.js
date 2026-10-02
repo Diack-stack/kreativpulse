@@ -122,12 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileToggle = document.getElementById('mobile-menu-toggle');
   const mobileDrawer = document.getElementById('mobile-menu-drawer');
 
+  let isMobileMenuClosing = false;
   function toggleMobileMenu(forceClose = false) {
-    if (!mobileDrawer) return;
+    if (!mobileDrawer || isMobileMenuClosing) return;
     const isCurrentlyOpen = !mobileDrawer.classList.contains('hidden');
     const shouldOpen = forceClose ? false : !isCurrentlyOpen;
 
     if (shouldOpen) {
+      mobileDrawer.classList.remove('is-closing');
       mobileDrawer.classList.remove('hidden');
       if (mobileToggle) {
         mobileToggle.classList.add('is-open');
@@ -136,13 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = 'hidden';
       document.documentElement.style.overflow = 'hidden';
     } else {
-      mobileDrawer.classList.add('hidden');
+      isMobileMenuClosing = true;
+      mobileDrawer.classList.add('is-closing');
       if (mobileToggle) {
         mobileToggle.classList.remove('is-open');
         mobileToggle.setAttribute('aria-expanded', 'false');
       }
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
+      setTimeout(() => {
+        mobileDrawer.classList.add('hidden');
+        mobileDrawer.classList.remove('is-closing');
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = '';
+        isMobileMenuClosing = false;
+      }, 220);
     }
   }
 
