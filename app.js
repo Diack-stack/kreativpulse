@@ -36,18 +36,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto rotate carousel every 2.5 seconds (selon la demande : 2s à 2.5s max d'arrêt)
+  // Auto rotate carousel every 2.5 seconds (démarrage différé après 4s pour TBT optimal)
   const ROTATE_INTERVAL = 2500;
-  let autoRotateInterval = setInterval(() => {
-    updateArcCarousel(currentActiveIndex + 1);
-  }, ROTATE_INTERVAL);
+  let autoRotateInterval = null;
 
-  function resetAutoRotate() {
-    clearInterval(autoRotateInterval);
+  function startAutoRotate() {
+    if (autoRotateInterval) clearInterval(autoRotateInterval);
     autoRotateInterval = setInterval(() => {
       updateArcCarousel(currentActiveIndex + 1);
     }, ROTATE_INTERVAL);
   }
+
+  function resetAutoRotate() {
+    startAutoRotate();
+  }
+
+  // Lancement après 4 secondes pour libérer complètement le CPU au premier affichage
+  setTimeout(startAutoRotate, 4000);
 
   if (btnArcPrev && btnArcNext) {
     btnArcPrev.addEventListener('click', () => {
@@ -1000,8 +1005,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const seconds = String(now.getUTCSeconds()).padStart(2, '0');
     clockEl.textContent = `${hours}:${minutes}:${seconds} GMT`;
   }
-  setInterval(updateDakarClock, 1000);
   updateDakarClock();
+  setTimeout(() => {
+    setInterval(updateDakarClock, 1000);
+  }, 4000);
 
   // B. Gestion des Pôles, Budget et Calendrier
   const briefChips = document.querySelectorAll('.brief-chip');
