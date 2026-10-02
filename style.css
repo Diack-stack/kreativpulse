@@ -3344,16 +3344,17 @@ section.contact-glass-wrapper::before {
    LIGHTBOX STUDIO & PRÉVISUALISATION : ZÉRO COUPURE & PROPORTIONS
    ======================================================== */
 #projectLightbox > div {
-  max-height: 94vh !important;
+  max-height: 92vh !important;
   display: flex !important;
   flex-direction: column !important;
 }
 
 #projectLightbox .lightbox-media-stage {
-  flex: 1 1 0% !important;
-  min-height: 0 !important;
-  height: 48vh !important;
-  max-height: 520px !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 440px !important;
+  min-height: 260px !important;
+  max-height: 52vh !important;
   background: radial-gradient(circle at center, #10131d 0%, #040507 100%) !important;
   display: flex !important;
   align-items: center !important;
@@ -3364,13 +3365,23 @@ section.contact-glass-wrapper::before {
 }
 
 #lightboxImg {
-  max-height: 100% !important;
-  max-width: 100% !important;
+  display: block !important;
+  margin: 0 auto !important;
   width: auto !important;
   height: auto !important;
+  max-height: calc(52vh - 2.5rem) !important;
+  max-width: calc(100% - 3.5rem) !important;
   object-fit: contain !important;
-  display: block !important;
-  margin: auto !important;
   border-radius: 8px !important;
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.8) !important;
+}
+
+@media (max-height: 720px) {
+  #projectLightbox .lightbox-media-stage {
+    height: 350px !important;
+    max-height: 48vh !important;
+  }
+  #lightboxImg {
+    max-height: calc(48vh - 2rem) !important;
+  }
 }

@@ -760,11 +760,9 @@
           aria-label="Fermer">×</button>
       </div>
 
-      <div class="relative flex-1 min-h-0 lightbox-media-stage flex items-center justify-center overflow-hidden p-3 sm:p-5">
+      <div class="relative flex-1 min-h-0 lightbox-media-stage flex items-center justify-center overflow-hidden p-4 sm:p-6" style="height: 440px; min-height: 260px; max-height: 52vh;">
         <div id="lightboxBackdrop" class="portfolio-media-blur opacity-35"></div>
-        <div class="relative z-10 w-full h-full flex items-center justify-center">
-          <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-300 rounded-lg shadow-2xl" />
-        </div>
+        <img id="lightboxImg" src="" alt="Projet Kreativ'Pulse" class="relative z-10 transition-all duration-300 rounded-lg shadow-2xl block" style="max-height: calc(52vh - 2.5rem); max-width: calc(100% - 3rem); width: auto; height: auto; object-fit: contain; margin: 0 auto;" />
         <button id="lightboxPrevBtn" class="lightbox-arrow-btn left-4 z-20" aria-label="Précédent">‹</button>
         <button id="lightboxNextBtn" class="lightbox-arrow-btn right-4 z-20" aria-label="Suivant">›</button>
         <div id="lightboxCounter"
