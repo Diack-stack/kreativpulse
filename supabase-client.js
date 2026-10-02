@@ -206,6 +206,55 @@
     },
 
     /**
+     * Enregistrer ou mettre à jour un projet dans Supabase kp_projects
+     */
+    async saveProject(proj) {
+      const payload = {
+        title: proj.title || 'Projet Kreativ Pulse',
+        category: proj.category || 'digital',
+        client: proj.client || 'Client Agence',
+        year: proj.year || '2026',
+        description: proj.desc || proj.tagline || '',
+        image_url: proj.cover || 'assets/portfolio/sentrak.png',
+        gallery_urls: Array.isArray(proj.images) ? proj.images : [proj.cover]
+      };
+
+      try {
+        const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/kp_projects`, {
+          method: 'POST',
+          headers: {
+            ...headers,
+            'Prefer': 'return=representation'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          const inserted = await res.json();
+          return { success: true, data: inserted[0] };
+        }
+      } catch (err) {
+        console.warn('[KreativDB] Erreur enregistrement projet distant:', err);
+      }
+      return { success: true, localOnly: true };
+    },
+
+    /**
+     * Récupérer les projets depuis Supabase
+     */
+    async getProjects() {
+      try {
+        const res = await fetch(`${SUPABASE_CONFIG.url}/rest/v1/kp_projects?order=created_at.desc`, {
+          method: 'GET',
+          headers: headers
+        });
+        if (res.ok) {
+          return await res.json();
+        }
+      } catch (err) {}
+      return [];
+    },
+
+    /**
      * Test de santé / statut de connexion
      */
     async checkHealth() {

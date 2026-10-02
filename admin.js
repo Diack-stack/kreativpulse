@@ -846,14 +846,160 @@
     });
   }
 
-  async function handleCoverFile(file) {
+  async function handleCoverFiles(files) {
+    if (!files || files.length === 0) return;
     try {
-      showAdminToast('Optimisation de l\'image en cours...', 'info');
-      const optimized = await optimizeAndReadImage(file);
-      setCoverPreview(optimized.dataUrl, optimized.name, `${optimized.width}×${optimized.height}px · ~${optimized.sizeKb} Ko`);
-      showAdminToast('Image de couverture prête');
+      showAdminToast(`Optimisation de ${files.length} visuel(s)...`, 'info');
+      const firstOpt = await optimizeAndReadImage(files[0]);
+      setCoverPreview(firstOpt.dataUrl, firstOpt.name, `${firstOpt.width}×${firstOpt.height}px · ~${firstOpt.sizeKb} Ko`);
+
+      // Si plusieurs fichiers sont sélectionnés dans la modale projet, les suivants vont dans la galerie Lightbox !
+      if (files.length > 1) {
+        for (let i = 1; i < files.length; i++) {
+          const galleryOpt = await optimizeAndReadImage(files[i]);
+          currentGalleryImages.push(galleryOpt.dataUrl);
+        }
+        renderGalleryThumbs();
+        showAdminToast(`Couverture + ${files.length - 1} photo(s) ajoutée(s) à la galerie !`);
+      } else {
+        showAdminToast('Image de couverture prête');
+      }
     } catch (err) {
       showAdminToast('Format d\'image non supporté', 'danger');
+    }
+  }
+
+  // --- IMPORT PAR LOT (MULTI-PROJETS DIRECTS) ---
+  async function handleBatchProjectsUpload(files) {
+    if (!files || files.length === 0) return;
+    const projects = getCustomProjects();
+    let importedCount = 0;
+
+    showAdminToast(`Importation de ${files.length} projet(s) en cours...`, 'info');
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (!file.type || !file.type.startsWith('image/')) continue;
+
+      try {
+        const opt = await optimizeAndReadImage(file, 1400, 0.84);
+
+        // Nettoyage automatique du nom de fichier pour un titre propre
+        let cleanTitle = file.name
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[-_.]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        cleanTitle = cleanTitle.split(' ')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ');
+
+        if (!cleanTitle || cleanTitle.length < 2) {
+          cleanTitle = 'Projet Visuel ' + (projects.length + 1);
+        }
+
+        const newId = 'proj-' + Date.now() + '-' + i;
+        const newProj = {
+          id: newId,
+          title: cleanTitle,
+          client: "Kreativ'Pulse Studio",
+          category: "digital",
+          categoryLabel: "Campagnes & Digital",
+          year: String(new Date().getFullYear()),
+          tagline: "Création Visuelle & Communication Digitale",
+          desc: `Réalisation créative et conception graphique d'impact produite par Kreativ'Pulse (${cleanTitle}).`,
+          deliverables: ["Direction Artistique", "Déclinaisons Multi-Formats", "Visuels HD"],
+          cover: opt.dataUrl,
+          images: [opt.dataUrl]
+        };
+
+        projects.unshift(newProj);
+        importedCount++;
+
+        // Persistance Supabase
+        if (window.KreativDB && typeof window.KreativDB.saveProject === 'function') {
+          window.KreativDB.saveProject(newProj).catch(() => {});
+        }
+      } catch (err) {
+        console.warn('[Admin] Erreur import lot projet:', file.name, err);
+      }
+    }
+
+    if (importedCount > 0) {
+      saveCustomProjects(projects);
+      renderPortfolioManager();
+      renderDashboardOverview();
+      showAdminToast(`${importedCount} projet(s) importé(s) avec succès dans le portfolio !`);
+    } else {
+      showAdminToast('Aucune image valide trouvée pour l\'importation', 'danger');
+    }
+  }
+
+  // --- IMPORT PAR LOT (MULTI-PRODUITS DIRECTS) ---
+  async function handleBatchProductsUpload(files) {
+    if (!files || files.length === 0) return;
+    const customCatalog = getCustomCatalog();
+    let importedCount = 0;
+
+    showAdminToast(`Importation de ${files.length} article(s) en cours...`, 'info');
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (!file.type || !file.type.startsWith('image/')) continue;
+
+      try {
+        const opt = await optimizeAndReadImage(file, 1200, 0.85);
+
+        let cleanName = file.name
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[-_.]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+
+        cleanName = cleanName.split(' ')
+          .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+          .join(' ');
+
+        if (!cleanName || cleanName.length < 2) {
+          cleanName = 'Goodies Publicitaire ' + (customCatalog.length + 1);
+        }
+
+        const newId = 'prod_' + Date.now() + '_' + i;
+        const newRef = 'KP' + Math.floor(100000 + Math.random() * 900000);
+
+        const newProd = {
+          id: newId,
+          ref: newRef,
+          name: cleanName,
+          description: `Objet publicitaire et goodies personnalisable de haute qualité par Kreativ'Pulse.`,
+          image: opt.dataUrl,
+          url: '',
+          universeSlug: '10-objets-publicitaires',
+          universeLabel: 'Objets publicitaires',
+          subSlug: 'goodies-sur-mesure',
+          subLabel: 'Goodies sur-mesure',
+          itemSlug: 'goodies-sur-mesure',
+          itemLabel: 'Goodies sur-mesure',
+          specs: ['Personnalisation Dakar', 'Qualité Premium', 'Livraison Express'],
+          techniques: ['Sérigraphie', 'Gravure Laser', 'Marquage DTF'],
+          matieres: ['Métal / Inox', 'Coton Bio', 'Bambou écologique']
+        };
+
+        customCatalog.unshift(newProd);
+        importedCount++;
+      } catch (err) {
+        console.warn('[Admin] Erreur import lot produit:', file.name, err);
+      }
+    }
+
+    if (importedCount > 0) {
+      saveCustomCatalog(customCatalog);
+      renderCatalogManager();
+      renderDashboardOverview();
+      showAdminToast(`${importedCount} article(s) importé(s) avec succès dans le catalogue !`);
+    } else {
+      showAdminToast('Aucune image valide trouvée pour l\'importation', 'danger');
     }
   }
 
@@ -942,14 +1088,14 @@
       dropzone.addEventListener('drop', (e) => {
         e.preventDefault();
         dropzone.classList.remove('dragover');
-        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-          handleCoverFile(e.dataTransfer.files[0]);
+        if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+          handleCoverFiles(e.dataTransfer.files);
         }
       });
 
       fileInput.addEventListener('change', () => {
-        if (fileInput.files && fileInput.files[0]) {
-          handleCoverFile(fileInput.files[0]);
+        if (fileInput.files && fileInput.files.length > 0) {
+          handleCoverFiles(fileInput.files);
         }
       });
     }
@@ -1903,6 +2049,32 @@
     const btnNewProd = document.getElementById('btnAddNewProduct');
     if (btnNewProd) {
       btnNewProd.addEventListener('click', () => openProductEditModal(null));
+    }
+
+    // Écouteurs pour l'import par lot de projets
+    const btnBatchProj = document.getElementById('btnBatchImportProjects');
+    const inputBatchProj = document.getElementById('batchProjectsFileInput');
+    if (btnBatchProj && inputBatchProj) {
+      btnBatchProj.addEventListener('click', () => inputBatchProj.click());
+      inputBatchProj.addEventListener('change', () => {
+        if (inputBatchProj.files && inputBatchProj.files.length > 0) {
+          handleBatchProjectsUpload(inputBatchProj.files);
+          inputBatchProj.value = '';
+        }
+      });
+    }
+
+    // Écouteurs pour l'import par lot de produits
+    const btnBatchProd = document.getElementById('btnBatchImportProducts');
+    const inputBatchProd = document.getElementById('batchProductsFileInput');
+    if (btnBatchProd && inputBatchProd) {
+      btnBatchProd.addEventListener('click', () => inputBatchProd.click());
+      inputBatchProd.addEventListener('change', () => {
+        if (inputBatchProd.files && inputBatchProd.files.length > 0) {
+          handleBatchProductsUpload(inputBatchProd.files);
+          inputBatchProd.value = '';
+        }
+      });
     }
 
     const searchProj = document.getElementById('portfolio-search-input');
