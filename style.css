@@ -1360,24 +1360,92 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: #FFFFFF;
-  font-size: 1.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 20;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.lightbox-arrow-btn svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.2s ease;
 }
 
 .lightbox-arrow-btn:hover {
   background: var(--color-orange);
   color: #000000;
   border-color: var(--color-orange);
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 0 20px rgba(255, 117, 0, 0.55);
+}
+
+#lightboxPrevBtn:hover svg {
+  transform: translateX(-1.5px);
+}
+
+#lightboxNextBtn:hover svg {
+  transform: translateX(1.5px);
+}
+
+@media (max-width: 640px) {
+  .lightbox-arrow-btn {
+    width: 38px;
+    height: 38px;
+  }
+  .lightbox-arrow-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* Bouton Fermer Lightbox & Modale */
+.close-lightbox-btn,
+#closeLightboxBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0 !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.close-lightbox-btn svg,
+#closeLightboxBtn svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.25s ease;
+}
+
+.close-lightbox-btn:hover,
+#closeLightboxBtn:hover {
+  background: var(--color-orange);
+  color: #000000;
+  border-color: var(--color-orange);
+  transform: rotate(90deg) scale(1.06);
+  box-shadow: 0 0 16px rgba(255, 117, 0, 0.5);
 }
 
 .lightbox-thumb {
@@ -2974,15 +3042,28 @@ section.contact-glass-wrapper::before {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
   cursor: pointer;
   z-index: 10;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-close-btn svg {
+  width: 17px;
+  height: 17px;
+  display: block;
+  pointer-events: none;
+  transition: transform 0.25s ease;
 }
 
 .modal-close-btn:hover {
   background: var(--color-orange);
   color: #000000;
-  transform: rotate(90deg);
+  border-color: var(--color-orange);
+  transform: rotate(90deg) scale(1.06);
+  box-shadow: 0 0 16px rgba(255, 117, 0, 0.5);
 }
 
 /* Contrôles de quantité Sleek & Minimaliste (Fini l'effet haltère) */
