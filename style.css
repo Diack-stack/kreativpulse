@@ -543,12 +543,18 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(16px);
   z-index: 20;
-  display: flex;
+  display: none;
   align-items: center;
   gap: 0.75rem;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   text-align: left;
   animation: floatLevitate 6s ease-in-out infinite;
+}
+
+@media (min-width: 1024px) {
+  .floating-badge {
+    display: flex;
+  }
 }
 
 .badge-top-left {
