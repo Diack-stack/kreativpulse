@@ -2051,32 +2051,6 @@
       btnNewProd.addEventListener('click', () => openProductEditModal(null));
     }
 
-    // Écouteurs pour l'import par lot de projets
-    const btnBatchProj = document.getElementById('btnBatchImportProjects');
-    const inputBatchProj = document.getElementById('batchProjectsFileInput');
-    if (btnBatchProj && inputBatchProj) {
-      btnBatchProj.addEventListener('click', () => inputBatchProj.click());
-      inputBatchProj.addEventListener('change', () => {
-        if (inputBatchProj.files && inputBatchProj.files.length > 0) {
-          handleBatchProjectsUpload(inputBatchProj.files);
-          inputBatchProj.value = '';
-        }
-      });
-    }
-
-    // Écouteurs pour l'import par lot de produits
-    const btnBatchProd = document.getElementById('btnBatchImportProducts');
-    const inputBatchProd = document.getElementById('batchProductsFileInput');
-    if (btnBatchProd && inputBatchProd) {
-      btnBatchProd.addEventListener('click', () => inputBatchProd.click());
-      inputBatchProd.addEventListener('change', () => {
-        if (inputBatchProd.files && inputBatchProd.files.length > 0) {
-          handleBatchProductsUpload(inputBatchProd.files);
-          inputBatchProd.value = '';
-        }
-      });
-    }
-
     const searchProj = document.getElementById('portfolio-search-input');
     if (searchProj) searchProj.addEventListener('input', renderPortfolioManager);
 

@@ -367,17 +367,10 @@
                 <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Gestion du Portfolio</h2>
                 <p class="text-xs text-gray-400 mt-1">Créez, éditez et actualisez les réalisations visibles sur le site public.</p>
               </div>
-              <div class="flex items-center gap-2.5 self-start sm:self-auto flex-wrap">
-                <input type="file" id="batchProjectsFileInput" accept="image/png, image/jpeg, image/webp" multiple class="hidden" />
-                <button type="button" id="btnBatchImportProjects" class="btn-admin-secondary text-xs py-2 px-3.5 flex items-center gap-2 hover:border-orange/50 hover:text-white transition-all" title="Sélectionnez plusieurs visuels à la fois pour créer automatiquement plusieurs projets">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <span>Importer par lot (Multi-projets)</span>
-                </button>
-                <button type="button" id="btnAddNewProject" class="btn-admin-primary text-xs py-2 px-3.5">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                  <span>Nouveau projet</span>
-                </button>
-              </div>
+              <button type="button" id="btnAddNewProject" class="btn-admin-primary text-xs py-2 px-3.5 self-start sm:self-auto">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Nouveau projet</span>
+              </button>
             </div>
 
             <!-- Search Filter Bar -->
@@ -420,17 +413,10 @@
                 <h2 class="text-xl md:text-2xl font-display font-bold text-white tracking-tight">Catalogue Objets & Signalétique</h2>
                 <p class="text-xs text-gray-400 mt-1">Gérez, ajoutez et actualisez les articles de la boutique avec import d'images.</p>
               </div>
-              <div class="flex items-center gap-2.5 self-start sm:self-auto flex-wrap">
-                <input type="file" id="batchProductsFileInput" accept="image/png, image/jpeg, image/webp" multiple class="hidden" />
-                <button type="button" id="btnBatchImportProducts" class="btn-admin-secondary text-xs py-2 px-3.5 flex items-center gap-2 hover:border-orange/50 hover:text-white transition-all" title="Sélectionnez plusieurs photos de produits à la fois">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-                  <span>Importer par lot (Multi-produits)</span>
-                </button>
-                <button type="button" id="btnAddNewProduct" class="btn-admin-primary text-xs py-2 px-3.5">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                  <span>Nouveau produit</span>
-                </button>
-              </div>
+              <button type="button" id="btnAddNewProduct" class="btn-admin-primary text-xs py-2 px-3.5 self-start sm:self-auto">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Nouveau produit</span>
+              </button>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
